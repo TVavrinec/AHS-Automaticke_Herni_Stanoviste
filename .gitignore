@@ -27,3 +27,7 @@ fp-info-cache
 # Exported BOM files
 *.xml
 *.csv
+
+hw/ZakladniElektronika/#auto_saved_files#
+
+hw/ZakladniElektronika/~ZakladniElektronika.kicad_sch.lck
