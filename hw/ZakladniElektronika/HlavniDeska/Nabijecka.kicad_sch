@@ -1487,7 +1487,7 @@
           (reference "D126") (unit 1)
         )
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/aae02708-da26-44dd-a602-660fbe003309/4ff5c299-eafc-48ae-8fce-c1c1f5f569e7"
-          (reference "D127") (unit 1)
+          (reference "LED") (unit 1)
         )
       )
       (project "RB3203"

@@ -274,7 +274,7 @@
     (uuid f41cc86a-f4cc-45e9-9976-d6dadb329b71)
   )
 
-  (text "Prevodnik Napetovich Urovni(PNU) invertujici" (at 73.66 27.94 0)
+  (text "Prevodnik Napetovich Urovni(PNU)" (at 83.82 25.4 0)
     (effects (font (size 2 2)) (justify left bottom))
     (uuid 44722b53-d8f7-4c33-9f38-19ae5402cc85)
   )
@@ -304,7 +304,7 @@
   (symbol (lib_id "Device:Q_NMOS_DGS") (at 107.95 62.23 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 933b4c02-6e94-4b18-b06e-705c0e8bf281)
-    (property "Reference" "Q6" (at 109.22 71.12 90)
+    (property "Reference" "Q8" (at 109.22 71.12 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Q_NMOS_DGS" (at 114.3 68.58 90)
@@ -330,15 +330,6 @@
     (pin "3" (uuid a6034c9f-e533-4deb-b328-1548c0eac016))
     (instances
       (project "ZakladniElektronika"
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/eab0e57f-22d7-4e2c-8f9b-b1863d6f54c5"
-          (reference "Q2") (unit 1)
-        )
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a"
-          (reference "Q9") (unit 1)
-        )
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/6f15d501-5fa4-4bfe-a53d-adacae284de5"
-          (reference "Q3") (unit 1)
-        )
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/4fe93ea1-faa6-4fe1-9624-81c4f018fba5"
           (reference "Q8") (unit 1)
         )
@@ -357,6 +348,15 @@
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/8182e07d-9536-4840-afaf-04f4bc0b9c7d"
           (reference "Q6") (unit 1)
         )
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/eab0e57f-22d7-4e2c-8f9b-b1863d6f54c5"
+          (reference "Q2") (unit 1)
+        )
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a"
+          (reference "Q9") (unit 1)
+        )
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/6f15d501-5fa4-4bfe-a53d-adacae284de5"
+          (reference "Q3") (unit 1)
+        )
       )
       (project "Zdroj"
         (path "/abe3eae7-ec35-4322-bad1-83142783bbe0"
@@ -374,7 +374,7 @@
   (symbol (lib_id "Device:R") (at 115.57 48.26 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b99bc553-414d-44c3-a414-65bd16952612)
-    (property "Reference" "R19" (at 118.11 46.99 0)
+    (property "Reference" "R2" (at 118.11 46.99 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 118.11 49.53 0)
@@ -396,11 +396,23 @@
     (pin "2" (uuid 82bdb9fb-5b71-4fc8-935f-c74a7a6b4062))
     (instances
       (project "ZakladniElektronika"
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/4fe93ea1-faa6-4fe1-9624-81c4f018fba5"
-          (reference "R19") (unit 1)
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/eab0e57f-22d7-4e2c-8f9b-b1863d6f54c5"
+          (reference "R2") (unit 1)
+        )
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a"
+          (reference "R35") (unit 1)
+        )
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/3abb0ef0-3dd5-4818-a187-7e9bc43bafd4"
+          (reference "R8") (unit 1)
+        )
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/6f15d501-5fa4-4bfe-a53d-adacae284de5"
+          (reference "R14") (unit 1)
         )
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/b0eb48ce-ce27-474b-a2c8-9099028688a0"
           (reference "R20") (unit 1)
+        )
+        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/4fe93ea1-faa6-4fe1-9624-81c4f018fba5"
+          (reference "R19") (unit 1)
         )
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/1491371a-c228-41d9-8946-b539dbebb3b9"
           (reference "R16") (unit 1)
@@ -413,18 +425,6 @@
         )
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/8182e07d-9536-4840-afaf-04f4bc0b9c7d"
           (reference "R17") (unit 1)
-        )
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/eab0e57f-22d7-4e2c-8f9b-b1863d6f54c5"
-          (reference "R2") (unit 1)
-        )
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a"
-          (reference "R35") (unit 1)
-        )
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/3abb0ef0-3dd5-4818-a187-7e9bc43bafd4"
-          (reference "R8") (unit 1)
-        )
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a/6f15d501-5fa4-4bfe-a53d-adacae284de5"
-          (reference "R14") (unit 1)
         )
       )
       (project "RB3203"

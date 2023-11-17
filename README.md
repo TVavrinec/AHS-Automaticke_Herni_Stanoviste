@@ -111,9 +111,9 @@ Pin-out M2 konektoru z https://files.waveshare.com/upload/0/02/SIM7600X-M2_Hardw
 
 ### Konektor na LedDesku
 
-<--> 5V (3A)
+<--> 5V
 
-<--> 5V (3A)
+<--> 5V
 
 <--> GND
 
@@ -129,18 +129,19 @@ Pin-out M2 konektoru z https://files.waveshare.com/upload/0/02/SIM7600X-M2_Hardw
 
 <--- SCL
 
-<--> 3V3 (100 mA)
+<--> 3V3
 
 <--> LDC-GND
 
 Pull-upy na I2C a na LDC-INT mají 4.7kΩ.
 LDC-GND je na hlavní desce normální GND ale kvůli velkým proudum do ledek je v kabelu a na Led desce vedena odděleně.
+Konektorem na 5V protřeče 5A 
 
 ### Moduloví konektor
 
 ---> USART-RX
 
-<--> 5V (2A)
+<--> 5V
 
 <--> GND
 
@@ -148,7 +149,7 @@ LDC-GND je na hlavní desce normální GND ale kvůli velkým proudum do ledek j
 
 <--> GND
 
-<--> 5V (2A)
+<--> 5V
 
 ---> INI
 
