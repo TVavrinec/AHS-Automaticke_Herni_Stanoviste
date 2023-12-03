@@ -519,16 +519,16 @@
       "PNU7"
     ],
     [
-      "8c95442b-85ee-4d3c-94d6-96a85057db0f",
-      "OchranaPodvybiti"
-    ],
-    [
       "4fe93ea1-faa6-4fe1-9624-81c4f018fba5",
       "PNU5"
     ],
     [
       "293bba05-e054-4c3e-945c-0b6c7209a410",
       "ModuloviKonektor"
+    ],
+    [
+      "fb40dfe9-3eea-4dc3-8528-de588088c9ea",
+      "Zdroj"
     ]
   ],
   "text_variables": {}

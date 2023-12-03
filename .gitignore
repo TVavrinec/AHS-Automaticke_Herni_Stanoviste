@@ -31,3 +31,25 @@ fp-info-cache
 hw/ZakladniElektronika/#auto_saved_files#
 
 hw/ZakladniElektronika/~ZakladniElektronika.kicad_sch.lck
+
+*.aux
+
+*.lof
+
+*.log
+
+*.lol
+
+*.lot
+
+*.gz
+
+*.toa
+
+*.toc
+
+*.tfm
+
+*.vf
+
+*.fd

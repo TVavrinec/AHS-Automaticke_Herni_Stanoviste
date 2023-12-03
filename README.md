@@ -82,11 +82,11 @@ Z napětí 3.3V je napájeno ESP32S3, LCD1x14 a PD sink AP33772.
 
 #### Nabíječka
 Nabíjení probíhá přez USB-C, nabíječka je proto schopna rovzu z 5V.
-Aby se ale zařízení dalo nabít rychleji je možno použít standard PowerDelivery s napětí až 24V.
+Aby se ale zařízení dalo nabít rychleji je možno použít standard PowerDelivery s napětí až 21V.
 Na nabíjení je proto použit chip **BQ24179YBGR**.
 
 ### Hw ochrana podvybití
-Kvuli ochraně baterie se zařízení vypne pokud se baterie vybije pod 3.1V (podle https://web.archive.org/web/20101122230718/https://www.panasonic.com/industrial/includes/pdf/Panasonic_LiIon_Charging.pdf by napětí na článek nemělo klesnout pod 3.0V a AHS přidává rezervu 0.1V [ https://web.archive.org/web/20100413182032/http://www.panasonic.com/industrial/batteries-oem/oem/lithium-ion.aspx ]) 
+Kvuli ochraně baterie se zařízení vypne pokud se baterie vybije pod 2.8V (podle https://web.archive.org/web/20101122230718/https://www.panasonic.com/industrial/includes/pdf/Panasonic_LiIon_Charging.pdf by napětí na článek nemělo klesnout pod 2.3V a AHS přidává rezervu 0.1V [ https://web.archive.org/web/20100413182032/http://www.panasonic.com/industrial/batteries-oem/oem/lithium-ion.aspx ]) 
 
 
 
@@ -111,31 +111,26 @@ Pin-out M2 konektoru z https://files.waveshare.com/upload/0/02/SIM7600X-M2_Hardw
 
 ### Konektor na LedDesku
 
-<--> 5V
+<-1--13-> 5V
 
-<--> 5V
+<----14-> LED-DO
 
-<--> GND
+<-15-27-> GND
 
-<--> GND
+<----28-> 3V3
 
-<--- LED-DO
+<----29-> LDC-GND
 
-<--- LDC-SHUTDOWN
+-----30-> LDC-INT
 
----> LDC-INT
+<----31-> SDA
 
-<--> SDA
+<----32-- SCL
 
-<--- SCL
-
-<--> 3V3
-
-<--> LDC-GND
 
 Pull-upy na I2C a na LDC-INT mají 4.7kΩ.
 LDC-GND je na hlavní desce normální GND ale kvůli velkým proudum do ledek je v kabelu a na Led desce vedena odděleně.
-Konektorem na 5V protřeče 5A 
+Konektorem na 5V proteče alespoň 5A.
 
 ### Moduloví konektor
 
