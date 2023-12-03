@@ -70,7 +70,7 @@ Právě snímaní tlakové plochy je jeden z podstatných duvodu oddělení tét
     \item konektor na propojení s HlavníDeskou
 \end{itemize}
 
-\subsubsection{Mini UI}
+\subsubsection{MiniUI}
 Kvuli aktuální představě mechanické konstrukce není úplně dobře možné mít toto minimalistické uživatelské rozhraní na HlavníDeska.
 Proto sme se rozhodli jej vyseparovat na samostatnou destičku, na které bude jen pár tlačítek a dvě signalizační LED.
 
@@ -84,43 +84,97 @@ Proto sme se rozhodli jej vyseparovat na samostatnou destičku, na které bude j
 
 \subsubsection{HlavníDeska}
 Na HlavníDesce je většina systému základního zařízení.
-Aby bylo možné určit chování celého zařízení je potřebný nějaký mikrokontroler.
-Protože máme dlouholetým zkušenostem s mikrokontrolery ESP32, rozhodovali jsme jen mezi konkrétními verzemi z této rodiny.
+
+Protože máme dlouholetým zkušenostem s mikrokontrolery ESP32, rozhodovali jsme jen mezi konkrétními čipy z této rodiny.
 % Dnes už tedy jen většina, mikrokontroleru této rodiny má integrovanou WiFi a Bluetooth periferii, kterou AHS určitě využije.
 Aktuální plán na tvorbu vysoko-úrovňového návrhu konkrétních her je používat skriptovací jazyk JavaScript, považujeme za nevhodné provádět tento návrh na úrovní jazyka C/C++.
 Abychom tohoto mohli dosáhnout, musíme provozovat nějaký interpreter JavaScriptu a z aktuálně dostupných možností, považujeme za nejideálnější Jaculus \cite{Jaculus}.
 Jaculus dělá řadu věcí paralelně a je tím pádem pro jeho chod ideální mít více jader procesoru, což aktuálně znamená tři možnosti ESP32, ESP32S2 a ESP32S3.
 ESP32S2 nemá Bluetooth, který bychom rádi měli k dispozici.
 ESP32S3 je téměř jen vylepšená verze staršího ESP32, oproti tomu mu sice chybí pár možností, ty ale v AHS nepotřebujeme využívat a naopak se nám hodí vyšší výpočetní výkon, rychlejší paměť a více piny.
-AHS tedy ovládá mikrokontroler ESP32S.
+AHS tedy ovládá mikrokontroler ESP32S3.
 
+Zdroj AHS je tvořen dvěma LiIon články 18650 v paralelním uspořádání.
+Paralelní uspořádání jsme zvolili aby nebylo nutné řešit balancování článků.
 
+Aby nebylo možné softwarově baterii podvybít má AHS systém, který celé zařízení vypne v případě kdy dojde k vybití baterie pod 2.8V.
+Pochopitelně software by měl vybitou baterii zaznamenat mnohem dřív a chovat se podle toho, např. neumožnit spustit hru s baterii na napětím 3.0V.
 
+Baterii je pochopitelně nutno nabijet a bylo by velmi nepohodlné kvuli tomu muset vytahovat články ze zařízení.
+Proto je na HlavníDesce i nabíjecí elektronika.
+Navíc aby se minimalizoval čas nabíjení zařízení podporuje standard PowerDelivery a to až do napětí 21V.
 
+Protože různé periferie vyžadují různá napájecí a komunikační napětí jsou na HlavníDeska hned čtyři napájecí větvě.
 \begin{itemize}
-    \item micro kontroler
-    \item systém na dohodnutí PD
-    \item bzučák (bez oscilátorové)
-    \item Power manager
-    \begin{itemize}
-        \item připojení na dva paralelní LiIon články 18650
-        \item hardwarová ochrana podvybití
-        \item hardwarové řešení zapínání s ovládáním vyvedeným na MiniUI
-        \item nabíječka
-        \item step-up na 5V
-        \item LDO na 3V3
-        \item LDO na 1V8
-    \end{itemize}
-    \item Konektory
-    \begin{itemize}
-        \item LedDeska
-        \item mini UI
-        \item komunikační modul
-        \item externí moduly
-        \item USB-C (nabíjení a primární programování)
-        \item případné zbylé piny
-    \end{itemize}
+    \item VCC, napětí baterie sloužící jako zdroj pro ostatní napájecí větvě a pro napájení komunikačního modulu. 
+    \item Napětí \(3.3\-[V]\) na napájení logické části celého základního zařízení.
+    \item Napětí \(5.0\-[V]\) pro LedDesku a externí moduly
+    \item Napětí \(1.8\-[V]\) pro napájení napěťových převodníků sloužících na komunikaci s komunikačním modulem 
 \end{itemize}
+Napětí jednotlivých větví to u \(3.3\-[V]\) a \(1.8\-[V]\) tvořeno pomocí LDO.
+Na vytvoření pěti voltové větvě je ale potřeba spínaný zdroj a to primárně ze dvou důvodů.
+Za prvé protože napětí baterie ze které se tato větev napájí má nižší napětí a je jej tedy třeba vyspínat na napětí vyšší.
+Za druhé tento zdroj poskytuje do systému mnohem větší proudy než druhé dvě větve a bylo by tedy vhodné, ho použít i v případě použití sériového řazení článků.
+
+Na hlavníDesce je také řada konektorů sloužící pro připojení ostatních systémů.
+Jde o konektory na:
+\begin{itemize}
+    \item propojení s LedDeskou                                                     % samostatný objekt
+    \item připojení MiniUI                                                          % samostatný objekt
+    \item komunikační modul (M2 Konektor umožňuje použít různé moduly)              % externě definovaný objekt
+    \item externí moduly                                                            % samostatný objekt
+    \item USB-C (nabíjení a programování AHS)                                       % externě definovaný objekt
+\end{itemize}
+Do konektorů by se asi dal zařadit i držák na dva LiIon články 18650.
+
+\subsubsection{Propojení HlavníDesky a LedDesky}
+Mezi HlavníDeskou a LedDeskou je třeba převést napájení a několik signálů.
+LedDeska vyžaduje na konektoru přítomnost dvou napájecích větví \(5\-[V]\) pro světelné kruhy a \(3.3\-[v]\) pro snímání tlakové plochy.
+Protože do LEDek může téct proud až 5A a být zároveň i docela rychle spínaný, považujeme za rozumné oddělit napájecím větvím zem.
+Oddělení je tedy provedeno už na konektoru HlavníDesky.
+
+Na samotné propojení jsme se rozhodli použít FFC kabel s roztečí \(0.5\-[mm]\).
+Jednim vodičem takovéhoto kabelu zle vést proud maximálně \(0.4\-[A]\) \cite{FFC-konektor}.
+Protože ale potřebujeme dodat proud až 5A použijeme 13 vodičů vedle sebe jakožto nejmenší počet který přenese požadovaný proud v rámci daných mezí.
+
+Mimo napájení je tímto propojením veden i signál s daty pro světelné kruhy a I2C sběrnice s interruptem pro připojení čipu LDC1614 \cite{LDC1614}.
+
+Vzhledem k počtu potřebných vodičů (konkrétně 32) jsme se rozhodli použít velmi běžný FFC konektor se 40 kontakty, s tím že zbylé kontakty se mohou hodit v budoucnu.
+
+\subsubsection{Modulový konektor}
+Modulovým konektorem je vedeno \(5\-[V]\) jako napájení pro moduly a USART s interruptem pro komunikaci.
+Nad volbou komunikační sběrnice jsme strávili poměrně dost času přemýšlením.
+Původně jsme uvažovali o využití RS485 jakožto odolné sběrnice u které by v případ potřeby nemusel být problém ani delší kabel.
+RS485 má ale nevýhodu v tom že potřebuje dodatečný hardware, kterému bychom se hlavně na modulech rádi vyhnuli.
+Stejný problém nastel u CANu i USB které by navíc mělo výhodu kompatibility se velkým množstvím hotových zařízení.
+
+V první uvaze o USARTu jsme jej nejprve zavrhli kvuli potenciální náročnosti na přeposílání dat mezi moduly.
+Při standardním použití, bychom totiž moduly řadili za sebe.
+Prvnímu modulu by tak chodili data pro všechny ostatní moduly a musel by je přeposílat dál, což by stálo nezanedbatelné množství procesorového času.
+V jisté chvíli jsme ale narazili na nestandardní komunikaci pomocí USARTu implementované v projektu Servio \cite{Servio}.
+Tato implementace používá USART jako sběrnici.
+Namísto standardního použití pro komunikace jeden s jedním tak muže komunikovat jeden s více.
+Na tomto řešení je výhodné že nevyžaduje žádný dodatečný hardware a prakticky každý dnešní mikrokontroler je možné k této sběrnici velmi snadno připojit.
+Ve srovnání s RS485 je sice mnohem méně odolná proti rušení, ale uvnitř zařízení nebude linka vedena na víc jak malé desítky centimetru.
+Komunikace na delším kabelu je pak jednoduše nahraditelné bezdrátovou komunikací a není tak potřebné aby to nativně umožňovala tato sbernice.
+Každopádně v případě potřeby delšího kabelu je možné navrhnout externí modul, který s této sbernic velmi jednoduše udělá RS485.
+Alternativně by se pro komunikaci na delším kabelu dalo použít USB které je společně s nabíjením přivedeno na USB-C.
+
+Všechny moduly jsou tedy připojeny na jeden RX pin AHS.
+Proto musí firmware AHS zajistit aby dva moduly nevysílali současně.
+Aby se zabránilo možným zkratum, má každý modul svůj TX pin připojen přes rezistor 180Ω jako ochranu.
+Stejně tak je připojen 
+
+Interrupt na modulech se chová jako open-collector což je zajistit hardwarově.
+
+AHS zajišťuje odolnost proti rušení na všech vstupních vodičích pomocí 4.7kΩ pull-up a odolnost proti zkratu na datových výstupních vodičích pomocí 180Ω.
+Zároveň zajistí ESD ochranu všem vodičům co vedou z/do AHS.
+
+Konektor je zároveň sto dodat napájení 5V s proudem v součty 2A.
+
+Komunikace muže být vedena kabelem o délce až 25cm při komunikační rychlosti 5Mbps.
+*Při dalším prodlužování linky bude třeba vodiče RX a TX vlnově přizpůsobit a doplnit linku terminátory*
+
 
 \subsubsection{Popis jednotlivých bodů}
 \paragraph{Micro kontroler}

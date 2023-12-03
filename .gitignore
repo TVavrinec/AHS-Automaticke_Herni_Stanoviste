@@ -53,3 +53,5 @@ hw/ZakladniElektronika/~ZakladniElektronika.kicad_sch.lck
 *.vf
 
 *.fd
+
+*.fdb_latexmk
