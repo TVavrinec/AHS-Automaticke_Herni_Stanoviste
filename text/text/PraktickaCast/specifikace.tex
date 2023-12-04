@@ -119,13 +119,16 @@ Za druhé tento zdroj poskytuje do systému mnohem větší proudy než druhé d
 Na hlavníDesce je také řada konektorů sloužící pro připojení ostatních systémů.
 Jde o konektory na:
 \begin{itemize}
-    \item propojení s LedDeskou                                                     % samostatný objekt
-    \item připojení MiniUI                                                          % samostatný objekt
-    \item komunikační modul (M2 Konektor umožňuje použít různé moduly)              % externě definovaný objekt
-    \item externí moduly                                                            % samostatný objekt
-    \item USB-C (nabíjení a programování AHS)                                       % externě definovaný objekt
+    \item propojení s LedDeskou                                             % samostatný objekt
+    \item připojení MiniUI                                                  % samostatný objekt
+    \item komunikační modul (M2 Konektor umožňuje použít různé moduly)      % externě definovaný objekt
+    \item externí moduly                                                    % samostatný objekt
+    \item USB-C (nabíjení a programování AHS)                               % externě definovaný objekt
+    \item programátor                                                       % samostatný objekt
 \end{itemize}
 Do konektorů by se asi dal zařadit i držák na dva LiIon články 18650.
+
+Za zmínku také stojí přítomnost piezoměniče pro jednoduchou zvukovou odezvu. 
 
 \subsubsection{Propojení HlavníDesky a LedDesky}
 Mezi HlavníDeskou a LedDeskou je třeba převést napájení a několik signálů.
@@ -142,17 +145,17 @@ Mimo napájení je tímto propojením veden i signál s daty pro světelné kruh
 Vzhledem k počtu potřebných vodičů (konkrétně 32) jsme se rozhodli použít velmi běžný FFC konektor se 40 kontakty, s tím že zbylé kontakty se mohou hodit v budoucnu.
 
 \subsubsection{Modulový konektor}
-Modulovým konektorem je vedeno \(5\-[V]\) jako napájení pro moduly a USART s interruptem pro komunikaci.
+Modulovým konektorem je vedeno \(5\-[V]\) jako napájení pro moduly a UART s interruptem pro komunikaci.
 Nad volbou komunikační sběrnice jsme strávili poměrně dost času přemýšlením.
 Původně jsme uvažovali o využití RS485 jakožto odolné sběrnice u které by v případ potřeby nemusel být problém ani delší kabel.
 RS485 má ale nevýhodu v tom že potřebuje dodatečný hardware, kterému bychom se hlavně na modulech rádi vyhnuli.
 Stejný problém nastel u CANu i USB které by navíc mělo výhodu kompatibility se velkým množstvím hotových zařízení.
 
-V první uvaze o USARTu jsme jej nejprve zavrhli kvuli potenciální náročnosti na přeposílání dat mezi moduly.
+V první uvaze o UARTu jsme jej nejprve zavrhli kvuli potenciální náročnosti na přeposílání dat mezi moduly.
 Při standardním použití, bychom totiž moduly řadili za sebe.
 Prvnímu modulu by tak chodili data pro všechny ostatní moduly a musel by je přeposílat dál, což by stálo nezanedbatelné množství procesorového času.
-V jisté chvíli jsme ale narazili na nestandardní komunikaci pomocí USARTu implementované v projektu Servio \cite{Servio}.
-Tato implementace používá USART jako sběrnici.
+V jisté chvíli jsme ale narazili na nestandardní komunikaci pomocí UARTu implementované v projektu Servio \cite{Servio}.
+Tato implementace používá UART jako sběrnici.
 Namísto standardního použití pro komunikace jeden s jedním tak muže komunikovat jeden s více.
 Na tomto řešení je výhodné že nevyžaduje žádný dodatečný hardware a prakticky každý dnešní mikrokontroler je možné k této sběrnici velmi snadno připojit.
 Ve srovnání s RS485 je sice mnohem méně odolná proti rušení, ale uvnitř zařízení nebude linka vedena na víc jak malé desítky centimetru.
@@ -162,64 +165,28 @@ Alternativně by se pro komunikaci na delším kabelu dalo použít USB které j
 
 Všechny moduly jsou tedy připojeny na jeden RX pin AHS.
 Proto musí firmware AHS zajistit aby dva moduly nevysílali současně.
-Aby se zabránilo možným zkratum, má každý modul svůj TX pin připojen přes rezistor 180Ω jako ochranu.
-Stejně tak je připojen 
+Aby se zabránilo možným zkratum, jako ochranu má každý modul své piny UARTu připojeny přes rezistor \(180\-[\Omega]\).
+Interrupt pin modulů se naopak chová jako open-collector a na straně hlavního zařízení je na něj tedy připojen pull-up rezistor.
+Abychom alespoň trochu zvýšili odolnost linky proti rušení přidáme na přijímací stranu pull-up rezistor.
+Cílem je zvýšení komunikačního proudu aby se případný proud vyvolaný rušením dal jednodušeji zanedbat.
+V neposlední řadě jsou mají všechny piny na konektoru ESD ochranu.
 
-Interrupt na modulech se chová jako open-collector což je zajistit hardwarově.
+\subsubsection{Konektor programátor}
+Zařízení se dá jednoduše programovat přes USB-C, tento kanál se ale dá softwarově narušit a pro takové případy je tu konektor na programátor.
+Jde o šest plošek na které se programátor připojuje pomocí pogo-pin.
+Programátor sice obsahuje jen jednoduchou elektroniku která by mohla být i přímo v elektronice AHS ale ve většině případu by byla zbytečná.
+Ve chvíli kdy by byla potřeba tak je stejně nutná odborná obsluha a pro tu není problém použít programátor.
 
-AHS zajišťuje odolnost proti rušení na všech vstupních vodičích pomocí 4.7kΩ pull-up a odolnost proti zkratu na datových výstupních vodičích pomocí 180Ω.
-Zároveň zajistí ESD ochranu všem vodičům co vedou z/do AHS.
+\subsubsection{USB-C}
+Jako napájecí a programovací konektor je použito USB-C.
+Díky němu je možné podporovat standard PowerDelivery využitý pro zrychlení nabíjení.
+Konektor je ale použit i na pohodlnější programování zařízení, pez potřeby programátoru.
 
-Konektor je zároveň sto dodat napájení 5V s proudem v součty 2A.
-
-Komunikace muže být vedena kabelem o délce až 25cm při komunikační rychlosti 5Mbps.
-*Při dalším prodlužování linky bude třeba vodiče RX a TX vlnově přizpůsobit a doplnit linku terminátory*
-
-
-\subsubsection{Popis jednotlivých bodů}
-\paragraph{Micro kontroler}
-všemu vládne je ESP32S3 \cite{ESP32S3-WR} až na to že něčemu ne.
-
-\paragraph{Dohodnutí PD}
-Komunikaci PD zajišťuje čip AP33772 \cite{AP33772} který je přes \(I2C\) připojený na ESP.
-
-\paragraph{Bzučák}
-Piezzo připojené mezi dva piny ESP aby bylo možné programově nastavit frekvenci a částečně i hlasitost.
-
-\paragraph{Power manager}
-\subparagraph{Zapínání}
-Umožňuje uživateli zařízení zapínání tlačítkem.
-Vypnutí je možné provést softwarově z ESP.
-
-\subparagraph{Step-up na 5V}
-Čip TPS61088 \cite{TPS61088} zajišťuje napájení světelným kruhům a externím modulům.
-Je tedy schopen dodat proud pro oba světelné kruhy a moduloví konektor což znamená cca \(7\-[A]\).
-
-\subparagraph{LDO na 3V3}
-Zajišťuje napájení pro ESP32S3, LDC1x14 a PD sink AP33772 \cite{AP33772}.
-Zároveň je z tohoto napětí odvozena větev 1.8V.
-Proudově je tedy sto dodat cca \(1\-[A]\).
-
-\subparagraph{LDO na 1V8}
+\subsubsection{Konektor komunikačního modulu}
+Pro připojení komunikačního modulu jsme zvolili konektor M2 typ-B jakožto standard pro tyto moduly.
+Díky tomuto konektoru můžeme jednoduše připojit různé LTE a GNSS moduly.
 
 
-\subparagraph{Nabíječka}
-Nabíjení probíhá přes USB-C, nabíječka je proto schopna provozu z 5V.
-Aby se ale zařízení dalo nabít rychleji je možno použít standard PowerDelivery s napětí až 21V.
-Na nabíjení je proto použit chip BQ24179YBGR \cite{BQ24179}.
-
-\subparagraph{Hw ochrana podvybití}
-Kvuli ochraně baterie se zařízení vypne vypne při jejim vybití pod 2.8V.
-Podle \cite{PanasonicLiOntReport} napětí na článek nesmí klesnout pod 2.3V. 
-AHS k tomu volbou chipu BQ298012 \cite{BQ298012}, přidává rezervu 0.45V 
-
-
-
-% ## Konektory
-% ### USB-C
-% D+ D- jsou napojeny přímo na ESP a CC piny jsou napojeny na AP33772(to přes I2C na ESP).
-
-% ### Konektor komunikačního modulu
 % Na konektor, je z ESP vyvedeno: 
 % -   I2C
 % -   celý UART
@@ -233,60 +200,6 @@ AHS k tomu volbou chipu BQ298012 \cite{BQ298012}, přidává rezervu 0.45V
 
 % Pin-out M2 konektoru z https://files.waveshare.com/upload/0/02/SIM7600X-M2_Hardware_Design_V1.01.pdf
 % ![](img/SIM7600G-H-M.2-PIN.png)
-
-% ### Konektor na LedDesku
-
-% <-1--13-> 5V
-
-% <----14-> LED-DO
-
-% <-15-27-> GND
-
-% <----28-> 3V3
-
-% <----29-> LDC-GND
-
-% -----30-> LDC-INT
-
-% <----31-> SDA
-
-% <----32-- SCL
-
-
-% Pull-upy na I2C a na LDC-INT mají 4.7kΩ.
-% LDC-GND je na hlavní desce normální GND ale kvůli velkým proudum do ledek je v kabelu a na Led desce vedena odděleně.
-% Konektorem na 5V proteče alespoň 5A.
-
-% ### Moduloví konektor
-
-% ---> USART-RX
-
-% <--> 5V
-
-% <--> GND
-
-% <--- USART-TX
-
-% <--> GND
-
-% <--> 5V
-
-% ---> INI
-
-% Všechny moduly jsou připojeny na jeden RX pin AHS.
-% Proto musí firmware AHS zajistit aby dva moduli nevysílali současně!
-% Každý modul má TX připojen přes rezistor 180Ω jako ochranu.
-
-% Interrupt na modulech se chová jako open-collector což je zajistit hardwarově.
-
-% AHS zajišťuje odolnost proti rušení na všech vstupních vodičích pomocí 4.7kΩ pull-up a odolnost proti zkratu na datových výstupních vodičích pomocí 180Ω.
-% Zároveň zajistí ESD ochranu všem vodičům co vedou z/do AHS.
-
-% Konektor je zároveň sto dodat napájení 5V s proudem v součty 2A.
-
-% Komunikace muže být vedena kabelem o délce až 25cm při komunikační rychlosti 5Mbps.
-% *Při dalším prodlužování linky bude třeba vodiče RX a TX vlnově přizpůsobit a doplnit linku terminátory*
-
 
 
 % ## mechanická část

@@ -1,0 +1,26 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'sablona-prace.blg'
+[59] biber:340> INFO - === Po pro  4, 2023, 03:38:46
+[70] Biber.pm:418> INFO - Reading 'sablona-prace.bcf'
+[104] Biber.pm:972> INFO - Found 4 citekeys in bib section 0
+[105] Biber.pm:969> INFO - Using all citekeys in bib section 1
+[105] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
+[116] Biber.pm:4383> INFO - Processing section 0
+[124] Biber.pm:4574> INFO - Looking for bibtex file 'text/literatura.bib' for section 0
+[125] bibtex.pm:1713> INFO - LaTeX decoding ...
+[134] bibtex.pm:1518> INFO - Found BibTeX data source 'text/literatura.bib'
+[167] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[167] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'variable = shifted' with 'variable = non-ignorable'
+[167] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'cs-CZ'
+[172] Biber.pm:4383> INFO - Processing section 1
+[172] Biber.pm:4574> INFO - Looking for bibtex file 'text/literatura.bib' for section 1
+[227] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'variable = shifted' with 'variable = non-ignorable'
+[227] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[227] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'cs-CZ'
+[235] bbl.pm:654> INFO - Writing 'sablona-prace.bbl' with encoding 'UTF-8'
+[241] bbl.pm:757> INFO - Output to sablona-prace.bbl
+[241] Biber.pm:130> WARN - legacy month field 'November' in entry '6416_dsk_techref' is not an integer - this will probably not sort properly.
+[241] Biber.pm:130> WARN - legacy month field 'June' in entry 'Coulson1993' is not an integer - this will probably not sort properly.
+[241] Biber.pm:130> WARN - ISBN '0036-9942' in entry 'Smekal2002' is invalid - run biber with '--validate_datamodel' for details.
+[241] Biber.pm:130> WARN - legacy month field 'November' in entry 'spru234c' is not an integer - this will probably not sort properly.
+[241] Biber.pm:132> INFO - WARNINGS: 4

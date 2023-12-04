@@ -1,0 +1,722 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{LDC1614}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=f9de927d195254b011d1072e11677808}{%
+           family={Incorporated},
+           familyi={I\bibinitperiod},
+           given={Texas\bibnamedelima Instruments},
+           giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9de927d195254b011d1072e11677808}
+      \strng{fullhash}{f9de927d195254b011d1072e11677808}
+      \strng{bibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorbibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authornamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorfullhash}{f9de927d195254b011d1072e11677808}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LDC1612, LDC1614 Multi-Channel 28-Bit Inductance to Digital Converter (LDC) for Inductive Sensing}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://1url.cz/rudLI
+      \endverb
+      \verb{url}
+      \verb https://1url.cz/rudLI
+      \endverb
+    \endentry
+    \entry{Jaculus}{online}{}
+      \name{author}{1}{}{%
+        {{hash=2cf76ee0eed21576ddd9de1ef83a1364}{%
+           family={Kubica},
+           familyi={K\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{fullhash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{bibnamehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{authorbibnamehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{authornamehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{authorfullhash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Jaculus - JavaScript runtime for embedded devices}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://jaculus.org
+      \endverb
+      \verb{url}
+      \verb https://jaculus.org
+      \endverb
+    \endentry
+    \entry{FFC-konektor}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=2eecd3fe72fb504081bbc28f71017750}{%
+           family={JUSHUC},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{fullhash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{bibnamehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{authorbibnamehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{authornamehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{authorfullhash}{2eecd3fe72fb504081bbc28f71017750}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{FFC konektor}
+      \field{title}{2304231848 JUSHUO-AFC07-S32FCC-00 C11061}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb https://manual.lcsc.com/lcsc/2304231848_JUSHUO-AFC07-S32FCC-00_C11061.pdf
+      \endverb
+      \verb{url}
+      \verb https://manual.lcsc.com/lcsc/2304231848_JUSHUO-AFC07-S32FCC-00_C11061.pdf
+      \endverb
+    \endentry
+    \entry{Servio}{online}{}
+      \name{author}{1}{}{%
+        {{hash=0438b7a4eeeb9bd481cb2bb276d0da3f}{%
+           family={Koniarik},
+           familyi={K\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{fullhash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{bibnamehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{authorbibnamehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{authornamehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{authorfullhash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Servio}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://github.com/emsro/servio/tree/main
+      \endverb
+      \verb{url}
+      \verb https://github.com/emsro/servio/tree/main
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{1}
+  \datalist[entry]{none/global//global/global}
+    \entry{sr02/2009}{manual}{}
+      \list{location}{1}{%
+        {Brno}%
+      }
+      \list{organization}{1}{%
+        {VUT v Brně}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{annotation}{[online]}
+      \field{note}{Směrnice rektora č.\,2/2009}
+      \field{title}{Úprava, odevzdávání a zveřejňování vysokoškolských kva\-li\-fi\-kač\-ních prací na VUT v~Brně}
+      \field{year}{2009}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.vutbr.cz/uredni-deska/vnitrni-predpisy-a-dokumenty/smernice-rektora-f34920/
+      \endverb
+      \verb{url}
+      \verb https://www.vutbr.cz/uredni-deska/vnitrni-predpisy-a-dokumenty/smernice-rektora-f34920/
+      \endverb
+    \endentry
+    \entry{boldis}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b80a68207066fe93c6cc007ad6ee5349}{%
+           family={Boldiš},
+           familyi={B\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b80a68207066fe93c6cc007ad6ee5349}
+      \strng{fullhash}{b80a68207066fe93c6cc007ad6ee5349}
+      \strng{bibnamehash}{b80a68207066fe93c6cc007ad6ee5349}
+      \strng{authorbibnamehash}{b80a68207066fe93c6cc007ad6ee5349}
+      \strng{authornamehash}{b80a68207066fe93c6cc007ad6ee5349}
+      \strng{authorfullhash}{b80a68207066fe93c6cc007ad6ee5349}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{[online]}
+      \field{month}{11}
+      \field{title}{Bibliografické citace dokumentů podle {ČSN} {ISO} 690 a {ČSN} ISO 690-2}
+      \field{year}{2004}
+      \true{nocite}
+      \verb{urlraw}
+      \verb <http://www.boldis.cz/citace/citace.html>
+      \endverb
+      \verb{url}
+      \verb http://www.boldis.cz/citace/citace.html
+      \endverb
+    \endentry
+    \entry{Smekal2002}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2afc8a9435326f82eec3ff3f058861ae}{%
+           family={Smékal},
+           familyi={S\bibinitperiod},
+           given={Zdeněk},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{2afc8a9435326f82eec3ff3f058861ae}
+      \strng{fullhash}{2afc8a9435326f82eec3ff3f058861ae}
+      \strng{bibnamehash}{2afc8a9435326f82eec3ff3f058861ae}
+      \strng{authorbibnamehash}{2afc8a9435326f82eec3ff3f058861ae}
+      \strng{authornamehash}{2afc8a9435326f82eec3ff3f058861ae}
+      \strng{authorfullhash}{2afc8a9435326f82eec3ff3f058861ae}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0036-9942}
+      \field{journaltitle}{Sdělovací technika}
+      \field{number}{4,5}
+      \field{title}{Aktuální trendy architektury signálových procesorů}
+      \field{volume}{2002}
+      \field{year}{2002}
+      \true{nocite}
+      \field{pages}{3\bibrangedash 6\bibrangessep 16\bibrangedash 18}
+      \range{pages}{7}
+    \endentry
+    \entry{Psutka2006}{book}{}
+      \name{author}{4}{}{%
+        {{hash=4a894d7507f44552a1fa3ea448e6f495}{%
+           family={Psutka},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=84d1b20f401a3d4ea18242cbcb35556f}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=3bf904d86b1c8ba52e4fdc4a6c3bd222}{%
+           family={Matoušek},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9616cc00f939b9bc3e71fdf78621f8d0}{%
+           family={Radová},
+           familyi={R\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Praha}%
+      }
+      \list{publisher}{1}{%
+        {Academia}%
+      }
+      \strng{namehash}{02b657733e3f14b75a58f4e5f04fe6a8}
+      \strng{fullhash}{02b657733e3f14b75a58f4e5f04fe6a8}
+      \strng{bibnamehash}{02b657733e3f14b75a58f4e5f04fe6a8}
+      \strng{authorbibnamehash}{02b657733e3f14b75a58f4e5f04fe6a8}
+      \strng{authornamehash}{02b657733e3f14b75a58f4e5f04fe6a8}
+      \strng{authorfullhash}{02b657733e3f14b75a58f4e5f04fe6a8}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{80-200-1309-1}
+      \field{title}{Mluvíme s počítačem česky}
+      \field{year}{2006}
+      \true{nocite}
+      \field{pages}{752}
+      \range{pages}{1}
+    \endentry
+    \entry{Plsek2004}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=de372203e76df2e912a659ecd6225962}{%
+           family={Plšek},
+           familyi={P\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Vysoké učení technické v Brně. Fakulta elektrotechniky a komunikačních technologií}%
+      }
+      \strng{namehash}{de372203e76df2e912a659ecd6225962}
+      \strng{fullhash}{de372203e76df2e912a659ecd6225962}
+      \strng{bibnamehash}{de372203e76df2e912a659ecd6225962}
+      \strng{authorbibnamehash}{de372203e76df2e912a659ecd6225962}
+      \strng{authornamehash}{de372203e76df2e912a659ecd6225962}
+      \strng{authorfullhash}{de372203e76df2e912a659ecd6225962}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Extrakce řečového signálu z~hluku pozadí ve spektrální oblasti}
+      \field{type}{phdthesis}
+      \field{year}{2004}
+      \true{nocite}
+    \endentry
+    \entry{Rajmic2005}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=65a20be9dc72d0cbfb58c812116af5fc}{%
+           family={Rajmic},
+           familyi={R\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Barcelona}%
+      }
+      \list{publisher}{1}{%
+        {Escola Universitaria Politecnica de Mataró}%
+      }
+      \strng{namehash}{65a20be9dc72d0cbfb58c812116af5fc}
+      \strng{fullhash}{65a20be9dc72d0cbfb58c812116af5fc}
+      \strng{bibnamehash}{65a20be9dc72d0cbfb58c812116af5fc}
+      \strng{authorbibnamehash}{65a20be9dc72d0cbfb58c812116af5fc}
+      \strng{authornamehash}{65a20be9dc72d0cbfb58c812116af5fc}
+      \strng{authorfullhash}{65a20be9dc72d0cbfb58c812116af5fc}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 3th International Conference on Non-Linear Speech Processing}
+      \field{isbn}{84-256-1365-5}
+      \field{title}{Method for Real-time Signal Processing via Wavelet Transform}
+      \field{year}{2005}
+      \true{nocite}
+      \field{pages}{214\bibrangedash 223}
+      \range{pages}{10}
+    \endentry
+    \entry{6416_dsk_techref}{manual}{}
+      \list{organization}{1}{%
+        {Spectrum Digital}%
+      }
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{TMS320C6416T DSK: Technical Reference}
+      \field{year}{2004}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://c6000.spectrumdigital.com/dsk6416/V3/docs/dsk6416_TechRef.pdf
+      \endverb
+      \verb{url}
+      \verb http://c6000.spectrumdigital.com/dsk6416/V3/docs/dsk6416_TechRef.pdf
+      \endverb
+    \endentry
+    \entry{spru234c}{manual}{}
+      \list{organization}{1}{%
+        {Texas Instruments Inc.}%
+      }
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{note}{spru234c}
+      \field{title}{TMS320C6000 DSP Enhanced Direct Memory Access (EDMA) Controller Reference Guide}
+      \field{year}{2006}
+      \true{nocite}
+    \endentry
+    \entry{Coulson1993}{report}{}
+      \name{author}{2}{}{%
+        {{hash=68cafe68ce9dcd7837b61e5dad7e04fe}{%
+           family={Coulson},
+           familyi={C\bibinitperiod},
+           given={A.\bibnamedelimi J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=eaa59718d6623c57f8d57f86e010eeb1}{%
+           family={Vaughan},
+           familyi={V\bibinitperiod},
+           given={R.\bibnamedelimi G.},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Industrial Research Ltd}%
+      }
+      \strng{namehash}{64e75d280cb4f93b5a2e435a20017477}
+      \strng{fullhash}{64e75d280cb4f93b5a2e435a20017477}
+      \strng{bibnamehash}{64e75d280cb4f93b5a2e435a20017477}
+      \strng{authorbibnamehash}{64e75d280cb4f93b5a2e435a20017477}
+      \strng{authornamehash}{64e75d280cb4f93b5a2e435a20017477}
+      \strng{authorfullhash}{64e75d280cb4f93b5a2e435a20017477}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Improvement in microphone performance through using a microphone array.}
+      \field{type}{techreport}
+      \field{year}{1993}
+      \true{nocite}
+    \endentry
+    \entry{BlackBox}{soc}{}
+      \name{author}{1}{}{%
+        {{hash=3206b36488eab5ead77194731081cd84}{%
+           family={Vavrinec},
+           familyi={V\bibinitperiod},
+           given={Tomáš},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Střední průmyslová škola a Vyšší odborná škola Brno, Sokolská}%
+      }
+      \strng{namehash}{3206b36488eab5ead77194731081cd84}
+      \strng{fullhash}{3206b36488eab5ead77194731081cd84}
+      \strng{bibnamehash}{3206b36488eab5ead77194731081cd84}
+      \strng{authorbibnamehash}{3206b36488eab5ead77194731081cd84}
+      \strng{authornamehash}{3206b36488eab5ead77194731081cd84}
+      \strng{authorfullhash}{3206b36488eab5ead77194731081cd84}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{BlackBox}
+      \field{year}{2021}
+      \true{nocite}
+    \endentry
+    \entry{Jaculus}{online}{}
+      \name{author}{1}{}{%
+        {{hash=2cf76ee0eed21576ddd9de1ef83a1364}{%
+           family={Kubica},
+           familyi={K\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{fullhash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{bibnamehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{authorbibnamehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{authornamehash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \strng{authorfullhash}{2cf76ee0eed21576ddd9de1ef83a1364}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Jaculus - JavaScript runtime for embedded devices}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://jaculus.org
+      \endverb
+      \verb{url}
+      \verb https://jaculus.org
+      \endverb
+    \endentry
+    \entry{Servio}{online}{}
+      \name{author}{1}{}{%
+        {{hash=0438b7a4eeeb9bd481cb2bb276d0da3f}{%
+           family={Koniarik},
+           familyi={K\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{fullhash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{bibnamehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{authorbibnamehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{authornamehash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \strng{authorfullhash}{0438b7a4eeeb9bd481cb2bb276d0da3f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Servio}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://github.com/emsro/servio/tree/main
+      \endverb
+      \verb{url}
+      \verb https://github.com/emsro/servio/tree/main
+      \endverb
+    \endentry
+    \entry{PanasonicLiOntReport}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d7bb53041fc8916a22ccdb94656dd1e0}{%
+           family={Corporation},
+           familyi={C\bibinitperiod},
+           given={Panasonic},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{d7bb53041fc8916a22ccdb94656dd1e0}
+      \strng{fullhash}{d7bb53041fc8916a22ccdb94656dd1e0}
+      \strng{bibnamehash}{d7bb53041fc8916a22ccdb94656dd1e0}
+      \strng{authorbibnamehash}{d7bb53041fc8916a22ccdb94656dd1e0}
+      \strng{authornamehash}{d7bb53041fc8916a22ccdb94656dd1e0}
+      \strng{authorfullhash}{d7bb53041fc8916a22ccdb94656dd1e0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{OVERCHARGE/OVERDISCHARGE/OVERCURRENT SAFETY CIRCUITS}
+      \field{year}{2007}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://web.archive.org/web/20101122230718/https://www.panasonic.com/industrial/includes/pdf/Panasonic_LiIon_Charging.pdf
+      \endverb
+      \verb{url}
+      \verb https://web.archive.org/web/20101122230718/https://www.panasonic.com/industrial/includes/pdf/Panasonic_LiIon_Charging.pdf
+      \endverb
+    \endentry
+    \entry{BQ24179}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=f9de927d195254b011d1072e11677808}{%
+           family={Incorporated},
+           familyi={I\bibinitperiod},
+           given={Texas\bibnamedelima Instruments},
+           giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9de927d195254b011d1072e11677808}
+      \strng{fullhash}{f9de927d195254b011d1072e11677808}
+      \strng{bibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorbibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authornamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorfullhash}{f9de927d195254b011d1072e11677808}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{BQ24179 I2C Controlled, 1- to 4-Cell, 5-A Buck-Boost Battery Charger with Dual-Input Selector}
+      \field{year}{2022}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/bq24179.pdf?ts=1698854511988&ref_url=https%253A%252F%252Fwww.ti.com%252Fpower-management%252Fbattery-management%252Fcharger-ics%252Fproducts.html
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/bq24179.pdf?ts=1698854511988&ref_url=https%253A%252F%252Fwww.ti.com%252Fpower-management%252Fbattery-management%252Fcharger-ics%252Fproducts.html
+      \endverb
+    \endentry
+    \entry{BQ298012}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=f9de927d195254b011d1072e11677808}{%
+           family={Incorporated},
+           familyi={I\bibinitperiod},
+           given={Texas\bibnamedelima Instruments},
+           giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9de927d195254b011d1072e11677808}
+      \strng{fullhash}{f9de927d195254b011d1072e11677808}
+      \strng{bibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorbibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authornamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorfullhash}{f9de927d195254b011d1072e11677808}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{BQ298xyz Voltage, Current, Temperature Protectors with an Integrated High-Side NFET Driver for Fast/Flash Charging Single-Cell Li-Ion and Li-Polymer Batteries}
+      \field{year}{2022}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/bq2980.pdf?ts=1701078971409&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FBQ2980
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/bq2980.pdf?ts=1701078971409&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FBQ2980
+      \endverb
+    \endentry
+    \entry{TPS61088}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=f9de927d195254b011d1072e11677808}{%
+           family={Incorporated},
+           familyi={I\bibinitperiod},
+           given={Texas\bibnamedelima Instruments},
+           giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9de927d195254b011d1072e11677808}
+      \strng{fullhash}{f9de927d195254b011d1072e11677808}
+      \strng{bibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorbibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authornamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorfullhash}{f9de927d195254b011d1072e11677808}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TPS61088 10-A Fully-Integrated Synchronous Boost Converter}
+      \field{year}{2021}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/tps61088.pdf?ts=1698858563376&ref_url=https%253A%252F%252Fwww.google.com%252F
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/tps61088.pdf?ts=1698858563376&ref_url=https%253A%252F%252Fwww.google.com%252F
+      \endverb
+    \endentry
+    \entry{AP33772}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=800c1b26873a5ebb93b90393c92c9fb3}{%
+           family={Incorporated},
+           familyi={I\bibinitperiod},
+           given={Diodes},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{800c1b26873a5ebb93b90393c92c9fb3}
+      \strng{fullhash}{800c1b26873a5ebb93b90393c92c9fb3}
+      \strng{bibnamehash}{800c1b26873a5ebb93b90393c92c9fb3}
+      \strng{authorbibnamehash}{800c1b26873a5ebb93b90393c92c9fb3}
+      \strng{authornamehash}{800c1b26873a5ebb93b90393c92c9fb3}
+      \strng{authorfullhash}{800c1b26873a5ebb93b90393c92c9fb3}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{HIGH-PERFORMANCE USB PD SINK CONTROLLER}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.diodes.com/assets/manuals/AP33772.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.diodes.com/assets/manuals/AP33772.pdf
+      \endverb
+    \endentry
+    \entry{LDC1614}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=f9de927d195254b011d1072e11677808}{%
+           family={Incorporated},
+           familyi={I\bibinitperiod},
+           given={Texas\bibnamedelima Instruments},
+           giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9de927d195254b011d1072e11677808}
+      \strng{fullhash}{f9de927d195254b011d1072e11677808}
+      \strng{bibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorbibnamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authornamehash}{f9de927d195254b011d1072e11677808}
+      \strng{authorfullhash}{f9de927d195254b011d1072e11677808}
+      \field{extraname}{5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LDC1612, LDC1614 Multi-Channel 28-Bit Inductance to Digital Converter (LDC) for Inductive Sensing}
+      \field{year}{2018}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://1url.cz/rudLI
+      \endverb
+      \verb{url}
+      \verb https://1url.cz/rudLI
+      \endverb
+    \endentry
+    \entry{ESP32S3-WR}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=6deee72cfe199f910c4a89dae74db8e0}{%
+           family={Copyright},
+           familyi={C\bibinitperiod},
+           given={DEspressif\bibnamedelima Systems},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{6deee72cfe199f910c4a89dae74db8e0}
+      \strng{fullhash}{6deee72cfe199f910c4a89dae74db8e0}
+      \strng{bibnamehash}{6deee72cfe199f910c4a89dae74db8e0}
+      \strng{authorbibnamehash}{6deee72cfe199f910c4a89dae74db8e0}
+      \strng{authornamehash}{6deee72cfe199f910c4a89dae74db8e0}
+      \strng{authorfullhash}{6deee72cfe199f910c4a89dae74db8e0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ESP32-S3-WROOM-1}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_manual_en.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_manual_en.pdf
+      \endverb
+    \endentry
+    \entry{FFC-konektor}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=2eecd3fe72fb504081bbc28f71017750}{%
+           family={JUSHUC},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{fullhash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{bibnamehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{authorbibnamehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{authornamehash}{2eecd3fe72fb504081bbc28f71017750}
+      \strng{authorfullhash}{2eecd3fe72fb504081bbc28f71017750}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{FFC konektor}
+      \field{title}{2304231848 JUSHUO-AFC07-S32FCC-00 C11061}
+      \field{year}{2004}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://manual.lcsc.com/lcsc/2304231848_JUSHUO-AFC07-S32FCC-00_C11061.pdf
+      \endverb
+      \verb{url}
+      \verb https://manual.lcsc.com/lcsc/2304231848_JUSHUO-AFC07-S32FCC-00_C11061.pdf
+      \endverb
+    \endentry
+    \entry{SIM7600X}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=5bcaa401174fd62a56f8184308beaa79}{%
+           family={SolutionsLimited},
+           familyi={S\bibinitperiod},
+           given={SIMCom\bibnamedelima Wireless},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{5bcaa401174fd62a56f8184308beaa79}
+      \strng{fullhash}{5bcaa401174fd62a56f8184308beaa79}
+      \strng{bibnamehash}{5bcaa401174fd62a56f8184308beaa79}
+      \strng{authorbibnamehash}{5bcaa401174fd62a56f8184308beaa79}
+      \strng{authornamehash}{5bcaa401174fd62a56f8184308beaa79}
+      \strng{authorfullhash}{5bcaa401174fd62a56f8184308beaa79}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SIM7600X-M2HardwareDesign}
+      \field{year}{2020}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://files.waveshare.com/upload/0/02/SIM7600X-M2_Hardware_Design_V1.01.pdf
+      \endverb
+      \verb{url}
+      \verb https://files.waveshare.com/upload/0/02/SIM7600X-M2_Hardware_Design_V1.01.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

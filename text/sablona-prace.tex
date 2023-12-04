@@ -60,6 +60,14 @@
 \usepackage{dirtree}	% sazba adresářové struktury
                       % vhodné pro prezentaci obsahu elektronické přílohy (např. CD)
 
+%====== Bibtex =====
+
+\usepackage{csquotes}
+\usepackage[style=iso-numeric]{biblatex}
+\addbibresource{text/literatura.bib}
+
+
+
 \usepackage[formats]{listings}	% Balíček pro sazbu zdrojových textů
 \lstset{              % nastavení
 %	Definice jazyka použitého ve výpisech
@@ -222,7 +230,12 @@
 \include{text/zaver}
 
 %%% Vložení souboru 'text/literatura' se seznamem zdrojů
-\include{text/literatura}
+\section{Použité zdroje}
+\begin{refsection}
+    \nocite{*}
+    \printbibliography[type=online,title={Online články a dokomenty}]
+    \printbibliography[type=manual,title={Katalogové listy duležitých součástek}]
+\end{refsection}
 
 %%% Vložení souboru 'text/zkratky' se seznam použitých symbolů, veličin a zkratek
 \include{text/zkratky}
