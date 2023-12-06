@@ -1,47 +1,52 @@
-Celé zařízení je rozděleno na základní jednotku a případné moduly které zajistí nové herní možnosti.
-Například může jít o připojení úložného prostoru nebo zvukového modulu, který poskytne jak plnohodnotný zvukoví výstup tak vstup.
+% Celé zařízení je rozděleno na základní jednotku a případné moduly, které zajistí nové herní možnosti.
+% Například může jít o připojení úložného prostoru nebo zvukového modulu, který poskytne jak plnohodnotný zvukový výstup tak vstup.
 
-\subsection{uživatelské požadavky}
-Jde o statické zařízení sloužící jako herní stanoviště.
-Vyžaduje tedy mobilitu ale jen v rámci transportu na místo hry a spt, nikoliv v rámci samotné hry.
+% \subsection{uživatelské požadavky}
+Uživatelským požadavkem je statické zařízení sloužící jako herní stanoviště.
+Vyžaduje tedy mobilitu, ale jen v rámci transportu na místo hry a zpět, nikoliv v rámci samotné hry.
+Z toho plynou požadavky na velikost výsledného zařízení.
 
-Zařízení bude mít dva světelné kruhy složené z inteligentních RGB LED.
-Jeden radiální a druhý axiální na horní straně zařízení sloužící primárně jako odezva pro hráče na malou vzdálenost, např. při zadávání hesla.
-Radiální kruh, také v horní části zařízení slouží naopak pro signalizace na delší vzdálenost, takový maják.
+Zařízení bude mít dva světelné kruhy složené z šedesáti inteligentních RGB LED.
+Číslo šedesát jsme zvolili, protože se jedná o dostatečně jemné dělení, aby se dali dělat plynulé efekty.
+Zároveň jde o číslo, které koresponduje s hodinovým ciferníkem nebo stupnicí na kompasu.
+Jeden z kruhů bude radiální a druhý axiální.
+Axiální je na horní straně zařízení a slouží primárně jako odezva pro hráče na malou vzdálenost, např. při zadávání hesla.
+Radiální kruh je pak také v horní části zařízení a slouží naopak pro signalizaci na delší vzdálenost, takový maják.
 
 Uvnitř axiálního světelného kruhu se bude nacházet tzv. tlaková plocha.
-Jedná se o ovládací prvek podobný dotykové ploše, s tím rozdílem že je schopen měřit i silu která na něj působí.
+Jedná se o ovládací prvek podobný dotykové ploše, s tím rozdílem, že je schopen měřit i sílu, která na něj působí.
 
-Aby bylo stanoviště reálně použitelné při hře musí celou hru vydržet na baterii.
-Není ojedinělé aby měla outdoorová hra čtyři pět hodin bez přestávky.
+Aby bylo stanoviště reálně použitelné při hře, musí celou hru vydržet na baterii.
+Není ojedinělé, aby měla outdoorová hra čtyři až pět hodin bez přestávky.
 Plus je nutná nějaká rezerva a čas na nastavování.
-Pochopitelně je čas který zařízení zvládne běžet z baterie, silně závisí na činnosti, ale nebylo mi zrovna ideální, kdyby byla baterka, nějak výrazně omezující.
+Pochopitelně je čas, který zařízení zvládne běžet z baterie, silně závisí na činnosti, ale nebylo by zrovna ideální, kdyby byla baterka, nějak výrazně omezující.
 Výdrž na jedno nabití bych tedy chtěl směřovat alespoň na pět hodin.
 
-Vzhledem k plánu připojovat moduly je nutné vyřešit jak se to budě dělat.
-Bylo by ideální kdyby si mohl uživatel říct co bude hrát za hru a podle toho si sám připojil moduly které potřebuje.
-Tomuto určitě nechceme bránit ale přímo to podporovat nese řadu problému jak ze strany konektoru a mechaniky, tak ze strany softwaru.
-Konektor by totiž musel být ideálně beznástrojové rozpojitelný a opětovně spojitelný a přitom dostatečně pevný aby se zařízení mechanicky chovalo jako jeden celek.
-Takový konektor je ale poměrně složité udělat tak aby byl spolehliví a tak jde v tuto chvíli spíš o hudbu budoucnosti.
-Ze softwarového pohledu jde pak o problém z duvodu detekce konkrétních modulu a hlavně o otázku jak se chovat k modulum které jsou potenciálně záměnné.
-Dejme tomu že máme modul klávesnici a modul dvířka.
-Dvířka jsou původně primárně úložný prostor, díky detekci zavření je lze ale použít i jako velmi pohodlná tlačítka a v některých hrách se proto používají jen jako tlačítka.
+Vzhledem k plánu připojovat moduly je nutné vyřešit, jak se to bude dělat.
+Bylo by ideální, kdyby si mohl uživatel říct co bude hrát za hru a podle toho si sám připojil moduly, které potřebuje.
+Tomuto určitě nechceme bránit, ale přímo to podporovat nese řadu problémů, jak ze strany konektoru a mechaniky, tak ze strany softwaru.
+Konektor by totiž musel být ideálně beznástrojově rozpojitelný a opětovně spojitelný a přitom dostatečně pevný, aby se zařízení mechanicky chovalo jako jeden celek.
+Takový konektor je ale poměrně složité udělat, tak aby byl spolehlivý, a tak jde v tuto chvíli spíš o hudbu budoucnosti.
+Ze softwarového pohledu jde pak o problém jak detekovat konkrétní modul a hlavně o otázku jak se chovat k modulům, které jsou potenciálně záměnné.
+Dejme tomu, že máme modul klávesnici a modul dvířka.
+Dvířka jsou původně navrženy primárně jako úložný prostor, díky detekci zavření je lze ale použít i jako velmi pohodlná tlačítka a v některých hrách se proto používají jen jako tlačítka.
 Potenciální modul klávesnice je ovšem jen suma tlačítek.
-Při vytváření konkrétní hry na míru modulum které herní návrhář má zrovna k dispozici je tento problém nepodstatný protože sám návrhář rozhodně co má jak být.
-Ale ve chvíli kdy je ale o hru navrženou pro jinou kombinaci modulu nastává problém jak rozhodnout zda se dají dvířka použít místo klávesnice nebo ne.
-Abychom se všem temto problémům, alespoň prozatím vyhnuli, rozhodli jsme že doplnění, či výměna modulu, pujde jen při servisním zásahu.
+Při vytváření konkrétní hry na míru modulům, které herní návrhář má zrovna k dispozici, je tento problém nepodstatný, protože sám návrhář rozhodne co má jak být.
+Ale ve chvíli, kdy jde o hru navrženou pro jinou kombinaci modulů, nastává problém jak rozhodnout, zda se dají dvířka použít místo klávesnice nebo ne.
+Abychom se všem těmto problémům alespoň prozatím vyhnuli, rozhodli jsme, že doplnění či výměna modulu, půjde jen při servisním zásahu.
+Problém záměny modulů pak budeme řešit tím, že každá hra bude napsaná jen pro konkrétní sadu modulů.
 
-Některé hry vyžadují tak velké herní území že by na komunikaci mezi stanovišťmi už nestačila WiFi ani Bluetooth, které AHS jinak využívá ke komunikaci.  
+Některé hry vyžadují tak velké herní území, že by na komunikaci mezi stanovišťmi už nestačila WiFi ani Bluetooth, které AHS jinak využívá ke komunikaci.  
 Proto bude mít AHS možnost připojení k mobilní síti a tedy připojení k internetu.
 Tím se za prvé rozšíří dosah AHS, všude kde je mobilní pokrytí a také přibude další metoda jak se stanovištěm komunikovat.
 V rámci tohoto komunikačního modulu bude možné používat navíc i GNSS \footnote{Global Navigation Satellite System}.
-Vzhledem k faktu že se přece jen nejedná o systém, který by využila většina her a zároveň je poměrně drahý došli jsme k rozhodnutí, mít jej jen jako doplnitelný modul.
-Protože se jedná o modul který zprostředkovává komunikaci se světem je pravděpodobné že bude potřebovat převádět výrazně větší množství dat než běžný modul.
+Vzhledem k faktu, že se přece jen nejedná o systém, který by využila většina her a zároveň je poměrně drahý, došli jsme k rozhodnutí mít jej jen jako doplnitelný modul.
+Protože se jedná o modul, který zprostředkovává komunikaci se světem, je pravděpodobné, že bude potřebovat převádět výrazně větší množství dat než běžný modul.
 Primárně z tohoto důvodu je tento modul připojen na samostatném konektoru.
-Potřebné antény budou už v základním zařízení ale samotný modul spadá do doplňkové výbavy.
+Potřebné antény budou už v základním zařízení, ale samotný modul spadá do doplňkové výbavy.
 
-V řadě případu je užitečné mít možnost zvuková zpětné vazby.
-Ideální by bylo moci přehrávat libovolnou nahrávku, většinou ale stačí jednoduchý ton jako řekněme potvrzení na zadané heslo.
+V řadě případu je užitečné mít možnost zvukové zpětné vazby.
+Ideální by bylo moci přehrávat libovolnou nahrávku, většinou ale stačí jednoduchý tón řekněme jako potvrzení zadaného hesla.
 Možnost přehrávat plnohodnotnou nahrávku proto odsouváme jako možný doplňkový modul a v základní jednotce pro jednoduchost postačí piezoměnič. 
 
 % \begin{itemize}
@@ -53,14 +58,14 @@ Možnost přehrávat plnohodnotnou nahrávku proto odsouváme jako možný dopl�
 %     \item Základní zvuková odezva
 % \end{itemize}
 
-\subsection{Struktura elektroniky základní jednotky}
+\section{Struktura elektroniky základní jednotky}
 
 Elektronika je rozdělena na tři samostatné PCB.
-Jde o HlavníDeska na které je většina elektroniky, o~desku s~hlavním uživatelským rozhraním (LedDeska) a~o~obslužnou desku s~minimalistickým uživatelským rozhraním pro neherní obsluhu (MiniUI).
+Jde o HlavníDesku, na které je většina elektroniky, o~desku s~hlavním uživatelským rozhraním (LedDeska) a~o~obslužnou desku s~minimalistickým uživatelským rozhraním pro neherní obsluhu (MiniUI).
 
-\subsubsection{LedDesku}
-Jak název napovídá na LedDesce se nacházejí oba světelné kruhy, mimo to je zde i elektronika pro snímání tlakové plochy, tedy LDC1x14 \cite{LDC1614} a jeho snímací cívky.
-Právě snímaní tlakové plochy je jeden z podstatných duvodu oddělení této desky od zbytku, zabere totiž docela dost prostoru.
+\subsection{LedDesku}
+Jak název napovídá, na LedDesce se nacházejí oba světelné kruhy, mimo to je zde i elektronika pro snímání tlakové plochy, tedy LDC1x14 \cite{LDC1614} a jeho snímací cívky.
+Právě snímaní tlakové plochy je jeden z podstatných důvodu oddělení této desky od zbytku, zabere totiž docela dost prostoru.
 
 \begin{itemize}
     \item Axiální LED kruh z 60ti RGB LED WS2812
@@ -69,9 +74,9 @@ Právě snímaní tlakové plochy je jeden z podstatných duvodu oddělení tét
     \item konektor na propojení s HlavníDeskou
 \end{itemize}
 
-\subsubsection{MiniUI}
-Kvuli aktuální představě mechanické konstrukce není úplně dobře možné mít toto minimalistické uživatelské rozhraní na HlavníDeska.
-Proto sme se rozhodli jej vyseparovat na samostatnou destičku, na které bude jen pár tlačítek a dvě signalizační LED.
+\subsection{MiniUI}
+Kvůli aktuální představě mechanické konstrukce není úplně dobře možné mít toto minimalistické uživatelské rozhraní na HlavníDeska.
+Proto jsme se rozhodli jej vyseparovat na samostatnou destičku, na které bude jen pár tlačítek a dvě signalizační LED.
 
 \begin{itemize}
     \item RESET tlačítka
@@ -81,10 +86,10 @@ Proto sme se rozhodli jej vyseparovat na samostatnou destičku, na které bude j
     \item dvě uživatelské ledky
 \end{itemize}
 
-\subsubsection{HlavníDeska}
+\subsection{HlavníDeska}
 Na HlavníDesce je většina systému základního zařízení.
 
-Protože máme dlouholetým zkušenostem s mikrokontrolery ESP32, rozhodovali jsme jen mezi konkrétními čipy z této rodiny.
+Protože máme dlouholeté zkušenosti s mikrokontrolery ESP32, rozhodovali jsme jen mezi konkrétními čipy z této rodiny.
 % Dnes už tedy jen většina, mikrokontroleru této rodiny má integrovanou WiFi a Bluetooth periferii, kterou AHS určitě využije.
 Aktuální plán na tvorbu vysoko-úrovňového návrhu konkrétních her je používat skriptovací jazyk JavaScript, považujeme za nevhodné provádět tento návrh na úrovní jazyka C/C++.
 Abychom tohoto mohli dosáhnout, musíme provozovat nějaký interpreter JavaScriptu a z aktuálně dostupných možností, považujeme za nejideálnější Jaculus \cite{Jaculus}.
@@ -94,16 +99,16 @@ ESP32S3 je téměř jen vylepšená verze staršího ESP32, oproti tomu mu sice 
 AHS tedy ovládá mikrokontroler ESP32S3.
 
 Zdroj AHS je tvořen dvěma LiIon články 18650 v paralelním uspořádání.
-Paralelní uspořádání jsme zvolili aby nebylo nutné řešit balancování článků.
+Paralelní uspořádání jsme zvolili, aby nebylo nutné řešit balancování článků.
 
-Aby nebylo možné softwarově baterii podvybít má AHS systém, který celé zařízení vypne v případě kdy dojde k vybití baterie pod 2.8V.
+Aby nebylo možné softwarově baterii podvybít, má AHS systém, který celé zařízení vypne v případě kdy dojde k vybití baterie pod 2.8V.
 Pochopitelně software by měl vybitou baterii zaznamenat mnohem dřív a chovat se podle toho, např. neumožnit spustit hru s baterii na napětím 3.0V.
 
-Baterii je pochopitelně nutno nabijet a bylo by velmi nepohodlné kvuli tomu muset vytahovat články ze zařízení.
+Baterii je pochopitelně nutno nabíjet a bylo by velmi nepohodlné kvůli tomu muset vytahovat články ze zařízení.
 Proto je na HlavníDesce i nabíjecí elektronika.
-Navíc aby se minimalizoval čas nabíjení zařízení podporuje standard PowerDelivery a to až do napětí 21V.
+Navíc, aby se minimalizoval čas nabíjení zařízení, podporuje standard PowerDelivery a to až do napětí 21V.
 
-Protože různé periferie vyžadují různá napájecí a komunikační napětí jsou na HlavníDeska hned čtyři napájecí větvě.
+Protože různé periferie vyžadují různá napájecí a komunikační napětí jsou na HlavníDeska hned čtyři napájecí větve.
 \begin{itemize}
     \item VCC, napětí baterie sloužící jako zdroj pro ostatní napájecí větvě a pro napájení komunikačního modulu. 
     \item Napětí \(3.3\-[V]\) na napájení logické části celého základního zařízení.
@@ -129,7 +134,7 @@ Do konektorů by se asi dal zařadit i držák na dva LiIon články 18650.
 
 Za zmínku také stojí přítomnost piezoměniče pro jednoduchou zvukovou odezvu. 
 
-\subsubsection{Propojení HlavníDesky a LedDesky}
+\subsection{Propojení HlavníDesky a LedDesky}
 Mezi HlavníDeskou a LedDeskou je třeba převést napájení a několik signálů.
 LedDeska vyžaduje na konektoru přítomnost dvou napájecích větví \(5\-[V]\) pro světelné kruhy a \(3.3\-[v]\) pro snímání tlakové plochy.
 Protože do LEDek může téct proud až 5A a být zároveň i docela rychle spínaný, považujeme za rozumné oddělit napájecím větvím zem.
@@ -143,7 +148,7 @@ Mimo napájení je tímto propojením veden i signál s daty pro světelné kruh
 
 Vzhledem k počtu potřebných vodičů (konkrétně 32) jsme se rozhodli použít velmi běžný FFC konektor se 40 kontakty, s tím že zbylé kontakty se mohou hodit v budoucnu.
 
-\subsubsection{Modulový konektor}
+\subsection{Modulový konektor}
 Modulovým konektorem je vedeno \(5\-[V]\) jako napájení pro moduly a UART s interruptem pro komunikaci.
 Nad volbou komunikační sběrnice jsme strávili poměrně dost času přemýšlením.
 Původně jsme uvažovali o využití RS485 jakožto odolné sběrnice u které by v případ potřeby nemusel být problém ani delší kabel.
@@ -170,18 +175,18 @@ Abychom alespoň trochu zvýšili odolnost linky proti rušení přidáme na př
 Cílem je zvýšení komunikačního proudu aby se případný proud vyvolaný rušením dal jednodušeji zanedbat.
 V neposlední řadě jsou mají všechny piny na konektoru ESD ochranu.
 
-\subsubsection{Konektor programátor}
+\subsection{Konektor programátor}
 Zařízení se dá jednoduše programovat přes USB-C, tento kanál se ale dá softwarově narušit a pro takové případy je tu konektor na programátor.
-Jde o šest plošek na které se programátor připojuje pomocí pogo-pin.
+Jde o šest plošek na které se programátor připojuje pomocí pogo-pinů.
 Programátor sice obsahuje jen jednoduchou elektroniku která by mohla být i přímo v elektronice AHS ale ve většině případu by byla zbytečná.
 Ve chvíli kdy by byla potřeba tak je stejně nutná odborná obsluha a pro tu není problém použít programátor.
 
-\subsubsection{USB-C}
+\subsection{USB-C}
 Jako napájecí a programovací konektor je použito USB-C.
 Díky němu je možné podporovat standard PowerDelivery využitý pro zrychlení nabíjení.
 Konektor je ale použit i na pohodlnější programování zařízení, pez potřeby programátoru.
 
-\subsubsection{Konektor komunikačního modulu}
+\subsection{Konektor komunikačního modulu}
 Pro připojení komunikačního modulu jsme zvolili konektor M2 typ-B jakožto standard pro tyto moduly.
 Díky tomuto konektoru můžeme jednoduše připojit různé LTE a GNSS moduly.
 
