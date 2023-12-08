@@ -1494,7 +1494,7 @@
   (symbol (lib_id "B.B-rescue:R-Device-B.B-rescue-B.B-rescue") (at 162.56 129.54 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 64848843-5726-45af-91bf-ebf54b4685d2)
-    (property "Reference" "U25" (at 164.338 128.3716 0)
+    (property "Reference" "R42" (at 164.338 128.3716 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "3.92k" (at 164.338 130.683 0)
@@ -1514,7 +1514,7 @@
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/aae02708-da26-44dd-a602-660fbe003309/3940fef8-969a-4db4-8b0b-434b96d98566"
-          (reference "U25") (unit 1)
+          (reference "R42") (unit 1)
         )
       )
       (project "RB3203"
@@ -1562,7 +1562,7 @@
   (symbol (lib_id "B.B-rescue:R-Device-B.B-rescue-B.B-rescue") (at 97.79 107.95 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 70de6849-9b6a-4b12-9fb8-db5cab4520d7)
-    (property "Reference" "U11" (at 93.98 109.22 90)
+    (property "Reference" "R43" (at 93.98 109.22 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "150k" (at 95.25 106.68 90)
@@ -1582,7 +1582,7 @@
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/aae02708-da26-44dd-a602-660fbe003309/3940fef8-969a-4db4-8b0b-434b96d98566"
-          (reference "U11") (unit 1)
+          (reference "R43") (unit 1)
         )
       )
       (project "RB3203"
@@ -1840,7 +1840,7 @@
   (symbol (lib_id "B.B-rescue:R-Device-B.B-rescue-B.B-rescue") (at 91.44 64.77 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d050157e-5163-4b48-9c0f-d470deaa7d60)
-    (property "Reference" "U5" (at 87.63 66.04 90)
+    (property "Reference" "R50" (at 87.63 66.04 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "150k" (at 88.9 63.5 90)
@@ -1860,7 +1860,7 @@
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/aae02708-da26-44dd-a602-660fbe003309/3940fef8-969a-4db4-8b0b-434b96d98566"
-          (reference "U5") (unit 1)
+          (reference "R50") (unit 1)
         )
       )
       (project "RB3203"

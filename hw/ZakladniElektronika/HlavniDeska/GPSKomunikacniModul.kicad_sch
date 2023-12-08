@@ -1595,6 +1595,11 @@
     (uuid ff9d5b54-bda5-4d49-9f23-8b8591669b63)
   )
 
+  (text "W_DISABLE" (at 149.86 118.11 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 96b8f7ed-cc61-4e36-9f80-47ad579965eb)
+  )
+
   (label "SIM_CD" (at 151.13 157.48 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 0d3bd7b2-f396-4cfb-b26f-e12fdf74e86f)
@@ -1885,7 +1890,7 @@
           (reference "D125") (unit 1)
         )
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2d5c8383-b4dd-4e50-a76e-5d9de1ae531a"
-          (reference "LED") (unit 1)
+          (reference "LED6") (unit 1)
         )
       )
       (project "RB3203"

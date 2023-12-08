@@ -1559,7 +1559,7 @@
   (symbol (lib_id "Device:LED") (at 241.3 110.49 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 69c06f68-f2e4-473b-8359-0ff99e1b6a0f)
-    (property "Reference" "LED" (at 243.84 109.22 90)
+    (property "Reference" "LED4" (at 243.84 109.22 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "red" (at 243.84 111.76 90)
@@ -1582,7 +1582,7 @@
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2f609c37-b91c-437d-a066-c26014011f90"
-          (reference "LED") (unit 1)
+          (reference "LED4") (unit 1)
         )
       )
       (project "RB3203"
@@ -1914,7 +1914,7 @@
   (symbol (lib_id "Device:LED") (at 167.64 73.66 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d5de4abe-4adb-4c09-9170-1b57450230f1)
-    (property "Reference" "LED" (at 170.18 72.39 90)
+    (property "Reference" "LED3" (at 170.18 72.39 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "red" (at 170.18 74.93 90)
@@ -1937,7 +1937,7 @@
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2f609c37-b91c-437d-a066-c26014011f90"
-          (reference "LED") (unit 1)
+          (reference "LED3") (unit 1)
         )
       )
       (project "RB3203"
