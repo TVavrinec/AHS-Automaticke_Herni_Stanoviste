@@ -101,26 +101,26 @@ AHS tedy ovládá mikrokontroler ESP32S3.
 Zdroj AHS je tvořen dvěma LiIon články 18650 v paralelním uspořádání.
 Paralelní uspořádání jsme zvolili, aby nebylo nutné řešit balancování článků.
 
-Aby nebylo možné softwarově baterii podvybít, má AHS systém, který celé zařízení vypne v případě kdy dojde k vybití baterie pod 2.8V.
-Pochopitelně software by měl vybitou baterii zaznamenat mnohem dřív a chovat se podle toho, např. neumožnit spustit hru s baterii na napětím 3.0V.
+Aby nebylo možné softwarově baterii podvybít, má AHS systém, který celé zařízení vypne v případě, kdy dojde k vybití baterie pod 2.8V.
+Pochopitelně software by měl vybitou baterii zaznamenat mnohem dřív a chovat se podle toho, např. neumožnit spustit hru s baterií při napětí 3.0V.
 
 Baterii je pochopitelně nutno nabíjet a bylo by velmi nepohodlné kvůli tomu muset vytahovat články ze zařízení.
 Proto je na HlavníDesce i nabíjecí elektronika.
 Navíc, aby se minimalizoval čas nabíjení zařízení, podporuje standard PowerDelivery a to až do napětí 21V.
 
-Protože různé periferie vyžadují různá napájecí a komunikační napětí jsou na HlavníDeska hned čtyři napájecí větve.
+Protože různé periferie vyžadují různá napájecí a komunikační napětí, jsou na HlavníDeska hned čtyři napájecí větve.
 \begin{itemize}
-    \item VCC, napětí baterie sloužící jako zdroj pro ostatní napájecí větvě a pro napájení komunikačního modulu. 
+    \item VCC, napětí baterie sloužící jako zdroj pro ostatní napájecí větve a pro napájení komunikačního modulu. 
     \item Napětí \(3.3\-[V]\) na napájení logické části celého základního zařízení.
     \item Napětí \(5.0\-[V]\) pro LedDesku a externí moduly
     \item Napětí \(1.8\-[V]\) pro napájení napěťových převodníků sloužících na komunikaci s komunikačním modulem 
 \end{itemize}
-Napětí jednotlivých větví to u \(3.3\-[V]\) a \(1.8\-[V]\) tvořeno pomocí LDO.
-Na vytvoření pěti voltové větvě je ale potřeba spínaný zdroj a to primárně ze dvou důvodů.
-Za prvé protože napětí baterie ze které se tato větev napájí má nižší napětí a je jej tedy třeba vyspínat na napětí vyšší.
-Za druhé tento zdroj poskytuje do systému mnohem větší proudy než druhé dvě větve a bylo by tedy vhodné, ho použít i v případě použití sériového řazení článků.
+Napětí větví \(3.3\-[V]\) a \(1.8\-[V]\) je tvořeno pomocí LDO.
+Na vytvoření pěti voltové větve je ale potřeba spínaný zdroj a to primárně ze dvou důvodů.
+Za prvé protože napětí baterie, ze které se tato větev napájí, má nižší napětí a je jej tedy třeba vyspínat na napětí vyšší.
+Za druhé tento zdroj poskytuje do systému mnohem větší proudy než druhé dvě větve a bylo by tedy vhodné ho použít i v případě použití sériového řazení článků.
 
-Na hlavníDesce je také řada konektorů sloužící pro připojení ostatních systémů.
+Na HlavníDesce je také řada konektorů sloužící pro připojení ostatních systémů.
 Jde o konektory na:
 \begin{itemize}
     \item propojení s LedDeskou                                             % samostatný objekt
@@ -137,12 +137,12 @@ Za zmínku také stojí přítomnost piezoměniče pro jednoduchou zvukovou odez
 \subsection{Propojení HlavníDesky a LedDesky}
 Mezi HlavníDeskou a LedDeskou je třeba převést napájení a několik signálů.
 LedDeska vyžaduje na konektoru přítomnost dvou napájecích větví \(5\-[V]\) pro světelné kruhy a \(3.3\-[v]\) pro snímání tlakové plochy.
-Protože do LEDek může téct proud až 5A a být zároveň i docela rychle spínaný, považujeme za rozumné oddělit napájecím větvím zem.
+Protože do LEDek může téct proud až 5A a může být zároveň i docela rychle spínaný, považujeme za rozumné oddělit napájecím větvím zem.
 Oddělení je tedy provedeno už na konektoru HlavníDesky.
 
 Na samotné propojení jsme se rozhodli použít FFC kabel s roztečí \(0.5\-[mm]\).
-Jednim vodičem takovéhoto kabelu zle vést proud maximálně \(0.4\-[A]\) \cite{FFC-konektor}.
-Protože ale potřebujeme dodat proud až 5A použijeme 13 vodičů vedle sebe jakožto nejmenší počet který přenese požadovaný proud v rámci daných mezí.
+Jedním vodičem takovéhoto kabelu lze vést proud maximálně \(0.4\-[A]\) \cite{FFC-konektor}.
+Protože ale potřebujeme dodat proud až 5A, použijeme 13 vodičů vedle sebe jakožto nejmenší počet, který přenese požadovaný proud v rámci daných mezí.
 
 Mimo napájení je tímto propojením veden i signál s daty pro světelné kruhy a I2C sběrnice s interruptem pro připojení čipu LDC1614 \cite{LDC1614}.
 
@@ -151,40 +151,40 @@ Vzhledem k počtu potřebných vodičů (konkrétně 32) jsme se rozhodli použ�
 \subsection{Modulový konektor}
 Modulovým konektorem je vedeno \(5\-[V]\) jako napájení pro moduly a UART s interruptem pro komunikaci.
 Nad volbou komunikační sběrnice jsme strávili poměrně dost času přemýšlením.
-Původně jsme uvažovali o využití RS485 jakožto odolné sběrnice u které by v případ potřeby nemusel být problém ani delší kabel.
-RS485 má ale nevýhodu v tom že potřebuje dodatečný hardware, kterému bychom se hlavně na modulech rádi vyhnuli.
-Stejný problém nastel u CANu i USB které by navíc mělo výhodu kompatibility se velkým množstvím hotových zařízení.
+Původně jsme uvažovali o využití RS485 jakožto odolné sběrnice, u které by v případě potřeby nemusel být problém ani delší kabel.
+RS485 má ale nevýhodu v tom, že potřebuje dodatečný hardware, kterému bychom se hlavně na modulech rádi vyhnuli.
+Stejný problém nastal u CANu i USB, které by navíc mělo výhodu kompatibility s velkým množstvím hotových zařízení.
 
-V první uvaze o UARTu jsme jej nejprve zavrhli kvuli potenciální náročnosti na přeposílání dat mezi moduly.
-Při standardním použití, bychom totiž moduly řadili za sebe.
+V první úvaze o UARTu jsme jej nejprve zavrhli kvůli potenciální náročnosti na přeposílání dat mezi moduly.
+Při standardním použití bychom totiž moduly řadili za sebe.
 Prvnímu modulu by tak chodili data pro všechny ostatní moduly a musel by je přeposílat dál, což by stálo nezanedbatelné množství procesorového času.
 V jisté chvíli jsme ale narazili na nestandardní komunikaci pomocí UARTu implementované v projektu Servio \cite{Servio}.
 Tato implementace používá UART jako sběrnici.
-Namísto standardního použití pro komunikace jeden s jedním tak muže komunikovat jeden s více.
-Na tomto řešení je výhodné že nevyžaduje žádný dodatečný hardware a prakticky každý dnešní mikrokontroler je možné k této sběrnici velmi snadno připojit.
-Ve srovnání s RS485 je sice mnohem méně odolná proti rušení, ale uvnitř zařízení nebude linka vedena na víc jak malé desítky centimetru.
-Komunikace na delším kabelu je pak jednoduše nahraditelné bezdrátovou komunikací a není tak potřebné aby to nativně umožňovala tato sbernice.
-Každopádně v případě potřeby delšího kabelu je možné navrhnout externí modul, který s této sbernic velmi jednoduše udělá RS485.
-Alternativně by se pro komunikaci na delším kabelu dalo použít USB které je společně s nabíjením přivedeno na USB-C.
+Namísto standardního použití pro komunikace jeden s jedním tak může komunikovat jeden s více.
+Na tomto řešení je výhodné, že nevyžaduje žádný dodatečný hardware a prakticky každý dnešní mikrokontroler je možné k této sběrnici velmi snadno připojit.
+Ve srovnání s RS485 je sice mnohem méně odolná proti rušení, ale uvnitř zařízení nebude linka vedena na víc než malé desítky centimetru.
+Komunikace na delším kabelu je pak jednoduše nahraditelná bezdrátovou komunikací a není tak potřebné, aby to nativně umožňovala tato sbernice.
+Každopádně v případě potřeby delšího kabelu je možné navrhnout externí modul, který s této sběrnice velmi jednoduše udělá RS485.
+Alternativně by se pro komunikaci na delším kabelu dalo použít USB, které je společně s nabíjením přivedeno na USB-C.
 
 Všechny moduly jsou tedy připojeny na jeden RX pin AHS.
-Proto musí firmware AHS zajistit aby dva moduly nevysílali současně.
-Aby se zabránilo možným zkratum, jako ochranu má každý modul své piny UARTu připojeny přes rezistor \(180\-[\Omega]\).
+Proto musí firmware AHS zajistit, aby dva moduly nevysílaly současně.
+Aby se zabránilo možným zkratům, jako ochranu má každý modul své piny UARTu připojeny přes rezistor \(180\-[\Omega]\).
 Interrupt pin modulů se naopak chová jako open-collector a na straně hlavního zařízení je na něj tedy připojen pull-up rezistor.
-Abychom alespoň trochu zvýšili odolnost linky proti rušení přidáme na přijímací stranu pull-up rezistor.
-Cílem je zvýšení komunikačního proudu aby se případný proud vyvolaný rušením dal jednodušeji zanedbat.
-V neposlední řadě jsou mají všechny piny na konektoru ESD ochranu.
+Abychom alespoň trochu zvýšili odolnost linky proti rušení, přidáme na přijímací stranu pull-up rezistor.
+Cílem je zvýšení komunikačního proudu, aby se případný proud vyvolaný rušením dal jednodušeji zanedbat.
+V neposlední řadě mají všechny piny na konektoru ESD ochranu.
 
 \subsection{Konektor programátor}
 Zařízení se dá jednoduše programovat přes USB-C, tento kanál se ale dá softwarově narušit a pro takové případy je tu konektor na programátor.
-Jde o šest plošek na které se programátor připojuje pomocí pogo-pinů.
-Programátor sice obsahuje jen jednoduchou elektroniku která by mohla být i přímo v elektronice AHS ale ve většině případu by byla zbytečná.
-Ve chvíli kdy by byla potřeba tak je stejně nutná odborná obsluha a pro tu není problém použít programátor.
+Jde o šest plošek, na které se programátor připojuje pomocí pogo-pinů.
+Programátor sice obsahuje jen jednoduchou elektroniku, která by mohla být i přímo v elektronice AHS, ale ve většině případů by byla zbytečná.
+Ve chvíli, kdy by byla potřeba, je stejně nutná odborná obsluha a pro tu není problém použít programátor.
 
 \subsection{USB-C}
 Jako napájecí a programovací konektor je použito USB-C.
 Díky němu je možné podporovat standard PowerDelivery využitý pro zrychlení nabíjení.
-Konektor je ale použit i na pohodlnější programování zařízení, pez potřeby programátoru.
+Konektor je ale použit i na pohodlnější programování zařízení, bez potřeby programátoru.
 
 \subsection{Konektor komunikačního modulu}
 Pro připojení komunikačního modulu jsme zvolili konektor M2 typ-B jakožto standard pro tyto moduly.
@@ -212,7 +212,7 @@ Díky tomuto konektoru můžeme jednoduše připojit různé LTE a GNSS moduly.
 
 % - Tělo minimálně v prototypu tisknuté
 % - Vyzkoušet různé provedení kontaktní plochy
-%     - Stejně jako na předchozí verzi FR4 ale tlustší aby se tolik nekroutila
+%     - Stejně jako na předchozí verzi FR4 ale tlustší, aby se tolik nekroutila
 %     - PCB s hliníkovým jádrem + zalití do epoxidu nebo jiné dostatečně průsvitné hmoty
 % - Konektor externích modulu, USB-C a mini UI překrýt krytkou (ochrana před bordelem a náhodným mačkáním na tlačítka) 
 
