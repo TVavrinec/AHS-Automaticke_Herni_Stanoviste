@@ -29,6 +29,8 @@
 \usepackage{graphicx} % Balíček 'graphicx' pro vkládání obrázků
 											% Nutné pro vložení logotypů školy a fakulty
 
+\usepackage{pgfplots} % grafýky
+
 \usepackage[          % Balíček 'acronym' pro sazby zkratek a symbolů
 	nohyperlinks				% Nebudou tvořeny hypertextové odkazy do seznamu zkratek
 ]{acronym}						
@@ -36,7 +38,9 @@
 
 \usepackage[
 	breaklinks=true,		% Hypertextové odkazy mohou obsahovat zalomení řádku
-	hypertexnames=false % Názvy hypertext. odkazů budou tvořeny nezávisle na názvech TeXu
+	hypertexnames=false, % Názvy hypertext. odkazů budou tvořeny nezávisle na názvech TeXu
+  % colorlinks=false,    % Bez barevných odkazů
+  hidelinks            % Bez rámečků kolem odkazů
 ]{hyperref}						% Balíček 'hyperref' pro sazbu hypertextových odkazů
 											% Nutné pro použití příkazu 'pdfsettings' balíčku 'thesis'
 
@@ -168,15 +172,10 @@
 %	{\sffamily\Huge\centering ZDE VLOŽIT LIST ZADÁNÍ}%
 %	{\sffamily\centering Z~důvodu správného číslování stránek}
 %%
-\oddpage% při dvojstranném tisku se přidá prázdná stránka
+\oddpage  % při dvojstranném tisku se přidá prázdná stránka
 
 %% Vysázení stránky s abstraktem
 \makeabstract
-
-% Vysázení stránky s rozšířeným abstraktem
-% (pokud píšete práci v češtině či slovenštině, vložení rozšířeného abstraktu zrušte;
-%  pro semestrální projekt také není potřeba rozšířený abstrakt uvádět)
-\input{text/rozsireny_abstrakt}
 
 %%% Vysázení citace práce
 \makecitation
@@ -194,13 +193,13 @@
 % (vynechejte, pokud máte dva nebo méně obrázků)
 \listoffigures
 
-%%% Vysázení seznamu tabulek
-% (vynechejte, pokud máte dvě nebo méně tabulek)
-\listoftables
+% %%% Vysázení seznamu tabulek
+% % (vynechejte, pokud máte dvě nebo méně tabulek)
+% \listoftables
 
-%%% Vysázení seznamu výpisů kódu
-% (vynechejte, pokud máte dva nebo méně výpisů)
-\lstlistoflistings
+% %%% Vysázení seznamu výpisů kódu
+% % (vynechejte, pokud máte dva nebo méně výpisů)
+% \lstlistoflistings
 
 \cleardoublepage\pagestyle{plain}   % zapnutí číslování stránek
 
@@ -215,25 +214,41 @@
 
 %%% Vložení souboru 'text/reseni' s popisem řešení práce
 % (rozdělte na více souborů či kapitol, pokud je vhodné)
-\chapter{Teoretická část}
-\section{Potřeby herních zařízení}
+\chapter{Důvody elektronizace zážitkových her}
+% \chapter{Motivace pro elektronizaci zážitkové pedagogiky}
 \input{text/TeoretickyUvod/AplikaceHernichZarizeni/AHZUvod.tex}
+\section{Požadavky na zařízení}
+\input{text/TeoretickyUvod/AplikaceHernichZarizeni/Pozadavky.tex}
+% \section{Základní řídící jednotka}
+% \input{text/TeoretickyUvod/AplikaceHernichZarizeni/zakladAHS.tex}
+\section{Moduly}
+\input{text/TeoretickyUvod/AplikaceHernichZarizeni/Moduly.tex}
+% \section{Dynamických zařízení}
+% \input{text/TeoretickyUvod/AplikaceHernichZarizeni/Semi.tex}
 
 %%% Vložení souboru 'text/vysledky' s popisem vysledků práce
 % (rozdělte na více souborů či kapitol, pokud je vhodné)
-\chapter{Návrh zařízení}
-\input{text/PraktickaCast/navrh.tex}
+\chapter{Návrh dynamického zařízení}
+\input{text/PraktickaCast/navrhDynamiky.tex}
+\chapter{Návrh statického zařízení}
+\input{text/PraktickaCast/navrhStatiky.tex}
+
 
 %%% Vložení souboru 'text/zaver' se závěrem
 \include{text/zaver}
 
 %%% Vložení souboru 'text/literatura' se seznamem zdrojů
+% \section{Použité zdroje}
+% \begin{refsection}
+%     \nocite{*}
+%     \printbibliography[type=online,title={Online články a dokumenty}]
+%     \printbibliography[type=manual,title={Katalogové listy důležitých součástek}]
+% \end{refsection}
+\clearpage
 \section{Použité zdroje}
-\begin{refsection}
-    \nocite{*}
-    \printbibliography[type=online,title={Online články a dokomenty}]
-    \printbibliography[type=manual,title={Katalogové listy duležitých součástek}]
-\end{refsection}
+\nocite{*}
+\printbibliography[type=online,title={Online články a dokumenty}, heading=subbibliography]
+\printbibliography[type=manual,title={Katalogové listy důležitých součástek}, heading=subbibliography]
 
 %%% Vložení souboru 'text/zkratky' se seznam použitých symbolů, veličin a zkratek
 \include{text/zkratky}

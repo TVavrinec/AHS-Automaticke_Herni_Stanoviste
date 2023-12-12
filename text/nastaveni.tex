@@ -29,7 +29,7 @@
 \author[]{Tomáš}{Vavrinec}
 
 %%% Identifikační číslo autora (VUT ID)
-\butid{42}
+\butid{240893}
 
 %%% Pohlaví autora/autorky
 % (nepoužije se ve variantě english-czech ani english-slovak)
@@ -39,7 +39,7 @@
 %%% Jméno a příjmení vedoucího/školitele včetně titulů
 %  [tituly před jménem]{Křestní}{Příjmení}[tituly za jménem]
 % Pokud osoba nemá titul před/za jménem, smažte celý řetězec '[...]'
-\advisor[prof.\ Ing.]{Křestní}{Příjmení}[CSc.]
+\advisor[doc.\ Ing..]{Pavel}{Šteffan}[Ph.D.]
 
 %%% Jméno a příjmení oponenta včetně titulů
 %  [tituly před jménem]{Křestní}{Příjmení}[tituly za jménem]
@@ -57,12 +57,12 @@
 %  \def\insertshorttitle{Zkác.\ náz.\ práce}
 %  kde jako parametr vyplníte zkrácený název. Pokud nechcete zkracovat název, budete muset předefinovat,
 %  jak se vytváří patička slidu. Viz odkaz: https://bit.ly/3EJTp5A
-\title[Title of Student's Thesis]{Název studentské práce}
+\title[Title of Student's Thesis]{Automatické herní stanoviště}
 
 %%% Označení oboru studia
 %  Parametr ve složených závorkách {} je název oboru v originálním jazyce,
 %  parametr v hranatých závorkách [] je překlad
-\specialization[Teleinformatics]{Teleinformatika}
+\specialization[Microelectronics and Technology]{Mikroelektronika a technologie}
 
 %%% Označení ústavu
 %  Parametr ve složených závorkách {} je název ústavu v originálním jazyce,
@@ -74,10 +74,10 @@
 %\department[Department of Physics]{Ústav fyziky}
 %\department[Department of Foreign Languages]{Ústav jazyků}
 %\department[Department of Mathematics]{Ústav matematiky}
-%\department[Department of Microelectronics]{Ústav mikroelektroniky}
+\department[Department of Microelectronics]{Ústav mikroelektroniky}
 %\department[Department of Radio Electronics]{Ústav radioelektroniky}
 %\department[Department of Theoretical and Experimental Electrical Engineering]{Ústav teoretické a experimentální elektrotechniky}
-\department[Department of Telecommunications]{Ústav telekomunikací}
+% \department[Department of Telecommunications]{Ústav telekomunikací}
 %\department[Department of Power Electrical and Electronic Engineering]{Ústav výkonové elektrotechniky a elektroniky}
 
 %%% Označení fakulty
@@ -96,9 +96,9 @@
 \facultylogo[logo/FEKT_zkratka_barevne_PANTONE_CZ]{logo/UTKO_color_PANTONE_CZ}
 
 %%% Rok odevzdání práce
-\graduateyear{2030}
+\graduateyear{2023}
 %%% Akademický rok odevzdání práce
-\academicyear{2029/30}
+\academicyear{2023/24}
 
 %%% Datum obhajoby (uplatní se pouze v prezentaci k obhajobě)
 \date{11.\,11.\,1980} 
@@ -109,23 +109,30 @@
 
 %%% Abstrakt
 \abstract[%
-Překlad abstraktu
-(v~angličtině, pokud je originálním jazykem čeština či slovenština; v~češtině či slovenštině, pokud je originálním jazykem angličtina)
+The aim of this thesis is to design an electronic device for use in outdoor games. 
+Primarily the design of an automatic gaming station, but there has also been a design of a simple personal device. 
+This thesis deals with the selection and rough design of the electronics.
+Emphasis is placed on the selection of appropriate systems for application in games and the design of electronics based on these.
+The design is divided into several groupings, the personal device design and the game station design which is further divided into the design of the core and its modules.
 ]{%
-Abstrakt práce v~originálním jazyce
+Cílem práce je navrhnout elektronické zařízení pro využití v outdorových hrách. 
+Primárně jde o návrh automatického herního stanoviště, ale došlo i k návrhu jednoduchého osobního zařízení. 
+Tato práce se zabývá výběrem a hrubým návrhem elektroniky.
+Je kladen důraz na výběr vhodných systémů k aplikaci ve hrách a z nich vychází návrh elektroniky.
+Návrh je rozdělen do několika skupin, návrh osobního zařízení a návrh herního stanoviště, který se dále dělí na návrh jádra a jeho modulů.
 }
 
 %%% Klíčová slova
 \keywrds[%
-Překlad klíčových slov
-(v~angličtině, pokud je originálním jazykem čeština či slovenština; v~češtině či slovenštině, pokud je originálním jazykem angličtina)
+microcontroller, ESP32, ESP32-C3-MINI-1, ESP32-S3, ESP32-S3-WROOM, outdoor games, gaming stations, gaming facilities
 ]{%
-Klíčová slova v~originálním jazyce
+mikrokontrolér, ESP32, ESP32-C3-MINI-1, ESP32-S3, ESP32-S3-WROOM, outdoorové hry, herní stanoviště, herní zařízení
+% Klíčová slova v~originálním jazyce
 }
 
 %%% Poděkování
 \acknowledgement{%
-Rád bych poděkoval vedoucímu bakalářské/diplomové/disertační práce
-panu Ing.~XXX YYY, Ph.D.\ za odborné vedení,
+Rád bych poděkoval vedoucímu semestrální práce
+panu doc. Ing. Pavlu Šteffanovi, Ph.D.\ za odborné vedení,
 konzultace, trpělivost a~podnětné návrhy k~práci.
 }%
