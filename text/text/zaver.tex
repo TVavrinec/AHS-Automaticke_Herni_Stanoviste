@@ -4,5 +4,18 @@
 
 V~práci je popsáno několik Outdoorových her, které nevyužívají elektroniku a~následně je rozebrána možnost jejich rozšíření o~elektroniku.
 Navíc~je popsána i~jedna hra, která od základu s~elektronikou počítá.
-Na základě těchto her jsou odvozeny požadavky, které jsou na elektronická zařízení ve hrách kladeny.
+Na základě těchto her jsou odvozeny požadavky, které jsou na elektronická zařízení v hrách kladeny.
 Následně byla provedena první fáze návrhu dvou zařízení, která tyto požadavky plní a~je tak možné je v~outdoorových hrách nasadit.
+
+Jedno se zařízení je určeno k tomu, aby jej hráč nosil sebou, a je dostatečně malé a levné, aby jej bylo možné používat při hrách ve velkém počtu.
+
+Druhé zařízení je určeno k tomu, aby zastoupilo organizátora na stanovišti a~umožnilo mu tak zapojení do hry jiným způsobem.
+Toto zařízení tedy už nemusí bý tak malé ani levné, protože se nepředpokládá nasazení v tak velkém počtu a je potřeba, aby bylo dobře viditelné.
+Zařízení je rozděleno na základní řídící jednotku a~moduly, které jsou k základní jednotce připojeny pomocí UARTu.
+Nestandardně je UART použit pro komunikaci jeden s více, namísto standardního jeden s jedním (viz podkapitola \ref{sec:ModulovyKonektor}).
+To umožňuje připojení více modulů k jedné základní jednotce bez potřeby přeposílání zpráv skrz moduly.
+Potenciálně zajímavou částí základní jednotky je také tlaková plocha (viz kapitola \ref{popisTlakovky}), která umožňuje hráčům interagovat se základním zařízením pomocí doteku a tlaku.
+
+Předpokládaný další vývoj je konkrétní návrh elektroniky obou zařízení a alespoň modulu dvířka.
+Také je zapotřebí navrhnout mechanickou stránku obou zařízení a modulu.
+Následně bude třeba vše vyrobit, zprovoznit a otestovat v nějaké reálné hře.

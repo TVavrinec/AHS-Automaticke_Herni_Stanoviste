@@ -1,8 +1,8 @@
 Uživatelským požadavkem je dynamické zařízení sloužící například jako identifikátor hráče, nebo jako herní nástroj.
-Mělo by ale být sto zastat i~roli statického zařízení, pro případy her na delších výletech, kde by bylo nepraktické nosit s~sebou velké zařízení.
+Mělo by ale být schopno zastat i~roli statického zařízení, pro případy her na delších výletech, kde by bylo nepraktické nosit s~sebou velké zařízení.
 Vyžaduje tedy dostatečnou mobilitu, aby uživateli nepřekáželo v~pohybu.
-Zároveň by zařízení mělo být co nejlevnější, pro případ ztráty nebo poškození.
-Z~toho plynou požadavky na velikost výslednou konstrukci zařízení.
+Zároveň by zařízení mělo být co nejlevnější pro možnost nasazení ve velkém počtu.
+Z~toho plynou požadavky na výslednou konstrukci a velikost zařízení.
 
 Zařízení by mělo být schopno komunikovat s~ostatními zařízeními, ať už statickými nebo dynamickými.
 Potřebuje také světelný výstup pro zobrazování herních stavů a~jednoduchý vstup pro ovládání.
@@ -13,7 +13,7 @@ Světelný výstup bude realizován pomocí pěti inteligentních RGB LED.
 Číslo pět bylo zvoleno jako maximální množství, které se pohodlně vleze vedle sebe na desku plošných spojů o~šířce mikrokontroleru ESP32-C3-MINI-1 \cite{ESP32C3}.
 ESP32-C3-MINI-1 byl vybrán jakožto nejlevnější mikrokontroler z~rodiny ESP32, který má zároveň Wi-Fi a~Bluetooth.
 
-Abychom se vyhnuli elektronice řešící baterii, je napájení zajištěno pomocí USB-A konektoru a~powerbanky.
+Abych se vyhnul elektronice řešící baterii, je napájení zajištěno pomocí USB-A konektoru a~powerbanky.
 
 ESP32-C3-MINI-1 má stejně jako ESP32-S3 USB periferii, která se dá využít na programování zařízení.
 I~tady je ale problém, že se tato metoda dá softwarově rozbít a~zařízení je proto vybaveno stejným programovacím konektorem jako ESP32-S3 na AHS.

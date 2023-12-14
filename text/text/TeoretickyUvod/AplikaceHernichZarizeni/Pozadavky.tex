@@ -1,5 +1,8 @@
-Z~potřeb popsaných her nám vyplývají požadavky na zařízení.
-Tato zařízení lze rozdělit na statická a~dynamická, podle toho, zda je má hráč nosit všude s~sebou nebo s~nimi jen interaguje na nehybném stanovištích.
+Z~potřeb popsaných her vyplývají požadavky na zařízení.
+Tato zařízení lze rozdělit na statická a~dynamická, podle toho, zda je má hráč nosit všude s~sebou nebo s~nimi jen interaguje na nehybném stanovišti.
+V obou dvou případech je vhodné mít co možná nejjednodušší metodu vytváření her.
+Není tedy vhodné program pro každou hru psát v samostatném projektu v jazyce C.
+Proto je potřeba mít nějakou metodu, která umožní vytvářet hry v~nějakém jednodušším jazyce např. v~Pythonu a nebo JavaScriptu.
 
 \subsection{Dynamická zařízení}
 Dynamická zařízení jsou ta, která má hráč nosit s~sebou.
@@ -8,22 +11,21 @@ Zároveň by měla být co nejlevnější, aby se dalo nasadit v~dostatečném m
 Potřebuje také světelný výstup pro zobrazování herních stavů a~jednoduchý vstup pro ovládání. 
 
 \subsection{Statická zařízení}
-Statická zařízení jsou ta, u~nichž nepředpokládáme, že je bude hráč nosit s~sebou.
+Statická zařízení jsou ta, u~nichž nepředpokládám, že je bude hráč nosit s~sebou.
 To ovšem neznamená, že mohou být libovolně velká a~těžká, pořád je potřeba, aby bylo snadné je přesunout z~místa na místo.
 Stejně jako dynamická zařízení potřebují světelný výstup, aby bylo možno signalizovat herní stav a~reagovat na hráče.
 Také je potřeba vstup, na což většinou stačí obyčejná tlačítka.
 Problém je ale určit jaké a~kolik jich bude potřeba.
-Některé hry vyžadují třeba jen jedno, ale takové, aby se do něj dalo co nejpohodlněji praštit v~běhu, protože je zrovna cílem ke stanovišti co nejrychleji doběhnout jako u~třeba u~hry King of the hill \ref{KOTH}.
-Jiná hra může vyžadovat tlačítek víc, ale už není potřeba, aby byly tak velké, protože hráč při jejich používání nebude tak akční, ale bude třeba zadávat heslo, jako u~hry Špionská síť \ref{SpionskeSite}.
+Některé hry vyžadují třeba jen jedno, ale takové, aby se do něj dalo co nejpohodlněji praštit v~běhu, protože je zrovna cílem ke stanovišti co nejrychleji doběhnout jako u~třeba u~hry King of the hill {viz: \ref{KOTH}}.
+Jiná hra může vyžadovat tlačítek víc, ale už není potřeba, aby byly tak velké, protože hráč při jejich používání nebude tak akční, ale bude třeba zadávat heslo, jako u~hry Špionská síť {viz: \ref{SpionskeSite}}.
 Univerzálnější je tedy nepoužívat tlačítka, ale nějaký systém, který se dá softwarově přizpůsobit.
 Příkladem může být dotyková plocha, která se dá softwarově rozdělit na různé oblasti sloužící jako tlačítka a~i během hry se tak dá počet tlačítek měnit.
 Další důležitou vlastností je možnost komunikace s~ostatními zařízeními, která do hry přináší novou možnost jak stanoviště propojit a~také pohodlnou metodu jak stanoviště nastavit přes telefon.
 V~neposlední řadě je vhodné mít zvukový výstup, který může být použit např. jako potvrzení zadaného hesla, nebo odezva na prostý klik na dotykovou plochu.
 
 Aby ale bylo možné zařízení použít v~různých hrách, je potřeba aby bylo možné ho přizpůsobit konkrétním potřebám.
-Z~toho důvodu považujeme za vhodné k~základnímu zařízení moci připojit modul pro konkrétní herní mechaniky.
-
-Z~toho nám tedy plyne diagram \ref{fig:diagram_zanoreni_0}.
+Z~toho důvodu považuji za vhodné k~základnímu zařízení moci připojit modul pro konkrétní herní mechaniky.
+Z~toho tedy plyne diagram \ref{fig:diagram_zanoreni_0}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.65\textwidth]{text/TeoretickyUvod/AplikaceHernichZarizeni/diagram/zanoreni_0.pdf}
@@ -43,14 +45,13 @@ Pro čtení na blízko je cílem přímá interakce se zařízením, např. u~za
 Proto je vhodné mít kruhů více, aby bylo možné zobrazovat tyto informace na různých kruzích, které mohou navíc být svému účelu přizpůsobeny.
 Jeden kruh tak může svítit jen jedním směrem, aby ho hráč viděl celý najednou pro blízkou interakci, zatímco druhý kruh může svítit do všech stran, aby byl vidět z~co nejvíce míst.
 
-Potřeba propojení s~telefonem nám omezuje možnosti co se týče bezdrátové komunikace, protože telefony jsou většinou vybaveny Bluetooth a~WiFi.
+Potřeba propojení s~telefonem nám omezuje možnosti co se týče typu bezdrátové komunikace, protože telefony jsou většinou vybaveny Bluetooth a~WiFi.
 Také se v~telefonech rozšiřuje NFC, to je však pro tuto aplikaci z~důvodu krátkého dosahu nevhodné.
 
 Posledním systémem, který je třeba zmínit, je zvukový výstup.
 Protože většinou stačí jen jednoduchá zvuková odezva, není potřeba plnohodnotný zvukový systém.
-Pro hry, které budou potřebovat přehrávat libovolnou nahrávku, bude samostatný zvukový modul, případně je možnost nahrávku přehrát přes uživatelův telefon.
+Pro hry, které budou potřebovat přehrávat libovolnou nahrávku, může být použit samostatný zvukový modul, případně je možnost nahrávku přehrát přes uživatelův telefon.
 V~základním zařízení je proto potřeba jen jednoduchý bzučák, například jako odezva na kliknutí.
-
 Můžeme tedy diagram upravit na \ref{fig:diagram_zanoreni_1}.
 \begin{figure}[h]
     \centering
@@ -62,8 +63,8 @@ Můžeme tedy diagram upravit na \ref{fig:diagram_zanoreni_1}.
 Celé zařízení by také mělo být alespoň částečně voděodolné, aby se dalo použít třeba i~za deště.
 
 \subsection{Využití telefonu \label{VyuzitiTelefonu}}
-Podstatný fakt je, že prakticky všichni u~sebe dnes mají chytrý telefon, čehož můžeme využít.
-Nemá proto velký význam, aby naše statické nebo dynamické zařízení suplovalo funkce telefonu.
+Podstatný fakt je, že prakticky všichni u~sebe dnes mají chytrý telefon, čehož mohu využít.
+Nemá proto velký význam, aby statické nebo dynamické zařízení suplovalo funkce telefonu.
 Např. grafický výstup typu display proto v~podobném zařízení není potřeba, a~v tomto směru už odvádí telefon naprosto dostatečnou práci.
 Pokud by tedy v~rámci hry bylo potřeba například předat hráči text nebo obrázek, může jej zařízení poslat uživateli na telefon.
 Telefon by se tedy dal zařadit mezi dynamická zařízení.
@@ -77,13 +78,3 @@ Pro hráče ani organizátory také nemusí být zrovna komfortní před hrou za
 % Telefon také není například na stanovišti v~lese dobře viditelný.
 V~neposlední řadě jde také o~jistý "cool efekt", který běžné zařízení jako mobil nebo třeba tablet neposkytne. %%TODO: tohle chce nějak přeformulovat
 
-
-% Zařízení určené primárně pro outdoorové hry bychom mohli rozdělit na dvě skupiny, statické a~dynamické, protože jsou na tyto skupiny kladeny výrazně jiné požadavky.
-% Dynamická zařízení jsou ta, která může uživatel pohodlně nosit s~sebou.
-% Do dynamických zařízení by se tak dal zařadit právě i~telefon, ten však může být z~různých důvodu nevhodný a~proto i~tato zařízení dává smysl navrhnout specificky pro hry.
-% Statické zařízení je naopak zařízení, u~kterého se nepředpokládá, že jej bude hráč nosit s~sebou.
-% Přesto by mělo být jednoduše přenositelné, má jít o~stanoviště, které se pohodlně donese na své místo a~během hry se s~ním nebude pohybovat.
-% Takové zařízení by tedy mělo být dobře viditelné a~splňovat požadavky, které na něj konkrétní hra klade. %%TODO: tohle chce nějak přeformulovat?
-% Požadavky různých her můžou být ale dost rozdílné, častým požadavkem je něco uchovávat a~např. po zadání hesla hráči vydat.
-% Hra ale taky může vyžadovat, aby bylo zařízení schopné přehrát audio nahrávku nebo naopak pořídit záznam. %%TODO: tohle chce nějak přeformulovat?
-% Z~těchto důvodů považujeme za vhodnější zařízení koncipovat jako základní řídící jednotku, která je samostatně funkční a~použitelná při hře, ale ke které se dají jednoduše připojit moduly pro konkrétní herní mechaniky.
