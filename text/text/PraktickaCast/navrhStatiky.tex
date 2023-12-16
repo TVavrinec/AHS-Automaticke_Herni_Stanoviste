@@ -161,63 +161,24 @@ Dostupné možnosti jsou:
     \small
     \begin{tabular}{|l|l|l|l|l|c|}
         \hline
-        Mikrokontroler              & Procesor      & Počet GPIO pinů    & Počet UARTů   & Počet I2C & Wi-Fi a Bluetooth                \\ \hline
-        ESP32      \cite{ESP32}     & 2x Xtensa LX6 & 34                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
-        ESP32-S3   \cite{ESP32S3}   & 2x Xtensa LX7 & 45                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
-        ESP32-C6   \cite{ESP32C6}   & 1x RISC-V     & 34                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
-        PIC32MZ-W1 \cite{PIC32MZ}   & DS60001192    & 62                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
+        Mikrokontroler                   & Jádro         & Počet GPIO pinů    & Počet UARTů   & Počet I2C & Wi-Fi a Bluetooth                \\ \hline
+        ESP32        \cite{ESP32}        & 2x Xtensa LX6 & 34                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
+        ESP32-S3     \cite{ESP32S3}      & 2x Xtensa LX7 & 45                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
+        ESP32-C6     \cite{ESP32C6}      & 1x RISC-V     & 34                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
+        PIC32MZ-W1   \cite{PIC32MZ}      & DS60001192    & 62                 & 3             & 2         & \textcolor{green}{\checkmark}    \\ \hline
+
+        \textcolor{red}{nRF7000      \cite{nRF7000}}      & -             & \textcolor{red}{13}& \textcolor{red}{0} & \textcolor{red}{0}    & \textcolor{green}{\checkmark}    \\ \hline
+        \textcolor{red}{RTL8710      \cite{RTL8710}}      & ARM Cortex-M3 & \textcolor{red}{17}& \textcolor{red}{1} & 3                     & \textcolor{green}{\checkmark}    \\ \hline
+        \textcolor{red}{RTL8721DM    \cite{RTL8721DM}}    & -             & \textcolor{red}{17}& 3                  & 2                     & \textcolor{green}{\checkmark}    \\ \hline
+        \textcolor{red}{STM32WB55    \cite{STM32WB55}}    & ARM Cortex-M4 & 37                 & \textcolor{red}{1} & 2                     & \textcolor{red}{$\times$}        \\ \hline
+        \textcolor{red}{MSP430BT5190 \cite{MSP430BT5190}} & -             & 32                 & 4                  & 4                     & \textcolor{red}{$\times$}        \\ \hline
     \end{tabular}
     \caption{Dostupné vyhovující mikrokontrolery}
     \label{tab:vyberMikrokontroleru}
 \end{figure}
-Při procházení stránek výrobců jsem nenašel jiný mikrokontroler, který by splňoval všechny požadavky \cite{NordicWiFi}.
-Většina mikrokontrolerů s~integrovaným bezdrátovým rozhraním nemá WiFi a~Bluetooth dohromady, a~ty, co mají, mají zase nedostatek GPIO pinů.
-Například nRF7000 \cite{nRF7000} má pouze 13 GPIO pinů, RTL8710 má 17 GPIO pinů \cite{RTL8710}, RTL8721 \cite{RTL8721DM} má GPIO pinů také 17. 
-STM32WB55 \cite{STM32WB55} nebo MSP430BT5190 \cite{MSP430BT5190} zase nemají Wi-Fi.
 
-% ESP32:
-% \begin{itemize}
-%     \item Procesor: Tensilica Xtensa LX6, 2~jádra, až \(240\-[MHz]\) \cite{ESP32}
-%     \item Počet GPIO pinů: 34
-%     \item Počet UARTů: 3
-%     \item Počet I2C: 2
-% \end{itemize}
-
-ESP32 by bylo použito na modulu ESP32-wrover \cite{ESP32-WROOM}, který řeší anténu a flash~paměť.
-Počet GPIO pinů mu tak klesne na 32, z čehož je 6 pinů připojeno na flash~paměť a jejich použití by tak bylo problematické, mikrokontroler proto z výběru vyřazuji.
-
-% ESP32-C6:
-% \begin{itemize}
-%     \item Procesor: Tensilica Xtensa LX6, 1~jádro, až \(160\-[MHz]\) \cite{ESP32C6}
-%     \item Počet GPIO pinů: 34
-%     \item Počet UARTů: 3
-%     \item Počet I2C: 2
-% \end{itemize}
-
-Stejně jako ESP32 by i ESP32-C6 bylo použito na modulu ESP32C6-WROOM \cite{ESP32C6-WROOM}, který řeší anténu a flash~paměť.
-Počet GPIO pinů mu tak klesne na 23, mikrokontroler proto z výběru vyřazuji.
-
-% ESP32-S3:
-% \begin{itemize}
-%     \item Procesor: Tensilica Xtensa LX7, 2~jádra, až \(240\-[MHz]\) \cite{ESP32S3}
-%     \item Počet GPIO pinů: 45
-%     \item Počet UARTů: 3
-%     \item Počet I2C: 2
-% \end{itemize}
-
-I ESP32-S3 by bylo použito na modulu ESP32-S3-WROOM \cite{ESP32S3-WROOM}, který řeší anténu a flash~paměť.
-Počet GPIO pinů mu tak klesne na 36, což je pořád dostatečné množství.
-
-% PIC32MZ-W1:
-% \begin{itemize}
-%     \item Procesor: DS60001192, 1~jádro, až \(200\-[MHz]\) \cite{PIC32MZ}
-%     \item Počet GPIO pinů: 62
-%     \item Počet UARTů: 3
-%     \item Počet I2C: 2
-% \end{itemize}
-
-PIC32MZ-W1 by bylo použito na modulu WFI32E01PC \cite{WFI32E01PC}, který řeší anténu a flash~paměť.
-Počet GPIO pinů mu tak klesne na 37, což je pořád dostatečné množství.
+Abych nemusel řešit anténu použil bych mikrokontroler na modulu, který má anténu integrovanou, a navíc řeší i flash paměť. 
+Protože už tyto moduly interně používají některé GPIO, klesne množství, které mohu využít.
 
 \begin{figure}[h]
     \centering
