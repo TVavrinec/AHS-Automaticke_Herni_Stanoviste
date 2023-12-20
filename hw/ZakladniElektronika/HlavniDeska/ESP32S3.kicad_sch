@@ -850,7 +850,7 @@
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 9ba4b155-2844-4377-884b-28bdcd8d9e76)
   )
-  (hierarchical_label "5V-(programator)" (shape input) (at 53.34 71.12 90) (fields_autoplaced)
+  (hierarchical_label "5V-(programator)" (shape output) (at 53.34 71.12 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 9d9a3c0b-859a-41b2-99f7-38a1b0c19d0e)
   )
