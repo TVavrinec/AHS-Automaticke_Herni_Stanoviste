@@ -296,6 +296,10 @@
           (stroke (width 0) (type default))
           (fill (type background))
         )
+        (pin power_in line (at -1.27 -38.1 90) (length 2.54) hide
+          (name "PGND" (effects (font (size 1.27 1.27))))
+          (number "0" (effects (font (size 1.27 1.27))))
+        )
         (pin no_connect line (at -10.16 -30.48 0) (length 2.54)
           (name "NC" (effects (font (size 1.27 1.27))))
           (number "11" (effects (font (size 1.27 1.27))))
@@ -2005,6 +2009,7 @@
     (pin "7" (uuid 23b7f889-09ee-4449-844f-aa57f996c7c9))
     (pin "8" (uuid 727b8795-6af8-4ece-9593-e7eb549efbfb))
     (pin "9" (uuid 5cd1dc7c-1c18-4eeb-9d4f-cf0dc1f06c16))
+    (pin "0" (uuid a726856c-7fd1-4f17-9785-d6769c07c2c7))
     (pin "11" (uuid b5788c6a-2c3f-4c0a-aed8-27f237b13c92))
     (pin "12" (uuid 54deddd9-1ea2-4ad6-b8ca-7dd20f282b43))
     (instances
