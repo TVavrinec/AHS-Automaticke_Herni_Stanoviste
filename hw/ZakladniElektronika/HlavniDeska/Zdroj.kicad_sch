@@ -1457,7 +1457,7 @@
     (uuid a0ca8b65-3582-4ab2-b81d-77a3261882ae)
   )
 
-  (wire (pts (xy 109.22 48.26) (xy 109.22 50.8))
+  (wire (pts (xy 160.02 91.44) (xy 160.02 88.9))
     (stroke (width 0) (type default))
     (uuid a315cd28-872d-4543-8b4f-287a0b63295b)
   )
@@ -2284,25 +2284,25 @@
     )
   )
 
-  (symbol (lib_id "Connector:TestPoint") (at 109.22 48.26 0) (unit 1)
+  (symbol (lib_id "Connector:TestPoint") (at 160.02 91.44 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a77bd4d6-c39e-403e-9960-a86dbbd08b40)
-    (property "Reference" "TP2" (at 106.68 40.64 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (property "Reference" "TP2" (at 160.02 99.06 0)
+      (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "TestPoint-BAT" (at 106.68 43.18 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (property "Value" "TestPoint-BAT" (at 160.02 96.52 0)
+      (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Connector_Pin:Pin_D0.9mm_L10.0mm_W2.4mm_FlatFork" (at 114.3 48.26 0)
+    (property "Footprint" "Connector_Pin:Pin_D0.9mm_L10.0mm_W2.4mm_FlatFork" (at 154.94 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 114.3 48.26 0)
+    (property "Datasheet" "~" (at 154.94 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "JLCPCB_IGNORE" "ignore" (at 109.22 48.26 0)
+    (property "JLCPCB_IGNORE" "ignore" (at 160.02 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 6ae2381f-6e05-4513-bdc6-e8c8adec60c0))
+    (pin "1" (uuid bdc34493-7ee2-41c9-ade8-dc3bffe47c0c))
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/aae02708-da26-44dd-a602-660fbe003309/fb40dfe9-3eea-4dc3-8528-de588088c9ea"
@@ -2375,9 +2375,6 @@
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/6a867e96-34ab-4d6c-a824-47bb4ec04e8c/ce80afa3-69fc-487e-b3dd-dc49be4fd80f"
           (reference "C18") (unit 1)
-        )
-        (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/6a867e96-34ab-4d6c-a824-47bb4ec04e8c/347f0ed9-f7fd-4b78-93c0-d59ffe3f4044"
-          (reference "C78") (unit 1)
         )
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/aae02708-da26-44dd-a602-660fbe003309/fb40dfe9-3eea-4dc3-8528-de588088c9ea"
           (reference "C143") (unit 1)

@@ -34,9 +34,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.762,
-          "height": 1.524,
-          "width": 1.524
+          "drill": 0.0,
+          "height": 0.55,
+          "width": 0.3
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -46,7 +46,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.19999999999999998
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -512,12 +512,12 @@
       "HlavniDeska"
     ],
     [
-      "ce80afa3-69fc-487e-b3dd-dc49be4fd80f",
-      "LedRing-Axial"
+      "1d1cb1b6-236f-4eef-92fc-b65f420ff0fe",
+      "LedRing-Axial1"
     ],
     [
-      "347f0ed9-f7fd-4b78-93c0-d59ffe3f4044",
-      "LedRing-Radial"
+      "ce80afa3-69fc-487e-b3dd-dc49be4fd80f",
+      "LedRing-Axial"
     ],
     [
       "3abb0ef0-3dd5-4818-a187-7e9bc43bafd4",
