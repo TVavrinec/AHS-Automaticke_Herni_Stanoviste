@@ -1658,7 +1658,7 @@
     (property "LCSC" "C480368" (at 71.12 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "JLCPCB_CORRECTION" "0;-1;0" (at 71.12 58.42 0)
+    (property "JLCPCB_CORRECTION" "0;-3.5;0" (at 71.12 58.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Basic/Extended" "E" (at 71.12 60.96 0)
@@ -1761,8 +1761,8 @@
     (property "Basic/Extended" "B" (at 241.3 110.49 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid afd6fa3d-4de6-4db8-9c76-86eff8074d9a))
-    (pin "2" (uuid 4eebeebb-6aa6-4e7c-8351-f385514c8b71))
+    (pin "1" (uuid 360f9348-f66b-4d46-bfe6-ec0f8697c6e8))
+    (pin "2" (uuid afe5ebd1-d513-4a31-b2a4-4f92b995db51))
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2f609c37-b91c-437d-a066-c26014011f90"
@@ -1878,8 +1878,8 @@
     (property "info" "50V, X7R" (at 223.52 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 72a811e7-c560-437f-886c-eb370f5856ac))
-    (pin "2" (uuid d232f61c-c750-4edb-8aba-f2d89a2b8617))
+    (pin "1" (uuid 39189a98-eaa8-473c-b5e6-ca3314180495))
+    (pin "2" (uuid 56bad3e0-0263-4d0a-ae54-ad01f0a10a3a))
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2f609c37-b91c-437d-a066-c26014011f90"
@@ -1988,6 +1988,9 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Basic/Extended" "E" (at 96.52 92.71 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "JLCPCB_CORRECTION" "0;0;-90" (at 96.52 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "3" (uuid 37908064-4991-4002-b34f-693cf5183208))
@@ -2125,8 +2128,8 @@
     (property "info" "50V, X7R" (at 193.04 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 322b9b7a-2a4d-4021-b7ea-323205c526c1))
-    (pin "2" (uuid d6dae6c5-5c5d-4beb-a662-ba86aa0ca573))
+    (pin "1" (uuid 18491f90-af4a-44fe-ab43-106e495bad93))
+    (pin "2" (uuid 45e81382-2146-4732-9c3c-9c0a88bf9fcf))
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2f609c37-b91c-437d-a066-c26014011f90"
@@ -2199,8 +2202,8 @@
     (property "Basic/Extended" "B" (at 241.3 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid bd33358b-0ec4-4142-a32f-7be3e7e56ab8))
-    (pin "2" (uuid e8d84d52-4326-46d3-8457-b5ded2fd9b57))
+    (pin "1" (uuid dbaad2e9-bf0e-4a8d-a8e9-474d850795ca))
+    (pin "2" (uuid 4854a172-1133-4865-b68e-da21a9b9e898))
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2f609c37-b91c-437d-a066-c26014011f90"
@@ -2242,8 +2245,8 @@
     (property "info" "50V, X5R (potenciálně C52923 což je 25V, X5R )" (at 182.88 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a889aacf-a39c-4c34-8a5e-27dfd9218c98))
-    (pin "2" (uuid 9bae2cf7-318d-4198-87b3-ba0d3e61d7d3))
+    (pin "1" (uuid 5708669d-23da-44c2-8fb4-5af23d90e82c))
+    (pin "2" (uuid 50c0f0f4-c5bc-4ff6-bf71-d718caaa3311))
     (instances
       (project "ZakladniElektronika"
         (path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e/2f609c37-b91c-437d-a066-c26014011f90"

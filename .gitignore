@@ -26,7 +26,6 @@ fp-info-cache
 
 # Exported BOM files
 *.xml
-*.csv
 
 hw/ZakladniElektronika/#auto_saved_files#
 
@@ -67,3 +66,7 @@ hw/ZakladniElektronika/~ZakladniElektronika.kicad_sch.lck
 *.out
 *.lck
 hw/ZakladniElektronika/ZakladniElektronika.step
+hw/ZakladniElektronika/jlcout/HlavniDeska/gerber
+hw/ZakladniElektronika/jlcout/KontaktniDeska/gerber
+hw/ZakladniElektronika/jlcout/KontaktniDeskaHlinik/gerber
+hw/ZakladniElektronika/jlcout/LedDeska/gerber
