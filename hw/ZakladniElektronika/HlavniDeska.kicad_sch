@@ -1101,7 +1101,7 @@
     (property "Value" "Buzzer" (at 284.48 162.56 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "RKL-StandardPackages:PKLCS1212E-(RH-Logic_piezzo)" (at 283.845 165.1 90)
+    (property "Footprint" "RKL-Audio:PKLCS1212E-(RH-Logic_piezzo)" (at 283.845 165.1 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 283.845 165.1 90)
