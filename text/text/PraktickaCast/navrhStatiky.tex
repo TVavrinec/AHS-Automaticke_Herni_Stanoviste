@@ -17,12 +17,12 @@ Radiální kruh je pak také v~horní části zařízení a~slouží naopak pro 
 Uvnitř axiálního světelného kruhu se bude nacházet tzv. tlaková plocha.
 \label{popisTlakovky} Jedná se o~ovládací prvek podobný dotykové ploše, s~tím rozdílem, že je schopen měřit i~sílu, která na něj působí.
 Tento prvek je založen na měření rezonanční frekvence snímacích LC článků, nad kterými se nachází tlaková plocha.
-Tlaková plocha je vodivý objekt, ve kterém se cívkou LC článku indukují vířivé proudy a následně se jimi indukují proudy zpět v cívce LC článku.
+Tlaková plocha je vodivý objekt, ve kterem se cívkou LC článku indukují vířivé proudy a následně se jimi indukují proudy zpět v cívce LC článku.
 Tím plocha ovlivňuje indukčnost cívky a tedy i rezonanční frekvenci LC článku.
 Ovlivnění indukčnosti je závislé na vzdálenosti plochy od cívky a tedy i na síle, která na plochu působí.
 Velikost síly, která na plochu působí, totiž ovlivňuje její průhyb a tedy i vzdálenost od cívky.
 Díky velkému rozlišení použitého čipu LDC1614 \cite{LDC1614} (28 bitů) je možné měřit změny vzdálenosti v řádu jednotek mikrometrů \cite{LDC1614LinearPositionSensing}.
-Tato metoda je tedy schopna měřit vzdálenost plochy od jednotlivých cívek, ty jsou čtyři, a plochu tak snímají na čtyřech místech.
+Tato metoda je tedy schopna měřit vzdálenost plochy od jednotlivých cívek, které jsou čtyři, a plochu tak snímají na čtyřech místech.
 Následně je z těchto hodnot možno dopočítat, jak je plocha nakloněna a tím určit, kde se jí uživatel dotýká.
 % Protože je zároveň možné určit i sílu jakou uživatel při dotyku vyvinul, dostal tento systém jméno tlaková plocha. % silová by bývalo přesnější ale nějak mi to nejde přes pysky
 
@@ -53,11 +53,11 @@ V~rámci tohoto komunikačního modulu bude možné používat navíc i~GNSS \fo
 Vzhledem k~faktu, že se přece jen nejedná o~systém, který by využila většina her a~zároveň je poměrně drahý, došel jsem k~rozhodnutí mít jej jen jako doplnitelný modul.
 Protože se ale jedná o~modul, který zprostředkovává komunikaci se světem, je pravděpodobné, že bude potřebovat převádět výrazně větší množství dat než běžný modul.
 Primárně z~tohoto důvodu je tento modul připojen na samostatném konektoru, přímo uvnitř základního zařízení.
-Potřebné antény budou už v~základním zařízení, ale samotný modul spadá do doplňkové výbavy.
+Potřebné antény mohou být už v~základním zařízení, ale samotný modul spadá do doplňkové výbavy.
 
 V~řadě případů je užitečné mít možnost zvukové zpětné vazby.
 Ideální by bylo moci přehrávat libovolnou nahrávku, většinou ale stačí jednoduchý tón, řekněme jako potvrzení zadaného hesla.
-Možnost přehrávat plnohodnotnou nahrávku proto odsouvám na samostatný modul a~v základní jednotce pro jednoduchost postačí piezoměnič.
+Možnost přehrávat plnohodnotnou nahrávku proto odsouvám na samostatný modul a~v základní jednotce pro jednoduchost postačí piezoměnič nebo podobná sirénka.
 
 Z~požadavků mi vyplynulo zařízení, jehož vzhled je nastíněn na obrázku \ref{fig:AHS-nacrt}.
 \begin{figure}
@@ -70,8 +70,10 @@ Z~požadavků mi vyplynulo zařízení, jehož vzhled je nastíněn na obrázku 
 \newpage
 \section{Struktura elektroniky základní jednotky}
 
-Elektronika je rozdělena na tři samostatné PCB.
-Jde o~hlavní desku, na které je většina elektroniky, o~desku s~hlavním uživatelským rozhraním (LED deska) a~o~obslužnou desku s~minimalistickým uživatelským rozhraním pro neherní obsluhu (Mini~UI).
+Elektronika je rozdělena na dvě samostatné PCB.
+Jde o~hlavní desku, na které je většina elektroniky a o~desku s~hlavním uživatelským rozhraním (LED deska).
+
+Původně jsem uvažoval ještě třetí desku, se základním uživatelským rozhraním (mini~UI) pro usnadnění zajištění jisté míry voděodolnosti, ale nakonec jsem se rozhodl spojit ji s hlavní deskou.
 
 \subsection{LED deska}
 Na LED desce se nacházejí oba světelné kruhy a~elektronika pro snímání tlakové plochy, tedy LDC1614 \cite{LDC1614} a~jeho snímací LC články.
@@ -82,18 +84,6 @@ Právě snímaní tlakové plochy je jeden z~podstatných důvodů oddělení t�
     \item Radiální LED kruh z~60 RGB LED WS2812
     \item LDC1614 nebo LDC1314 se čtyřmi snímacími LC články pro snímání tlakové plochy
     \item konektor na propojení s~hlavní deskou
-\end{itemize}
-
-\subsection{Mini UI}
-Kvůli aktuální představě mechanické konstrukce není úplně dobře možné mít toto minimalistické uživatelské rozhraní na hlavní desce.
-Proto jsem se rozhodl jej oddělit na samostatnou desku, na které bude jen pár tlačítek a~dvě signalizační LEDky.
-
-\begin{itemize}
-    \item RESET tlačítka
-    \item BOOT tlačítka
-    \item zapínací tlačítko
-    \item dvě uživatelská tlačítka 
-    \item dvě uživatelské LEDky
 \end{itemize}
 
 \subsection{Hlavní deska}
@@ -108,7 +98,7 @@ Aby nebylo možné softwarově baterii podvybít, má AHS ochranu podvybitím, k
 Pochopitelně software by měl vybitou baterii zaznamenat mnohem dřív a~chovat se podle toho, např. neumožnit spustit hru s~baterií při napětí 3.0V.
 
 Na hlavní desce je i~nabíjecí elektronika.
-Navíc, aby se minimalizoval čas nabíjení, zařízení podporuje standard Power Delivery a~to až do napětí 21V.
+Navíc, aby se minimalizoval čas nabíjení, zařízení podporuje standard Power Delivery a~to až do napětí 14V.
 
 Protože různé periferie vyžadují různá napájecí a~komunikační napětí, je na hlavní desce hned pět napájecích větví.
 \begin{itemize}
@@ -121,14 +111,13 @@ Protože různé periferie vyžadují různá napájecí a~komunikační napět�
 Napětí větví \(3.3\-[V]\) a~\(1.8\-[V]\) je tvořeno pomocí LDO.
 Na vytvoření větve \(5\-[V]\) je ale potřeba spínaný zdroj a~to primárně ze dvou důvodů.
 Za prvé protože napětí baterie, ze které se tato větev napájí, má nižší napětí a~je jej tedy třeba vyspínat na napětí vyšší.
-Za druhé tento zdroj poskytuje do systému mnohem větší proudy než druhé dvě větve a~bylo by tedy vhodné použít spínaný zdroj i~v případě použití sériového řazení článků.
+Za druhé tento zdroj poskytuje do systému mnohem větší proudy než druhé dvě větve a~bylo by tedy vhodné použít spínaný zdroj i~v případě vyžšího vstupního napětí.
 
 \newpage
 Na hlavní desce je také řada konektorů sloužící pro připojení ostatních systémů.
 Jde o~konektory na:
 \begin{itemize}
     \item propojení s~LED deskou                                            % samostatný objekt
-    \item připojení Mini UI                                                 % samostatný objekt
     \item komunikační modul (M2 Konektor umožňuje použít různé moduly)      % externě definovaný objekt
     \item externí moduly                                                    % samostatný objekt
     \item USB-C (nabíjení a~programování AHS)                               % externě definovaný objekt
@@ -150,12 +139,6 @@ Požadavky na mikrokontroler jsou:
 \end{itemize}
 
 Dostupné možnosti jsou:
-% \begin{itemize}
-%     \item ESP32                 \cite{ESP32}
-%     \item ESP32-S3              \cite{ESP32S3}
-%     \item ESP32-C6              \cite{ESP32C6}
-%     \item PIC32MZ-W1            \cite{PIC32MZ}
-% \end{itemize}
 \begin{figure}[h]
     \hspace{-20mm}
     \small
@@ -198,12 +181,12 @@ Jedním z požadavků na zařízení je dostatečný výpočetní výkon pro hla
 Výpočetní výkon se porovnává poněkud složitěji, protože se nejedná tak úplně o~jeden parametr.
 V tomto případě je ale vhodné prozkoumat i dostupnost interpretru pro daný mikrokontroler.
 Pro ESP32-S3 je dostupný JavaScriptový interpreter Jaculus \cite{Jaculus} i~interpretr jazyka Python MicroPython \cite{MicroPythonESP32S3}.
-Pro PIC32MZ-W1 je dostupný interpreter jazyka Python MicroPython \cite{MicroPythonPIC32MZ-W1}, interpretter JavaScriptu jsem nenašel.
+Pro PIC32MZ-W1 je dostupný interpreter jazyka Python MicroPython \cite{MicroPythonPIC32MZ-W1}, interpretter JavaScriptu jsem však nenašel.
 ESP32-S3 mi tak poskytuje výhodu v možnosti volby skriptovacího jazyka.
 
 Další výhodou ESP32-S3 je jeho cena, která se pohybuje okolo \(4\-\$\) \cite{JSC-ESP32-S3}.
 PIC32MZ-W1 je u JLCPCB za \(13.65\-\$\) \cite{JSC-WFI32}.
-Navíc u JLCPCB je PIC32MZ-W1 sice v nabídce, ale není na skladě \cite{JSC-WFI32}, zatímco u ESP32-S3 je aktuálně dostupných 19 variant \cite{JSC-ESP32-S3}.
+Navíc u JLCPCB je PIC32MZ-W1 sice v nabídce, ale není na skladě \cite{JSC-WFI32}, zatímco u ESP32-S3 je aktuálně dostupných hned 19 variant \cite{JSC-ESP32-S3}.
 
 V mém případě má ESP32-S3 ještě jednu podstatnou výhodu, a tou je fakt, že s rodinou mikrokontrolerů ESP32 mám dlouholeté zkušenosti.
 Z těchto důvodu jsem se rozhodl pro ESP32-S3.
@@ -212,9 +195,9 @@ Z těchto důvodu jsem se rozhodl pro ESP32-S3.
 Mezi hlavní deskou a~LED deskou je třeba převést napájení a~několik signálů.
 LED deska vyžaduje na konektoru přítomnost dvou napájecích větví \(5\-[V]\) pro světelné kruhy a~\(3.3\-[v]\) pro snímání tlakové plochy.
 Protože do LEDek může téct proud až 5A a~může být zároveň i~docela rychle spínaný, považuji za rozumné oddělit napájecím větvím zem.
-Oddělení je tedy provedeno už na konektoru hlavní desky.
+Oddělení je tedy provedeno už na konektoru hlavní desky aby se omezilo rušení na napájení snímání tlakové plochy.
 
-Na samotné propojení jsem se rozhodl použít FFC kabel s~roztečí \(0.5\-[mm]\).
+Na samotné propojení jsem se rozhodl použít FFC kabel s~roztečí \(0.5\-[mm]\), pro jeho rozměry a cenovou dostupnost.
 Jedním vodičem takovéhoto kabelu lze vést proud maximálně \(0.4\-[A]\) \cite{FFC-konektor}.
 Protože ale potřebuji dodat proud až 5A, použiji 13 vodičů vedle sebe jakožto nejmenší počet, který přenese požadovaný proud v~rámci daných mezí.
 
@@ -224,6 +207,7 @@ Vzhledem k~počtu potřebných vodičů (konkrétně 32) jsem se rozhodl použí
 
 \subsection{Modulový konektor \label{sec:ModulovyKonektor}}
 Modulovým konektorem je vedeno \(5\-[V]\) jako napájení pro moduly a~UART s~interruptem pro komunikaci.
+
 Nad volbou komunikační sběrnice jsem strávil poměrně dost času přemýšlením.
 Původně jsem uvažoval o~využití RS485 jakožto odolné sběrnice, u~které by v~případě potřeby nemusel být problém ani delší kabel.
 RS485 má ale nevýhodu v~tom, že potřebuje dodatečný hardware, kterému bych se hlavně na modulech rád vyhnul.
@@ -237,7 +221,7 @@ Tato implementace používá UART jako sběrnici.
 Namísto standardního použití pro komunikace jeden s~jedním tak může komunikovat jeden s~více.
 Na tomto řešení je výhodné, že nevyžaduje žádný dodatečný hardware a~prakticky každý dnešní mikrokontroler je možné k~této sběrnici velmi snadno připojit.
 Ve srovnání s~RS485 je sice mnohem méně odolná proti rušení, ale uvnitř zařízení nebude linka vedena na víc než malé desítky centimetrů.
-Komunikace na delším kabelu je pak jednoduše nahraditelná bezdrátovou komunikací a~není tak potřebné, aby to nativně umožňovala tato sběrnice.
+Komunikace na delším kabelu je pak jednoduše nahraditelná bezdrátovou komunikací a~není tak potřebné, aby to musela tato sběrnice ze základu podporovat.
 Každopádně v~případě potřeby delšího kabelu je možné navrhnout externí modul, který s~této sběrnice velmi jednoduše udělá RS485 pro externí využití.
 Alternativně by se pro komunikaci na delším kabelu dalo použít USB, které je společně s~nabíjením přivedeno na USB-C.
 
@@ -252,22 +236,9 @@ V~neposlední řadě mají všechny piny na konektoru ESD ochranu.
 \newpage
 \subsection{Konektor programátor}
 Zařízení se dá jednoduše programovat přes USB-C, tento kanál se ale dá softwarově narušit a~pro takové případy je tu konektor na programátor.
-Jde o~šest plošek, na které se programátor připojuje pomocí pogo-pinů.
+Jde o~šest plošek, na které se programátor připojuje pomocí pružinkovích kontaktů.
 Programátor sice obsahuje jen jednoduchou elektroniku, která by mohla být i~přímo v~elektronice AHS, ale ve většině případů by byla zbytečná.
 Ve chvíli, kdy by byla potřeba, je stejně nutná odborná obsluha a~pro tu není problém použít programátor.
-
-\begin{figure}[h]
-    \vspace{-3mm}
-    \centering
-    \includegraphics[width=\textwidth]{text/TeoretickyUvod/AplikaceHernichZarizeni/img/programator.png}
-    \caption{Programovací konektor}
-    \label{fig:programator}
-\end{figure}
-Aby bylo možné zařízení programovat přes dedikovaný programovací konektor, je na konektoru i~\(5\-[V]\) napájení.
-To ale způsobuje problém ve chvíli, kdy je zařízení zároveň připojeno přes USB-C, protože se v~tu chvíli tyto zdroje zkratují.
-% Proto je na konektoru programátor i~ochrana, která v~případě připojení USB-C odpojí napájení z~programátoru, neboli jedna dioda. %jako vtip který vymyslel gitkopilot super 
-Proto je toto napájení přivedeno přes diodu, která v~případě připojení USB-C odpojí napájení z~programátoru.
-Zapojení konektoru je vidět na obrázku \ref{fig:programator}.
 
 \subsection{USB-C}
 Jako napájecí a~programovací konektor je použito USB-C.
