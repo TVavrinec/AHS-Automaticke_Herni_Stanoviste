@@ -3,7 +3,7 @@
 \documentclass[%        Základní nastavení
   12pt,       				% Velikost základního písma je 12 bodů
   a4paper,    				% Formát papíru je A4
-	twoside,      			% Dvoustranný tisk (kapitoly a další důležité části tedy začínají na lichých stranách)
+	% twoside,      			% Dvoustranný tisk (kapitoly a další důležité části tedy začínají na lichých stranách)
 	unicode,						% Záložky a metainformace ve výsledném  PDF budou v kódování unicode
 ]{report}				    	% Dokument třídy 'zpráva', vhodná pro sazbu závěrečných prací s kapitolami
 
@@ -216,7 +216,7 @@
 \chapter{Důvody elektronizace zážitkových her}
 % \chapter{Motivace pro elektronizaci zážitkové pedagogiky}
 \input{text/TeoretickyUvod/AplikaceHernichZarizeni/AHZUvod.tex}
-\section{Požadavky na zařízení}
+\chapter{Požadavky na zařízení}
 \input{text/TeoretickyUvod/AplikaceHernichZarizeni/Pozadavky.tex}
 % \section{Základní řídící jednotka}
 % \input{text/TeoretickyUvod/AplikaceHernichZarizeni/zakladAHS.tex}
@@ -252,15 +252,15 @@
 %%% Vložení souboru 'text/zkratky' se seznam použitých symbolů, veličin a zkratek
 \include{text/zkratky}
 
-%%% Začátek příloh
-% \appendix
+%% Začátek příloh
+\appendix
 
-%%% Vysázení seznamu příloh
+%% Vysázení seznamu příloh
 % (vynechejte, pokud máte dvě nebo méně příloh)
 % \listofappendices
 
-%%% Vložení souboru 'text/prilohy' s přílohami
+%% Vložení souboru 'text/prilohy' s přílohami
 % Obvykle je přítomen alespoň popis co najdeme na přiloženém médiu
-% \include{text/prilohy}
+\include{text/prilohy}
 
 \end{document}
