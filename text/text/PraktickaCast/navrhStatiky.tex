@@ -92,13 +92,12 @@ Na hlavní desce je většina systému základního zařízení.
 Řídící mikrokontroler AHS je ESP32-S3 (výběr viz \ref{subs:vyberMikrokontroleru}).
 
 Zdroj AHS je tvořen dvěma LiIon články 18650 v~paralelním uspořádání.
-Paralelní uspořádání jsem zvolil tak, aby nebylo nutné řešit balancování článků.
+Dva články volím abych zvýšil výdrž baterie a abych využití volné místa v zařízení.
+Paralelní uspořádání volil aby nebyl nutný balancer a tedy abych zjednodušil zařízeni.
+Elektronika navíc řeší i nabíjení baterie.
 
 Aby nebylo možné softwarově baterii podvybít, má AHS ochranu podvybitím, která celé zařízení vypne v~případě, že dojde k~vybití baterie pod 2.8V.
 Pochopitelně software by měl vybitou baterii zaznamenat mnohem dřív a~chovat se podle toho, např. neumožnit spustit hru s~baterií při napětí 3.0V.
-
-Na hlavní desce je i~nabíjecí elektronika.
-Navíc, aby se minimalizoval čas nabíjení, zařízení podporuje standard Power Delivery a~to až do napětí 14V.
 
 Protože různé periferie vyžadují různá napájecí a~komunikační napětí, je na hlavní desce hned pět napájecích větví.
 \begin{itemize}
@@ -240,14 +239,97 @@ Jde o~šest plošek, na které se programátor připojuje pomocí pružinkovích
 Programátor sice obsahuje jen jednoduchou elektroniku, která by mohla být i~přímo v~elektronice AHS, ale ve většině případů by byla zbytečná.
 Ve chvíli, kdy by byla potřeba, je stejně nutná odborná obsluha a~pro tu není problém použít programátor.
 
-\subsection{USB-C}
-Jako napájecí a~programovací konektor je použito USB-C.
-Díky němu je možné podporovat standard Power Delivery využitý pro zrychlení nabíjení.
-Konektor je ale použit i~na pohodlnější programování zařízení, bez potřeby programátoru.
+% \subsection{USB-C}
+% Jako napájecí a~programovací konektor je použito USB-C.
+% Konektor je ale použit i~na pohodlnější programování zařízení, bez potřeby programátoru.
 
-\subsection{Konektor komunikačního modulu}
-Pro připojení komunikačního modulu jsem zvolil konektor M2 typ-B jakožto standard pro tyto moduly.
-Díky tomuto konektoru mohu jednoduše připojit různé LTE a~GNSS moduly.
+% TODO: 
+% \subsection{Konektor komunikačního modulu}
+% Pro připojení komunikačního modulu jsem zvolil konektor M2 typ-B jakožto standard pro tyto moduly.
+% Díky tomuto konektoru mohu jednoduše připojit různé LTE a~GNSS moduly.
 
-\subsection{Mechanické uspořádání}
+\subsection{Správa napájení}
+Zařízení je vybaveno obvodem umožnující vypnutí jak uživatelské tak programové a v případě hrozícího podvybití i automaticky.
+Tento obvod zároveň kontroluje i potenciální přebití baterii a v takovém případě odpojuje napájení nabíječky.
+
+Ochrana přebití může nabíjení přerušit ještě ve chvíli kdy nabíječka nabijí a tedy signalisuje probíhající nabíjení.
+Aby nedocházelo ke zmatení uživatele je krom přerušení nabíjení zastavena i signalizace která tak začne signalizovat dobitou baterii.
+
+Původní verze správy napájení je vidět na obr\ref{fig:stary_PoverManager} (jde o o lehce upravené schéma ze kterého jsou některé části pro přehlednost odstraněny) 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{text/PraktickaCast/img/stary_power_manager.png}
+    \caption{Původní verze správy napájení}
+    \label{fig:stary_PoverManager}
+\end{figure}
+
+Tato varianta však měla jeden problém způsobený absencí hystereze u čipu kontrolující napětí baterie SL8261 \cite{SL8261}.
+Ve chvíli kdy se baterie dostala do stavu kdy bylo potřeba ji odpojit kontrola ji skutečně odpojila.
+To by bylo správně, jenže z baterie v tu chvíli pořád teče proud, který zpusobuje ubytek jejího napětí.
+Při přerušení proudu z baterie se tak napětí baterie lehce zvedlo a ochrana podvybití tak znovu sepnula.
+Behem této doby se nestihla vybít kapacita na napájecí větvi a zařízení s tak nestihlo plně vypnout.
+Obvod tedy začal oscilovat dokud napětí na baterce nekleslo ještě víc aby se už znovu nezvedlo nad rozpoznávací úroveň čipu SL8261.
+
+Tento problém má dvě potenciální řešení.
+Buť za {\bf A} vyměnit obvod SL8261 za jiný s vhodnou hysterezí nebo za {\bf B} upravit zapojení tak aby v případě kdy se čip SL8261 rozhodne zařízení vypnout se zařízení stihlo vypnout.
+Následně už může být jedno že kontrola baterie zapnutí znovu povolila, protože zařízení je vypnuto klasickým způsobem.
+Tato možnost navíc umožňuje zařízení uživatelsky znovu zapnout a pokud výrazně klesla spotřeba zařízení se ještě chvíli udrží zapnuté a uživateli tak muže zahlásit vybití.
+To muže být výhodné, např. v situacích kdy se stanoviště vybije ve chvíli kdy není nikdo kolem a když následně uživatel přijde nemusí dlouho přemýšlet co se stalo.
+
+Obvod jsem tedy přepracoval a doplnil jsem do něj jeden bit paměti do kterého muže kontrola baterie, uživatel pomocí vypínacího tlačítka nebo mikrokontroler zapsat a tím zahájit vypínání.
+Ve chvíli, kdy je vypínání zahájeno zařízení se už nedá znovu zapnout do doby než klesna napětí na napájecí vetvi výrazně pod napětí při kterém by mohlo dojít k samovolnému zapnutí (cca \(1.5 [V]\)).
+Výsledný obvod je vidět na obr.\ref{fig:PoverManager}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{text/PraktickaCast/img/power_manager.png}
+    \caption{Původní verze správy napájení}
+    \label{fig:PoverManager}
+\end{figure}
+
+
+\newpage
+
+\section{Mechanické uspořádání}
+
+Celé zařízení bude mít tvar krátkého válce, na horní stranu umístím axiální světelný kruh do kterého umístím tlakovou plochu.
+Na bocích pak bude radiální světelný kruh a základní uživatelské ovládání.
+
+Z duvodu minimalizace součástí je výhodné LEDky rediálního světelného kruhu umístit na LED desku místo na samostatný díl.
+To ovšem znamená že tyto LED musí buď svítit v ose rovnoběžné s plochou desky nebo musí být zajištěn odraz světla tak aby mohly svítit kolmo na desku a přesto svítili radiálně.
+LEDky co svítí do strany sice jsou ale nemají vhodně rozměry a navíc jsou výrazně dražší.
+Proto jsem se rozhodl použít stejné LEDky jako na axiálním kruhu a doplnit tělo zařízení o odraznou plochu která zajistí správný výsledný směr světla.
+Zároveň abych pokud možno zachoval rozlišitelnost jednotlivých LEDek přidal jsem mezi ně přepážky abych zajistil že daná LEDka bude sviti jen ve svém prostoru.
+Obojí je vidět na \ref{fig:AHS-nacrt-radializatoru}
+
+\begin{figure}[h!]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{text/PraktickaCast/img/AHS-odrazkaRozptylka.png}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{text/PraktickaCast/img/AHS-prepazky.png}
+    \end{minipage}
+    \label{fig:AHS-nacrt-radializatoru}
+    \caption{Odrazná plocha a přepážky Radiálního světelného kruhu}
+\end{figure}
+
+Významnou mechanickou částí je také uložení tlakové plochy.
+Tento systém se skládá z snímací části která je součástí LED desky a snímané části, terčíků, se kterou je v kontaktu uživatel.
+Terčíky se musí při používání pohybovat, sice málo ale za to konzistentně aby bylo možné výsledek použít jako ovládací prvek.
+Protože se navíc tlaková plocha nachází uvnitř axiálního světelného kruhu je nutné aby byly terčíky buď průsvitné nebo uchycené až uvnitř kruhu, což by ale znamenalo zmenšení snímatelné plochy.
+
+V první verzi jsem tedy terčíky řešil tenkým plošným spojem, na kterém jsem vyleptal vše krom kruhu o neco málo menší než vnitřní průměr světelného kruhu.
+Měd tak sloužila jako vodivý terčík a sklolaminát sice není úplně čirý ale v tomto případě byla mírná difuze světla vlastně i prospěšný.
+Tuto DPS jsem následně přilepil na tělo zařízení těsně nad LED desku na mezikruží obklopující světelný kruh.
+
+Tato metoda však měla pár nedostatku.
+Především \(0.6 mm\) tlustá DPS, kterou jsem zvolil abych umožnil co možná největší deformace a ulehčil tak rozlišování skutečného stisku a případného šumu, nebyla dostatečně stálá a docházelo k její postupné deformaci.
+Po nekolika měsících tak DPS začala tvarem připomínat misku což vedlo k porušení lepidla a bylo tak nutné je lepit znovu.
+
+
+
+
+
 
