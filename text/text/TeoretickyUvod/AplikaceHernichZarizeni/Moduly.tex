@@ -52,34 +52,34 @@ Tato část zvukového modulu umožňuje intenzivnější vtažení hráče do h
 Může jít například o~únikovou hru, při které se hráč ocitne v~oblasti neznámého bludiště a~jeho úkolem je najít cestu ven.
 Při hledání může narazit na různá stanoviště, která mu nejprve přehrají nějakou část příběhu a~následně mu dají úkol nebo radu jak postupovat dál.
 
-\subsection{Komunikační modul \label{sec:KomunikacniModul}}
-Podstatným modulem je také komunikační modul, který umožňuje připojení k~mobilní síti a~tím i~komunikaci s~ostatními zařízeními na velkou vzdálenost.
-Tento modul je potřebný například pro hru Boj o kopce.
+% \subsection{Komunikační modul \label{sec:KomunikacniModul}}
+% Podstatným modulem je také komunikační modul, který umožňuje připojení k~mobilní síti a~tím i~komunikaci s~ostatními zařízeními na velkou vzdálenost.
+% Tento modul je potřebný například pro hru Boj o kopce.
 
-V~této hře se na hřišti o~velké rozloze nachází několik automatických stanovišť.
-Hráči jsou rozděleni do týmů a~každý tým má svou barvu a~své tlačítko na stanovišti označené barvou týmu.
-V~hře je hlavním cílem získávat body pro svůj tým ovládnutím a~udržením stanovišť na rozsáhlém hřišti. 
-Axiální světelný kruh zobrazuje rozdělení tlakové plochy na jednotlivá tlačítka týmů podle jejich barvy.
-Zabrání stanoviště pak mohou hráči provést stiskem příslušného tlačítka. 
-Získávání bodů se odehrává dvěma způsoby, ovládnutím stanoviště a~následným držením stanoviště pod kontrolou. 
-Týmy mohou přebírat stanoviště od soupeřů, což přidává hře strategický rozměr. 
-Výhodou je kontrolovat více stanovišť najednou, což umožňuje rychlejší získávání bodů a~zvyšuje šanci na vítězství.
-Komunikační modul je tu potřebný pro vyhodnocování hry.
-Stanoviště totiž musí být schopné komunikovat s~centrálním serverem, který vyhodnocuje hru a~zobrazuje její průběh.
-Tato hra je původně navržena pro airsoftové hráče na hřiště v~Mokrá-Horákov o~rozloze \(6.7\-[ha]\) \cite{MokraHorakov}.
-V~takovém prostředí tedy komunikace pomocí WiFi či Bluetooth nedostačuje, protože stanoviště mohou být i~několik set metrů od sebe.
+% V~této hře se na hřišti o~velké rozloze nachází několik automatických stanovišť.
+% Hráči jsou rozděleni do týmů a~každý tým má svou barvu a~své tlačítko na stanovišti označené barvou týmu.
+% V~hře je hlavním cílem získávat body pro svůj tým ovládnutím a~udržením stanovišť na rozsáhlém hřišti. 
+% Axiální světelný kruh zobrazuje rozdělení tlakové plochy na jednotlivá tlačítka týmů podle jejich barvy.
+% Zabrání stanoviště pak mohou hráči provést stiskem příslušného tlačítka. 
+% Získávání bodů se odehrává dvěma způsoby, ovládnutím stanoviště a~následným držením stanoviště pod kontrolou. 
+% Týmy mohou přebírat stanoviště od soupeřů, což přidává hře strategický rozměr. 
+% Výhodou je kontrolovat více stanovišť najednou, což umožňuje rychlejší získávání bodů a~zvyšuje šanci na vítězství.
+% Komunikační modul je tu potřebný pro vyhodnocování hry.
+% Stanoviště totiž musí být schopné komunikovat s~centrálním serverem, který vyhodnocuje hru a~zobrazuje její průběh.
+% Tato hra je původně navržena pro airsoftové hráče na hřiště v~Mokrá-Horákov o~rozloze \(6.7\-[ha]\) \cite{MokraHorakov}.
+% V~takovém prostředí tedy komunikace pomocí WiFi či Bluetooth nedostačuje, protože stanoviště mohou být i~několik set metrů od sebe.
 
-\subsection{Výběr bezdrátové komunikace dlouhého dosahu \label{sec:TypVzdaleneKomunikace}}
-Pro komunikaci na vzdálenosti v~řádu jednotek kilometrů se nabízí asi jen dvě základní možnosti, LoRa a~mobilní síť.
-Ještě počátkem roku 2023 by byla i~třetí možnost, Sigfox, ale jeho síť byla v~ČR vypnuta \cite{SigfoxKonci}.
+% \subsection{Výběr bezdrátové komunikace dlouhého dosahu \label{sec:TypVzdaleneKomunikace}}
+% Pro komunikaci na vzdálenosti v~řádu jednotek kilometrů se nabízí asi jen dvě základní možnosti, LoRa a~mobilní síť.
+% Ještě počátkem roku 2023 by byla i~třetí možnost, Sigfox, ale jeho síť byla v~ČR vypnuta \cite{SigfoxKonci}.
 
-LoRa je technologie určená pro komunikaci na dlouhé vzdálenosti s~malou spotřebou a~datovou propustností.
-Pracuje v~bezlicenčním pásmu a~není tedy třeba platit za provoz.
-Její dosah je i~v zastavěné oblasti v~řádu kilometrů \cite{LoRaSEMTECH}, a~za ideálních podmínek na přímou viditelnost i~přes sto kilometrů \cite{LoRaEMAN}. 
-Nevýhoda LoRy je ale malá datová propustnost ještě snížená omezením času provozu na \(1\-\%\)\cite{LoRaEMAN}.
+% LoRa je technologie určená pro komunikaci na dlouhé vzdálenosti s~malou spotřebou a~datovou propustností.
+% Pracuje v~bezlicenčním pásmu a~není tedy třeba platit za provoz.
+% Její dosah je i~v zastavěné oblasti v~řádu kilometrů \cite{LoRaSEMTECH}, a~za ideálních podmínek na přímou viditelnost i~přes sto kilometrů \cite{LoRaEMAN}. 
+% Nevýhoda LoRy je ale malá datová propustnost ještě snížená omezením času provozu na \(1\-\%\)\cite{LoRaEMAN}.
 
-Mobilní síť má v~porovnání s~LoRou výrazně větší datovou propustnost, ale na druhou stranu je třeba platit za provoz a~je méně energeticky úsporná.
-Například \\NB-IoT je energeticky asi o~třetinu náročnější než LoRa.
-Přesto je dostatečně úsporná, aby bylo zařízení, které tuto technologii využívá, schopno běžet na baterii přes deset let \cite{LoRaVSNB-IoT}.
-Energetická náročnost tedy není problém a~vyšší datová propustnost společně s~připojením na internet je významnější výhoda než bezplatný provoz u~LoRy.
-Další výhodou LoRy by mohla být nezávislost na pokrytí mobilních sítí, ale vzhledem k~tomu, že pokrytí NB-IoT sítě je v~ČR údajně \(100\-\%\)\cite{NB-IoTPokryti}, není tento fakt důležitý. 
+% Mobilní síť má v~porovnání s~LoRou výrazně větší datovou propustnost, ale na druhou stranu je třeba platit za provoz a~je méně energeticky úsporná.
+% Například \\NB-IoT je energeticky asi o~třetinu náročnější než LoRa.
+% Přesto je dostatečně úsporná, aby bylo zařízení, které tuto technologii využívá, schopno běžet na baterii přes deset let \cite{LoRaVSNB-IoT}.
+% Energetická náročnost tedy není problém a~vyšší datová propustnost společně s~připojením na internet je významnější výhoda než bezplatný provoz u~LoRy.
+% Další výhodou LoRy by mohla být nezávislost na pokrytí mobilních sítí, ale vzhledem k~tomu, že pokrytí NB-IoT sítě je v~ČR údajně \(100\-\%\)\cite{NB-IoTPokryti}, není tento fakt důležitý. 

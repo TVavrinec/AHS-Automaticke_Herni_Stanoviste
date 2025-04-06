@@ -46,14 +46,14 @@ Ale ve chvíli, kdy jde o~hru navrženou pro jinou kombinaci modulů, nastává 
 Abych se všem těmto problémům alespoň prozatím vyhnul, rozhodl jsme se, že doplnění či výměna modulu, půjde jen při servisním zásahu.
 Problém záměny modulů pak budu řešit tím, že každá hra bude vytvořena jen pro konkrétní sadu modulů.
 
-Některé hry vyžadují tak velké herní území, že by na komunikaci mezi stanovištěmi už nestačila WiFi ani Bluetooth, které AHS jinak využívá ke komunikaci (viz: \ref{sec:TypVzdaleneKomunikace}).
-Proto bude mít AHS možnost připojení k~mobilní síti a~tedy připojení k~internetu (výběr viz: \ref{sec:TypVzdaleneKomunikace}).
-Tím se rozšíří dosah AHS všude, kde je mobilní pokrytí a~také přibude další metoda jak se stanovištěm komunikovat.
-V~rámci tohoto komunikačního modulu bude možné používat navíc i~GNSS \footnote{Global Navigation Satellite System}.
-Vzhledem k~faktu, že se přece jen nejedná o~systém, který by využila většina her a~zároveň je poměrně drahý, došel jsem k~rozhodnutí mít jej jen jako doplnitelný modul.
-Protože se ale jedná o~modul, který zprostředkovává komunikaci se světem, je pravděpodobné, že bude potřebovat převádět výrazně větší množství dat než běžný modul.
-Primárně z~tohoto důvodu je tento modul připojen na samostatném konektoru, přímo uvnitř základního zařízení.
-Potřebné antény mohou být už v~základním zařízení, ale samotný modul spadá do doplňkové výbavy.
+% Některé hry vyžadují tak velké herní území, že by na komunikaci mezi stanovištěmi už nestačila WiFi ani Bluetooth, které AHS jinak využívá ke komunikaci (viz: \ref{sec:TypVzdaleneKomunikace}).
+% Proto bude mít AHS možnost připojení k~mobilní síti a~tedy připojení k~internetu (výběr viz: \ref{sec:TypVzdaleneKomunikace}).
+% Tím se rozšíří dosah AHS všude, kde je mobilní pokrytí a~také přibude další metoda jak se stanovištěm komunikovat.
+% V~rámci tohoto komunikačního modulu bude možné používat navíc i~GNSS \footnote{Global Navigation Satellite System}.
+% Vzhledem k~faktu, že se přece jen nejedná o~systém, který by využila většina her a~zároveň je poměrně drahý, došel jsem k~rozhodnutí mít jej jen jako doplnitelný modul.
+% Protože se ale jedná o~modul, který zprostředkovává komunikaci se světem, je pravděpodobné, že bude potřebovat převádět výrazně větší množství dat než běžný modul.
+% Primárně z~tohoto důvodu je tento modul připojen na samostatném konektoru, přímo uvnitř základního zařízení.
+% Potřebné antény mohou být už v~základním zařízení, ale samotný modul spadá do doplňkové výbavy.
 
 V~řadě případů je užitečné mít možnost zvukové zpětné vazby.
 Ideální by bylo moci přehrávat libovolnou nahrávku, většinou ale stačí jednoduchý tón, řekněme jako potvrzení zadaného hesla.
@@ -248,27 +248,24 @@ Ve chvíli, kdy by byla potřeba, je stejně nutná odborná obsluha a~pro tu ne
 % Pro připojení komunikačního modulu jsem zvolil konektor M2 typ-B jakožto standard pro tyto moduly.
 % Díky tomuto konektoru mohu jednoduše připojit různé LTE a~GNSS moduly.
 
-\subsection{Správa napájení}
+\subsection{Správa zapínání}
 Zařízení je vybaveno obvodem umožnující vypnutí jak uživatelské tak programové a v případě hrozícího podvybití i automaticky.
 Tento obvod zároveň kontroluje i potenciální přebití baterii a v takovém případě odpojuje napájení nabíječky.
 
-Ochrana přebití může nabíjení přerušit ještě ve chvíli kdy nabíječka nabijí a tedy signalisuje probíhající nabíjení.
-Aby nedocházelo ke zmatení uživatele je krom přerušení nabíjení zastavena i signalizace která tak začne signalizovat dobitou baterii.
-
-Původní verze správy napájení je vidět na obr\ref{fig:stary_PoverManager} (jde o o lehce upravené schéma ze kterého jsou některé části pro přehlednost odstraněny) 
+Původní verze správy zapínání je vidět na obr\ref{fig:stary_PoverManager} (jde o lehce upravené schéma ze kterého jsou některé části pro přehlednost odstraněny) 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{text/PraktickaCast/img/stary_power_manager.png}
-    \caption{Původní verze správy napájení}
+    \caption{Původní verze správy zapínání}
     \label{fig:stary_PoverManager}
 \end{figure}
 
 Tato varianta však měla jeden problém způsobený absencí hystereze u čipu kontrolující napětí baterie SL8261 \cite{SL8261}.
-Ve chvíli kdy se baterie dostala do stavu kdy bylo potřeba ji odpojit kontrola ji skutečně odpojila.
+Ve chvíli kdy se baterie dostane do stavu kdy je potřeba ji odpojit, kontrola ji skutečně odpojila.
 To by bylo správně, jenže z baterie v tu chvíli pořád teče proud, který zpusobuje ubytek jejího napětí.
 Při přerušení proudu z baterie se tak napětí baterie lehce zvedlo a ochrana podvybití tak znovu sepnula.
-Behem této doby se nestihla vybít kapacita na napájecí větvi a zařízení s tak nestihlo plně vypnout.
-Obvod tedy začal oscilovat dokud napětí na baterce nekleslo ještě víc aby se už znovu nezvedlo nad rozpoznávací úroveň čipu SL8261.
+Behem této doby se nestihne vybít kapacita na napájecí větvi a zařízení s tak nestihne plně vypnout.
+Obvod tak začne oscilovat a skončí teprve až napětí na baterce nekleslo natolik aby odpojení znovu nezvedlo napětí nad rozpoznávací úroveň čipu SL8261.
 
 Tento problém má dvě potenciální řešení.
 Buť za {\bf A} vyměnit obvod SL8261 za jiný s vhodnou hysterezí nebo za {\bf B} upravit zapojení tak aby v případě kdy se čip SL8261 rozhodne zařízení vypnout se zařízení stihlo vypnout.
@@ -283,10 +280,31 @@ Výsledný obvod je vidět na obr.\ref{fig:PoverManager}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{text/PraktickaCast/img/power_manager.png}
-    \caption{Původní verze správy napájení}
+    \caption{Nová verze správy zapínání}
     \label{fig:PoverManager}
 \end{figure}
 
+\subsection{Výkonová napájecí větev}
+Jako napájecí napětí pro výkonější části zařízení slouží napětí \(5 [V]\), protože toto napětí využívají světelné kruhu, skládající se z ledek WS2812 \cite{WS2812B}.
+Tyto LEDky mají rozsah napájecí napětí \(3.5\) až \(5.3 [V]\) a právě proto volím napájecí napětí \(5 [V]\).
+Stačilo by sice i napětí nižší, ale s větví \(3.3 [V]\) bych výkonovou větev stejně nespojil.
+Hlavně bych však potřeboval složitější spínaní zdroj, který by musel spínat nejen na vyšší napětí ale i na nižší podle toho jaké napětí je zrovna na baterii.
+Navíc je napětí \(5 [V]\) vhodný standard i pro napájení na modulovém konektoru.
+
+Vznikají mi tak dva systémy které napájím z \(5 [V]\).
+{\bf A} LED kruhy a za {\bf B} moduly připojené na modulovém konektoru.
+Protože oba tyto systémy mohou mít poměrně velkou spotřebu i ve chvíli kdy nejsou používány, je vhodné mít možnost odpojit je od napájení.
+Čím jemnější dělení tím lépe půjde optimalizovat spotřeba.
+Protože jsou ale všechny moduli připojeny na stejném konektoru znamená to dvě samostatně řiditelné větvě.
+Navíc je vhodné vypínat i samotný zdroj obou větví ve chvíli kdy není využíván.
+Za tímto účelem jsem implementoval schéma na obr:\ref{fig:spinac_vikonove_vetve}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{text/PraktickaCast/img/spinac_vikonove_vetve.png}
+    \caption{Spínač výkonové větve}
+    \label{fig:spinac_vikonove_vetve}
+\end{figure}
 
 \newpage
 
