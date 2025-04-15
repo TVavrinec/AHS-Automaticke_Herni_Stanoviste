@@ -27,10 +27,10 @@ Následně je z těchto hodnot možno dopočítat, jak je plocha nakloněna a t�
 % Protože je zároveň možné určit i sílu jakou uživatel při dotyku vyvinul, dostal tento systém jméno tlaková plocha. % silová by bývalo přesnější ale nějak mi to nejde přes pysky
 
 Aby bylo stanoviště reálně použitelné při hře, musí celou hru vydržet na baterii.
-Není ojedinělé, aby měla outdoorová hra čtyři až pět hodin bez přestávky.
+Není ojedinělé, aby měla bojovka čtyři i pět hodin bez přestávky.
 Plus je nutná časová rezerva a~čas na nastavování.
 Čas, který zařízení zvládne běžet z~baterie, silně závisí na činnosti, ale nebylo by zrovna ideální, kdyby byla baterka, výrazně omezujícím faktorem.
-Výdrž na jedno nabití by tedy měla být alespoň pět hodin.
+Výdrž na jedno nabití by tedy měla být alespoň šest hodin.
 
 Vzhledem k~plánu připojovat moduly je nutné navrhnout mechanizmus připojení.
 Bylo by ideální, kdyby si mohl uživatel říct co bude hrát za hru a~podle toho si sám připojil moduly, které potřebuje.
@@ -39,12 +39,12 @@ Konektor by totiž musel být ideálně beznástrojově rozpojitelný a~opětovn
 Takový konektor je ale poměrně složité udělat, tak aby byl spolehlivý, a~tak jde v~tuto chvíli jen o možnost dalšího vývoje.
 Ze softwarového pohledu jde pak o~problém jak detekovat konkrétní modul a~hlavně o~otázku jak se chovat k~modulům, které jsou potenciálně záměnné.
 Dejme tomu, že máme modul klávesnici a~modul dvířka.
-Dvířka jsou původně navržena primárně jako úložný prostor, díky detekci zavření je lze ale použít i~jako velmi pohodlná tlačítka a~v~některých hrách se proto používají jen jako tlačítka.
+Dvířka jsou původně navržena primárně jako úložný prostor, díky detekci zavření je lze ale použít i~jako pohodlná tlačítka a~v~některých hrách se proto používají jen jako tlačítka.
 Potenciální modul klávesnice je ovšem jen suma tlačítek.
 Při vytváření konkrétní hry na míru modulům, které herní návrhář má zrovna k~dispozici, je tento problém nepodstatný, protože sám návrhář rozhodne, co má jak být.
-Ale ve chvíli, kdy jde o~hru navrženou pro jinou kombinaci modulů, nastává problém jak rozhodnout, zda se dají dvířka použít místo klávesnice nebo ne.
+Ale ve chvíli, kdy jde o~hru navrženou pro jinou kombinaci modulů, nastává problém jak rozhodnout, zda se dají dvířka použít místo klávesnice nebo ne a naopak.
 Abych se všem těmto problémům alespoň prozatím vyhnul, rozhodl jsme se, že doplnění či výměna modulu, půjde jen při servisním zásahu.
-Problém záměny modulů pak budu řešit tím, že každá hra bude vytvořena jen pro konkrétní sadu modulů.
+Problém záměny modulů tak budu řešit tím, že každá hra bude vytvořena jen pro konkrétní sadu modulů.
 
 % Některé hry vyžadují tak velké herní území, že by na komunikaci mezi stanovištěmi už nestačila WiFi ani Bluetooth, které AHS jinak využívá ke komunikaci (viz: \ref{sec:TypVzdaleneKomunikace}).
 % Proto bude mít AHS možnost připojení k~mobilní síti a~tedy připojení k~internetu (výběr viz: \ref{sec:TypVzdaleneKomunikace}).
@@ -68,7 +68,7 @@ Z~požadavků mi vyplynulo zařízení, jehož vzhled je nastíněn na obrázku 
 \end{figure}
 
 \newpage
-\section{Struktura elektroniky základní jednotky}
+\section{Elektronické systémy zařízení}
 
 Elektronika je rozdělena na dvě samostatné PCB.
 Jde o~hlavní desku, na které je většina elektroniky a o~desku s~hlavním uživatelským rozhraním (LED deska).
@@ -215,6 +215,8 @@ Stejný problém nastal u~CANu a~USB, které by navíc mělo výhodu kompatibili
 V~první úvaze o~UARTu jsem jej nejprve zavrhl kvůli potenciální náročnosti na přeposílání dat mezi moduly.
 Při standardním použití bych totiž moduly řadil za sebe.
 Prvnímu modulu by tak chodili data pro všechny ostatní moduly a~musel by je přeposílat dál, což by mohlo stát nezanedbatelné množství procesorového času.
+% TODO: nová linka, duvody, obhajoba
+
 V~jisté chvíli jsem ale narazil na nestandardní komunikaci pomocí UARTu implementované v~projektu Servio \cite{Servio}.
 Tato implementace používá UART jako sběrnici.
 Namísto standardního použití pro komunikace jeden s~jedním tak může komunikovat jeden s~více.
@@ -239,14 +241,15 @@ Jde o~šest plošek, na které se programátor připojuje pomocí pružinkovích
 Programátor sice obsahuje jen jednoduchou elektroniku, která by mohla být i~přímo v~elektronice AHS, ale ve většině případů by byla zbytečná.
 Ve chvíli, kdy by byla potřeba, je stejně nutná odborná obsluha a~pro tu není problém použít programátor.
 
-% \subsection{USB-C}
-% Jako napájecí a~programovací konektor je použito USB-C.
-% Konektor je ale použit i~na pohodlnější programování zařízení, bez potřeby programátoru.
+\subsection{USB-C}
+USB-C je použito pro nabíjení a jako i~na pohodlnější programování zařízení, bez potřeby programátoru.
 
-% TODO: 
-% \subsection{Konektor komunikačního modulu}
-% Pro připojení komunikačního modulu jsem zvolil konektor M2 typ-B jakožto standard pro tyto moduly.
-% Díky tomuto konektoru mohu jednoduše připojit různé LTE a~GNSS moduly.
+USB-C v základu neposkytuje žádné napájecí napětí, protože je navrženo k obousměrnému provozu takže muže jak napájení poskytovat tak potřebovat.
+Asi nejjednodušší zpusob jak požádat zdroj o napájení jsou dva rezistory s hodnotou \(5.1 [k\Omega]\) které připojí signály \(CC1\) a \(CC2\) k zemi.
+Takto zařízení dostane napětí \(5 [V]\) s omezením proudu do \(0.5 [A]\) tedy výkon \(2.5 [W]\).
+V tuto chvíli by se zařízení už mohlo nabíjet, výkonem \(2.5 [W]\) be se ale nabijelo velmi pomalu.
+Proto jsem implementoval další systémy, který ma za ukol zvýšit nabíjecí výkon a tak zrychlit nabíjení.
+Čipu BQ25895M \cite{BQ25895} je slouží primárně pro řízení nabíjení ale zároveň se stará o komunikaci se zdrojem a zprostředkovává tak vyšší nabíjecí proud jehož hodnota je nastavitelné přes I2C sběrnici s ESP32S3.
 
 \subsection{Správa zapínání}
 Zařízení je vybaveno obvodem umožnující vypnutí jak uživatelské tak programové a v případě hrozícího podvybití i automaticky.
@@ -285,7 +288,7 @@ Výsledný obvod je vidět na obr.\ref{fig:PoverManager}
 \end{figure}
 
 \subsection{Výkonová napájecí větev}
-Jako napájecí napětí pro výkonější části zařízení slouží napětí \(5 [V]\), protože toto napětí využívají světelné kruhu, skládající se z ledek WS2812 \cite{WS2812B}.
+Jako napájecí napětí pro výkonnější části zařízení slouží napětí \(5 [V]\), protože toto napětí využívají světelné kruhu, skládající se z ledek WS2812 \cite{WS2812B}.
 Tyto LEDky mají rozsah napájecí napětí \(3.5\) až \(5.3 [V]\) a právě proto volím napájecí napětí \(5 [V]\).
 Stačilo by sice i napětí nižší, ale s větví \(3.3 [V]\) bych výkonovou větev stejně nespojil.
 Hlavně bych však potřeboval složitější spínaní zdroj, který by musel spínat nejen na vyšší napětí ale i na nižší podle toho jaké napětí je zrovna na baterii.
