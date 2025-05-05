@@ -242,7 +242,7 @@ Programátor sice obsahuje jen jednoduchou elektroniku, která by mohla být i~p
 Ve chvíli, kdy by byla potřeba, je stejně nutná odborná obsluha a~pro tu není problém použít programátor.
 
 \subsection{USB-C}
-USB-C je použito pro nabíjení a jako i~na pohodlnější programování zařízení, bez potřeby programátoru.
+USB-C je použito pro nabíjení a~na~pohodlnější programování zařízení, bez potřeby programátoru.
 
 USB-C v základu neposkytuje žádné napájecí napětí, protože je navrženo k obousměrnému provozu takže muže jak napájení poskytovat tak potřebovat.
 Asi nejjednodušší zpusob jak požádat zdroj o napájení jsou dva rezistory s hodnotou \(5.1 [k\Omega]\) které připojí signály \(CC1\) a \(CC2\) k zemi.
@@ -255,7 +255,37 @@ Proto jsem implementoval další systémy, který ma za ukol zvýšit nabíjecí
 Zařízení je vybaveno obvodem umožnující vypnutí jak uživatelské tak programové a v případě hrozícího podvybití i automaticky.
 Tento obvod zároveň kontroluje i potenciální přebití baterii a v takovém případě odpojuje napájení nabíječky.
 
-Původní verze správy zapínání je vidět na obr\ref{fig:stary_PoverManager} (jde o lehce upravené schéma ze kterého jsou některé části pro přehlednost odstraněny) 
+Původní verze správy zapínání je vidět na obr\ref{fig:stary_PoverManager} (zapojení zapínacího tlačítka je zjednodušenu protože jeho zapojení je složitější z duvodu jeho čtení z procesoru).
+
+
+Na uvod popisu funkce je vhodné říct že rezistor \(R_{68}\) slouží pro definici napětí na \(G\) tranzistoru \(Q_{20}\) ve chvíli vypnuté větvě \(3V3\) a má dostatečně velký odpor aby se při ostatních úvahách dal zanedbat
+
+Hlavní spínač je PMOS tranzistor \(Q_{p4}\) který je řízení NMOS tranzistory \(Q_{19}\) a \(Q_{20}\).
+Obvod \(U_{18}\) kontroluje stav baterie a v případě nízkého napětí na dráze Baterie, předpokládá že došlo k limitnímu vybití baterie a připojí na vývod OD (Over Discharge) \(0 V\) \cite{SL8261}.
+To znamená zavřený tranzistor \(Q_{19}\) což znamená že se rozepne i tranzistor \(Q_{P4}\) protože se jeho elektroda \(G\) vybije skrz rezistor \(R_{65}\).
+Pokud je baterie naopak nabita dostatečně je na vývod OD obvodu \(U_{18}\) přivedeno jeho napájecí napětí\cite{SL8261}, v našem případě tedy napětí baterie, které je tak přivedeno na \(G\) tranzistoru \(Q_{19}\).
+Tranzistor \(Q_{19}\) je tak otevřený což znamená že zařízení má povolení k zapnutí. 
+Když v tuto chvíli dojde ke stisku zapínacího tlačítka, přivede se \(0 V\) na \(G\) tranzistoru \(Q_{p4}\) a dojde k jeho otevření.
+Následně naběhne napájecí větev \(3V3\) na které bylo do té doby \(0 V\).
+Přes rezistor \(R_{67}\) se tak přivede napětí \(3V3\) na \(G\) tranzistoru \(Q_{20}\) a dojde k jeho otevření.
+Po otevření tranzistoru \(Q_{20}\) je tranzistor \(Q_{p4}\) trvale otevřen a zařízení je tak zapnuto.
+
+Následné vypnutí je možné třemi.
+\begin{itemize}
+    \item vybití baterie
+    \item povel z procesoru
+    \item uživatelské tlačítko
+\end{itemize}
+
+Když dojde k vybití baterie, zareaguje na to obvod \(U_{18}\) a rozepne tranzistor \(Q_{19}\) čímž pomocí rezistoru \(R_{65}\) rozepne i tranzistor \(Q_{p4}\) a zařízení se tak vypne.
+
+Když procesor dostane příkaz k vypnutí zařízení stáhne dráhu OFF k zemi čímž vybije kapacitu \(G\) tranzistoru \(Q_{20}\) a zároveň \(C_{171}\), současně dojde k rozepnutí tranzistoru \(Q_{20}\).
+Následně dojde k rozepnutí tranzistoru \(Q_{p4}\) a poklesu napětí na napájecí větvi \(3V3\).
+Z této větve běží mimo jiné i procesor a není tedy jisté že udrží dráhu OFF na napětí \(0V\) až do konce vypínání.
+To je duvodem přítomnosti kondenzátoru \(C_{171}\) který sice zpomalí reakci obvodu na příkaz k vypnutí ale následně zajistí že se obvod skutečně vypne.
+Stisk tlačítka OFF má reakci obdobnou. 
+
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{text/PraktickaCast/img/stary_power_manager.png}
@@ -278,7 +308,51 @@ To muže být výhodné, např. v situacích kdy se stanoviště vybije ve chví
 
 Obvod jsem tedy přepracoval a doplnil jsem do něj jeden bit paměti do kterého muže kontrola baterie, uživatel pomocí vypínacího tlačítka nebo mikrokontroler zapsat a tím zahájit vypínání.
 Ve chvíli, kdy je vypínání zahájeno zařízení se už nedá znovu zapnout do doby než klesna napětí na napájecí vetvi výrazně pod napětí při kterém by mohlo dojít k samovolnému zapnutí (cca \(1.5 [V]\)).
-Výsledný obvod je vidět na obr.\ref{fig:PoverManager}
+Výsledný obvod je vidět na obr.\ref{fig:PoverManager}.
+
+Hlavní spínač je v tom zapojení PMOS tranzistor \(Q_{p8}\) který je řízení okolním zapojením.
+Přivedením napětí \(0 V\) na \(G\) tranzistoru \(Q_{p8}\) dojde k jeho sepnutí a následnému startu zařízení.
+K tomu může dojít sepnutím NMOS tranzistorů \(Q_{22}\) a \(Q_{26}\).
+Tranzistor \(Q_{22}\) má stejnou funkci jako tranzistor \(Q_{19}\) v předchozím zapojení, tedy když obvod \(U_{19}\) rozezná kriticky vybitou baterii tranzistor rozepne.
+Naopak když obvod rozezná nabitou baterii povolí zapnutí sepnutím tranzistor \(Q_{22}\).
+Ve chvíli kdy je zapnutí povoleno a uživatel stiskne ON tlačítko, otevře tranzistor \(Q_{26}\) čímž přivede \(0 V\) na \(G\) tranzistoru \(Q_{p8}\).
+Tranzistor \(Q_{p8}\) se tak sepne v reakci na což se uvede do provozu napájecí větev \(3V3\).
+To znamená že se začnou skrz rezistory \(R_{74}\) a \(R_{75}\) začnou nabijet kapacity \(G\) tranzistorů \(Q_{23}\), \(Q_{24}\) a \(Q_{25}\).
+
+Tranzistory \(Q_{24}\) a \(Q_{25}\) spolu s rezistory \(R_{74}\) a \(R_{75}\) vytváří dvě do kruhu zapojené inverze, které tak vytváří jednoduchou paměť.
+Stav této paměti je čitelný na vývodech \(G\) obou tranzistorů, kde vždy existuje logická nula i jednička, které se mohou prohodit.
+Zapnutý stav znamená logickou jedničku na \(G\) tranzistoru \(Q_{24}\) a nulu na \(G\) tranzistoru \(Q_{25}\).
+Při startu je nutné aby toto pořadí naběhlo správně a nikoliv opačně což by znamenalo že ihned po zapnutí dojde k vypnutí.
+Aby tedy paměť naběhla do správného stavu maji rezistory \(R_{74}\) a \(R_{75}\) různé hodnoty, přesněji \(R_{74}\) má vetší odpor a napětí na \(G\) tranzistoru \(Q_{25}\) tak bude nabíhat pomaleji.
+Napětí na \(G\) tranzistoru \(Q_{24}\) tak dosáhne jeho otevření dříve čímž přivede \(0 V\) na \(G\) tranzistoru \(Q_{25}\) který tak zavře čímž se stav paměti ustálí.
+Zvláštní hodnota rezistoru \(R_{74}\) je zpusobena snahou o minimalizaci součástek, tuto hodnotu jsem již použil jinde na zařízení a abych tedy nemusel přidávat další hodnotu rezistoru použil jsem tuto.
+
+Aby měla takto vytvořené paměti smysl je nutné zajistit aby žádný ze zdrojů nemel dvojčinný [push-pull] výstup, nebo aby alespoň uměl pracovat v režimu s vysokou impedancí.
+Tlačítko OFF toto zajišťuje automaticky a u výstupu z mikrkontroleru se to dá jednoduše zajistit programově.
+Obvod \(U_{19}\) hlídající napětí baterie má ale výstup dvojčinný aby byl sto přímo řídit NMOS a musím ho to tedy ošetřit jinak.
+Zvolil jsem řízení na straně logické jedničky v zapnutém stavu aby vymnutí znamenalo stažení dráhy k zemi protože.
+Alternativou by totiž bylo tahat dráhu k napájecí větvi \(3V3\), což by znamenalo dodatečné zapojení protože obvod \(U_{19}\) je napájený jiným napětím než mikrokontroler a tedy než tato paměťová buňka. 
+Tlačítko tak dráhu jednoduše zkratuje se zemí, mikrokontroler udělá vlastně to samé akorát přes ochranný rezistor \(R_{76}\) a ochrana podvybití je připojena přes tranzistor \(Q_{21}\) z něhož je využita jen jeho dioda.
+Namísto tranzistoru \(Q_{21}\) by mohla být zapojena jen jednoduchá dioda, tranzistor je zde použit z obdobného důvodu jako zvláštní hodnota rezistoru \(R_{74}\) a to aby nebylo nutné do zařízení přidávat další typ součástky.
+
+Ve chvíli kdy do zapojení přijde povel k vypnutí, zapíše se povel nejprve do této paměti.
+Toto je ostatně další duvod proč se do paměti zapisuje přes \(G\) tranzistoru \(Q_{24}\) a ne \(Q\) tranzistoru \(Q_{25}\).
+Kdyby totiž zápis probíhal z druhé strany zařízení by se začalo vypínat už v době zápisu do paměti, protože by probíhal na straně která řídí tranzistor \(Q_{p8}\).
+Když tedy dojde k zápisu do paměti a tranzistor \(Q_{p8}\) se rozepne, začne padat napětí na napájecí větvi \(3V3\), na rozdíl od dřívějšího zapojení ale během toho nemůže dojít k samovolnému zapnutí.
+Protože aby mohlo dojít k zapnutí musel by se sepnout tranzistor \(Q_{24}\) což se ale stát nemůže protože je sepnut tranzistor \(Q_{25}\). 
+Chvíli kdy se tranzistor \(Q_{25}\) rozepne nastane teprve ve chvíli kdy na napájecí větvi \(3V3\) poklesne napětí natolik aby už neudrželo tranzistor sepnutý a v tu chvíli už nemůže dojít k sepnutí tranzistoru \(Q_{24}\).
+
+Přes to že tranzistor \(Q_{p8}\) je řízený stranou paměti \(G\) tranzistoru \(Q_{25}\) tyto dráhy musí být částečně odděleni.
+V případě přímého spojení by totiž paměťová buňka nemohla správně plnit svoji funkci, protože by ji bylo skrz rezistor \(R_{73}\) ve vypnutém stavu vnucováno napětí baterie
+Což by mělo za následek rust spotřeby ve vypnutém stavu zavinění částečným startem zařízení a hlavně nemožnost normálního startu.
+Skrze resistor \(R_{74}\) by se totiž dostalo napětí baterie na napájecí větev \(3V3\) kde by mohlo některé systémy uvést do provozu.
+Proud tekoucí přes rezistory \(R_{73}\) a \(R_{23}\) by dosahoval řádově desítek mikroampér což by spotřebu ve vypnutém stavu navýšilo zhruba o řád.
+Důležitější problém by ale byl otevřený tranzistor \(Q_{25}\) který by tak držel zavřený tranzistor \(Q_{24}\) což by znemožnilo start zařízení.
+Řešením tohoto problému je tranzistor \(Q_{23}\) který se sepne jen ve chvíli kdy je v paměti zapsána správná hodnota.
+Tehdy je jeho \(S\) připojeno skrze tranzistor \(Q_{24}\) k zemi a jeho \(G\) skrze rezistor \(R_{75}\) k napětí \(3.3 V\) a je tedy plně otevřen.
+Naopak ve chvíli kdy je do paměti zapsán povel k vypnutí je na na jeho \(S\) připojeno skrze rezistor \(R_{74}\) napětí napájecí větve \(3V3\) a jeho \(G\) skrze tranzistor \(Q_{25}\) k zemi a je tedy plně uzavřen.
+Tímto způsoben je tedy zajištěno oddělení paměťové bunky od \(G\) tranzistoru \(Q_{p8}\).
+
 
 \begin{figure}[h!]
     \centering
@@ -346,11 +420,6 @@ Měd tak sloužila jako vodivý terčík a sklolaminát sice není úplně čir�
 Tuto DPS jsem následně přilepil na tělo zařízení těsně nad LED desku na mezikruží obklopující světelný kruh.
 
 Tato metoda však měla pár nedostatku.
-Především \(0.6 mm\) tlustá DPS, kterou jsem zvolil abych umožnil co možná největší deformace a ulehčil tak rozlišování skutečného stisku a případného šumu, nebyla dostatečně stálá a docházelo k její postupné deformaci.
+Především \(0.6 mm\) tlustá DPS, kterou jsem zvolil abych umožnil co možná největší deformace a ulehčil tak rozlišování skutečného stisku a~případného šumu, nebyla dostatečně stálá a~docházelo k její postupné deformaci.
 Po nekolika měsících tak DPS začala tvarem připomínat misku což vedlo k porušení lepidla a bylo tak nutné je lepit znovu.
-
-
-
-
-
 
