@@ -2082,6 +2082,12 @@
 		(uuid "16ca659f-3e9c-4786-a3e7-759c60eafb27")
 	)
 	(junction
+		(at 322.58 208.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2399f616-57e4-4b60-a231-15129af619e0")
+	)
+	(junction
 		(at 345.44 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2142,6 +2148,12 @@
 		(uuid "650455b3-f302-4e17-a9ce-0cdca0161a90")
 	)
 	(junction
+		(at 335.28 175.26)
+		(diameter 0)
+		(color 255 0 0 1)
+		(uuid "65d2ac05-a15a-4875-b961-e494663019e8")
+	)
+	(junction
 		(at 220.98 200.66)
 		(diameter 0)
 		(color 255 0 0 1)
@@ -2172,6 +2184,12 @@
 		(uuid "82ffc6f4-4735-4b64-a67b-4bc1025aedce")
 	)
 	(junction
+		(at 335.28 205.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8dc2d99c-eed1-4bce-9efd-b73c75da2d21")
+	)
+	(junction
 		(at 198.12 218.44)
 		(diameter 0)
 		(color 255 0 0 1)
@@ -2200,6 +2218,12 @@
 		(diameter 0)
 		(color 255 0 0 1)
 		(uuid "bdeff8a3-7a6f-482e-8df7-7953dc0e529e")
+	)
+	(junction
+		(at 373.38 175.26)
+		(diameter 0)
+		(color 255 0 0 1)
+		(uuid "c50c1861-8b4d-4f89-8dcc-ea8e0e420ce1")
 	)
 	(junction
 		(at 213.36 161.29)
@@ -2333,6 +2357,16 @@
 			(type default)
 		)
 		(uuid "07e9ff4d-20fb-4fae-90cb-49dfe390b91a")
+	)
+	(wire
+		(pts
+			(xy 322.58 195.58) (xy 322.58 208.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "089bdd66-0866-42cc-88e2-fb671d50bb5a")
 	)
 	(wire
 		(pts
@@ -2504,6 +2538,17 @@
 			(type default)
 		)
 		(uuid "146d05a8-dea3-4e76-9c88-b006a8f7db43")
+	)
+	(wire
+		(pts
+			(xy 322.58 175.26) (xy 322.58 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 255 0 0 1)
+		)
+		(uuid "15514987-7316-4cda-b725-12a70885eb29")
 	)
 	(wire
 		(pts
@@ -2873,6 +2918,17 @@
 	)
 	(wire
 		(pts
+			(xy 335.28 175.26) (xy 322.58 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 255 0 0 1)
+		)
+		(uuid "5ba00310-255d-4fde-8232-b992dc5ff1ac")
+	)
+	(wire
+		(pts
 			(xy 345.44 114.3) (xy 345.44 116.84)
 		)
 		(stroke
@@ -2890,6 +2946,27 @@
 			(type default)
 		)
 		(uuid "607a1055-0081-4ad5-99b2-d992f2b8559d")
+	)
+	(wire
+		(pts
+			(xy 320.04 165.1) (xy 322.58 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "607cd297-3ec8-4c4a-92f9-1c33ca61f6d5")
+	)
+	(wire
+		(pts
+			(xy 373.38 175.26) (xy 373.38 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 255 0 0 1)
+		)
+		(uuid "6111163d-4ff8-461d-92fb-59c7485e6c6b")
 	)
 	(wire
 		(pts
@@ -2976,6 +3053,17 @@
 	)
 	(wire
 		(pts
+			(xy 335.28 175.26) (xy 373.38 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 255 0 0 1)
+		)
+		(uuid "7103d7b0-875d-4244-8ce2-d003082ccaca")
+	)
+	(wire
+		(pts
 			(xy 106.68 170.18) (xy 114.3 170.18)
 		)
 		(stroke
@@ -2984,6 +3072,16 @@
 			(color 255 0 0 1)
 		)
 		(uuid "711259bb-f580-4f74-b3dd-86ce81b18fd7")
+	)
+	(wire
+		(pts
+			(xy 320.04 170.18) (xy 322.58 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73b1b314-d000-45bc-86d7-7131a6f8427c")
 	)
 	(wire
 		(pts
@@ -3027,7 +3125,7 @@
 	)
 	(wire
 		(pts
-			(xy 373.38 177.8) (xy 373.38 78.74)
+			(xy 373.38 177.8) (xy 373.38 175.26)
 		)
 		(stroke
 			(width 0)
@@ -3346,6 +3444,16 @@
 	)
 	(wire
 		(pts
+			(xy 309.88 170.18) (xy 312.42 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afb07703-ddc0-456d-84ee-e44f936fd7ec")
+	)
+	(wire
+		(pts
 			(xy 246.38 215.9) (xy 213.36 215.9)
 		)
 		(stroke
@@ -3430,6 +3538,16 @@
 	)
 	(wire
 		(pts
+			(xy 335.28 205.74) (xy 335.28 195.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be1d3d7b-c18e-48dc-a402-85a880aa49fa")
+	)
+	(wire
+		(pts
 			(xy 246.38 220.98) (xy 228.6 220.98)
 		)
 		(stroke
@@ -3458,16 +3576,6 @@
 			(type default)
 		)
 		(uuid "c0c1b41b-6b46-43b5-8fac-438fbcd7960a")
-	)
-	(wire
-		(pts
-			(xy 309.88 182.88) (xy 312.42 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0c1ffdc-e13e-42aa-81f6-e0b761997a28")
 	)
 	(wire
 		(pts
@@ -3594,13 +3702,13 @@
 	)
 	(wire
 		(pts
-			(xy 309.88 177.8) (xy 312.42 177.8)
+			(xy 309.88 165.1) (xy 312.42 165.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "de3d953f-4391-4a3c-bf35-a755991d976a")
+		(uuid "dd9b0b49-0865-4909-a3a8-378331fe6f9b")
 	)
 	(wire
 		(pts
@@ -3612,6 +3720,17 @@
 			(color 255 0 0 1)
 		)
 		(uuid "df14dbd6-e60b-4c79-bd6e-5724894913e1")
+	)
+	(wire
+		(pts
+			(xy 335.28 187.96) (xy 335.28 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 255 0 0 1)
+		)
+		(uuid "df5c900d-f166-468f-934b-c78aa4e30b18")
 	)
 	(wire
 		(pts
@@ -4222,7 +4341,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C240292"
+		(property "LCSC" "C495937"
 			(at 322.58 223.52 0)
 			(effects
 				(font
@@ -4329,6 +4448,180 @@
 			(project "ZakladniElektronika"
 				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
 					(reference "R41")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Buzzer")
+		(at 325.12 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0e2b38f6-ac49-444f-8382-b27bbe8f8abe")
+		(property "Reference" "BZ1"
+			(at 328.93 166.3699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Buzzer"
+			(at 328.93 168.9099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "RKL-Audio:ELKS-PIEZO"
+			(at 324.485 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 324.485 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 325.12 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C201041"
+			(at 325.12 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "87fee6cc-e016-49f3-9a22-86ad47d0a0e0")
+		)
+		(pin "2"
+			(uuid "d46e87b2-cb98-43e9-8df8-da54d9b7578a")
+		)
+		(instances
+			(project "ZakladniElektronika"
+				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
+					(reference "BZ1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 335.28 191.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1da03ca4-570a-4c11-90e4-ffc108e07aec")
+		(property "Reference" "R17"
+			(at 330.2 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 330.2 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 333.502 191.77 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 335.28 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 335.28 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 335.28 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB_CORRECTION" "0;0;0"
+			(at 335.28 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Basic/Extended" "B"
+			(at 335.28 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c4a97218-73ba-4568-8f09-f897f738d6eb")
+		)
+		(pin "2"
+			(uuid "c6718eb5-8acf-40a3-8561-40cace6b7e05")
+		)
+		(instances
+			(project "ZakladniElektronika"
+				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -4799,6 +5092,102 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 322.58 191.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6f7a6d10-e397-4284-ba18-efb0f4a05915")
+		(property "Reference" "R16"
+			(at 317.5 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 317.5 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 320.802 191.77 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 322.58 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 322.58 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB_CORRECTION" "0;0;0"
+			(at 322.58 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Basic/Extended" "B"
+			(at 322.58 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "588888f7-f97d-4517-8bba-4f628778214f")
+		)
+		(pin "2"
+			(uuid "782f9b99-b7bc-4e80-aa1b-140d36dfcb58")
+		)
+		(instances
+			(project "ZakladniElektronika"
+				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 335.28 223.52 90)
 		(unit 1)
@@ -4862,7 +5251,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C240292"
+		(property "LCSC" "C495937"
 			(at 335.28 223.52 0)
 			(effects
 				(font
@@ -4881,97 +5270,6 @@
 			(project "ZakladniElektronika"
 				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
 					(reference "SW2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Buzzer")
-		(at 314.96 180.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "81bd5984-52a6-4b9f-854a-b344e62d338e")
-		(property "Reference" "BZ1"
-			(at 313.69 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Buzzer"
-			(at 314.96 175.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "RKL-Audio:PKLCS1212E-(RH-Logic_piezzo)"
-			(at 314.325 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 314.325 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 314.96 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C113159"
-			(at 314.96 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Basic/Extended" "E"
-			(at 314.96 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "695c966a-07a0-4ea6-9758-d7de25c83566")
-		)
-		(pin "2"
-			(uuid "cbb3fb84-b323-49a6-953a-cf6c2b2b762f")
-		)
-		(instances
-			(project "Logic_tabor"
-				(path "/3f6d3d9f-e671-4996-8450-b5996af9e4a6/00000000-0000-0000-0000-00006025abb3"
-					(reference "BZ1")
-					(unit 1)
-				)
-			)
-			(project "ZakladniElektronika"
-				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
-					(reference "BZ1")
 					(unit 1)
 				)
 			)
@@ -5060,6 +5358,81 @@
 			(project "ZakladniElektronika"
 				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
 					(reference "R35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 316.23 170.18 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "92dcb791-bbb7-449c-85e5-f80d3ef8519a")
+		(property "Reference" "R15"
+			(at 313.69 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 318.77 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 316.23 171.958 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 316.23 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 316.23 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25104"
+			(at 316.23 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ad500667-f086-4a57-9fe1-d8e21b626240")
+		)
+		(pin "2"
+			(uuid "94e249c7-efa0-4ae8-bade-5b4544621bde")
+		)
+		(instances
+			(project "ZakladniElektronika"
+				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -5365,6 +5738,81 @@
 			(project ""
 				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 316.23 165.1 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ca7113b9-48df-4ffb-b96a-a3f58f4fdef1")
+		(property "Reference" "R14"
+			(at 313.69 162.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 318.77 162.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 316.23 166.878 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 316.23 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 316.23 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25104"
+			(at 316.23 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "97f1490b-42e1-49bf-bd38-2436d5f21b73")
+		)
+		(pin "2"
+			(uuid "03d0c921-d1ae-4aab-bac9-240303b8779e")
+		)
+		(instances
+			(project "ZakladniElektronika"
+				(path "/99cd3e15-4eb6-4cbb-8726-789aedd3df15/c3b70d9b-0dcb-4344-9507-13ff5b4c000e"
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -6268,7 +6716,7 @@
 			)
 		)
 		(pin "IO16" bidirectional
-			(at 309.88 182.88 0)
+			(at 309.88 170.18 0)
 			(uuid "42302bd3-167a-4957-a747-39366ce597c7")
 			(effects
 				(font
@@ -6278,7 +6726,7 @@
 			)
 		)
 		(pin "IO15" bidirectional
-			(at 309.88 177.8 0)
+			(at 309.88 165.1 0)
 			(uuid "cad782fa-3047-4ee4-b93f-83f1a94d77db")
 			(effects
 				(font
