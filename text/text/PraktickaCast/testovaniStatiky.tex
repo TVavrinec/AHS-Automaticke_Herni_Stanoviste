@@ -1,0 +1,24 @@
+\section{Tlaková plocha \label{popisTlakovky3}}
+V~rámci testování tlakové plochy jsem testoval primárně schopnost určit polohu stisku a~také citlivost na~působící sílu.
+Rozpoznávání polohy stisku je~primárně programový problém a~poměrně rychle jsem jej tak posunul na~kolegu, který se~zabýval právě programem výsledného zařízení.
+Kolega Tomáš Rohlínek poměrně rychle dodal program, který byl sto vyhodnotit polohu stisku tlakové plochy a~zobrazit ji~na axiálním světelném kruhu.
+Člověk tak mohl určovat, která LED z~kruhu svítí a~silou stisku ji~regulovat barvu.
+
+Sám jsem pak testoval citlivost plochy na~působící sílu, vlastně jeji schopnost fungovat jako váha.
+Nejmenší zkoušený objekt, který jsem byl sto tlakovou plochou rozeznat, byl SMD rezistor v~pouzdře 0603, vážící pravděpodobně jednotky miligramu (mikrováhou měřící od~\(0.01~g\) jsem jej nerozeznal).
+Při testování citlivosti jsem však průměroval výstup plochy z~posledních deseti sekund a~pro praktické užití tak tato přesnost není, navíc jde už~o~tak malé rozlišení, že~zde hraje roli řada okolních podmínek.
+Podstatné je~také zmínit že~terčík byl tvořen \(0.6~mm\) tlustou FR4 DPS a~zároveň plní funkci pružné části systému.
+Výsledné chování tudíž nebylo zcela konzistentní v~čase při použití plochy jako váhy by~bylo vždy nutné provést kalibraci a~vzít tak v~potaz aktuální deformaci DPS.
+
+Výsledkem tohoto testování je~ale každopádně informace, že~je~tlaková plocha velmi citlivá.
+Rozpoznávání místa dotyku a~tedy její užití jako ovládacího prvku zařízení je~použitelné.
+
+\section{Spotřeba}
+Podstatným parametrem zařízení je~jeho spotřeba a~tedy doba, po~kterou může běžet z~baterie.
+
+V~rámci prostého měření proudu baterii jsem měřil spotřebu v~"menu"~zařízení, tedy při využívání tlakové plochy a~obou světelných kruhů.
+Axiální kruh slouží pro nastavení jasu zařízení a~je~rozdělen na~čtvrtiny které svítí s~různou intenzitou.
+Radiální kruh naproti tomu zobrazuje barevný kod jednotlivých her a~svítí tedy čtyřmi různými barvami se~stejným jasem, který se~mění podle aktuálního nastavení.
+
+Při napětí \(4~V\), tedy při napětí odpovídající cca z~poloviny nabité baterii, jsem při nastaveném maximálním jasu naměřil proud \(780~mA\) a~naopak při minimální, neboli \(4 \%\) jasu, \(320~mA\). %~TODO: zadefinovat maximální a~minimální jas
+Při kapacitě baterie \(4400~mAh\) to~tak odpovídá výdrži \(4400/780 = 5.64~h\) až~\(4400/320 = 13.75~h\).

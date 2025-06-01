@@ -1,158 +1,179 @@
-Outdoorové hry mají často příběh, který se dá vyprávět konkrétními úkoly na stanovištích.
-Na některých stanovištích proto musí být lidská obsluha, na jiných ale může být lidská obsluha z~příběhového pohledu nežádoucí.
-Když má hráč například vyřadit automatický bezpečnostní systém je lidská obsluha stanoviště poslední možnost.
+Outdoorové hry mají často příběh, který se~dá vyprávět konkrétními úkoly na~stanovištích.
+Na některých stanovištích proto musí být lidská obsluha, na~jiných ale může být lidská obsluha z~příběhového pohledu nežádoucí.
+Když má~hráč například vyřadit automatický bezpečnostní systém je~lidská obsluha stanoviště poslední možnost.
 Podobná stanoviště proto bývají realizovány pomocí různých papírků a~provázků.
-To určitě má své kouzlo, ale i~tak je u~podobného stanoviště vhodné mít obsluhu.
-Elektronické řešení podobných stanovišť by ale mohlo otevřít úplně nový svět možností.
+To určitě má~své kouzlo, ale i~tak je~u~podobného stanoviště vhodné mít obsluhu.
+Elektronické řešení podobných stanovišť by~ale mohlo otevřít úplně nový svět možností.
 
-Abych mohl vytvořit univerzální automatické herní stanoviště, je potřeba si nejprve ujasnit, jaké vlastnosti by takové zařízení mělo mít.
-Za tímto účelem popíši několik her, které jsou většinou navrženy bez použití elektroniky a~zkusím domyslet, jak by se tyto hry mohly použitím elektroniky změnit.
+Abych mohl vytvořit univerzální automatické herní stanoviště, je~potřeba si~nejprve ujasnit, jaké vlastnosti by~takové zařízení mělo mít.
+Za tímto účelem popíši několik her, které jsou většinou navrženy bez použití elektroniky a~popíšu, jak by~se tyto hry mohly použitím elektroniky změnit.
 
+\vspace{-3mm}
 \section{Hry}
-\subsection{King of the Hill \label{KOTH} }
-Tato hra je převzata z~portálu hranostaj.cz \cite{KingOfTheHill}.
+\vspace{-2mm}
+\subsection{King of~the Hill \label{KOTH} }
+Tato hra je~převzata z~portálu hranostaj.cz \cite{KingOfTheHill}.
 
-Nejlépe se hraje se dvěma týmy, může se ale hrát i~s více. 
-Uprostřed hracího pole je kruh, ideálně na vyvýšeném místě, o~který se bude bojovat. 
-Oba týmy mají svou základnu, ze které na počátku hry vyráží.
-Základny jsou na opačných stranách kruhu a~zhruba stejně vzdáleny.
-Bojuje se šiškami nebo koulemi. 
-Když je někdo vybit, jde zpátky k~základně, aby se oživil. 
-V~základnách jsou všichni nesmrtelní a~ti kdo do ní nepatří, do ní nevstupují.
-Hraje se většinou na 3~kola. 
+Nejlépe se~hraje se~dvěma týmy, může se~ale hrát i~s~více. 
+Uprostřed hracího pole je~kruh, ideálně na~vyvýšeném místě, o~který se~bude bojovat. 
+Oba týmy mají svou základnu, ze~které na~počátku hry vyráží.
+Základny jsou na~opačných stranách kruhu a~zhruba stejně vzdáleny.
+Bojuje se~šiškami nebo koulemi. 
+Když je~někdo vybit, jde zpátky k~základně, aby se~oživil. 
+V~základnách jsou všichni nesmrtelní a~ti~kdo do~ní nepatří, do~ní nevstupují.
+Hraje se~většinou na~3~kola. 
 V~jednom kole zazní 3~signály.\\
-1. týmy se rozeběhnou k~prostřednímu kruhu.\\
-2. kruh je dostupný k~obsazení.(asi půl minuty po signálu 1)\\
-3. konec kola, hráči se vrátí na základnu. (týmy si můžou základny proměňovat, aby to bylo víc fér)\\
-Prostřední kruh se obsadí tak, že je v~něm pouze jeden tým, nebo alespoň jeden z~týmu. 
-Potom z~něj můžou odejít, ale riskují tak, že ho obsadí někdo jiný. 
-Všichni můžou vstupovat do kruhu.
-U~prostředního kruhu je vedoucí, který má několik stopek. 
+\begin{enumerate}
+    \item týmy se~rozeběhnou k~prostřednímu kruhu
+    \item kruh je~dostupný k~obsazení (asi půl minuty po~signálu 1)
+    \item konec kola, hráči se~vrátí na~základnu (týmy si~můžou základny proměňovat, aby to~bylo víc fér)
+\end{enumerate}
+\vspace{5mm}
+Prostřední kruh se~obsadí tak, že~je v~něm pouze jeden tým, nebo alespoň jeden z~týmu. 
+Potom z~něj můžou odejít, ale riskují tak, že~ho obsadí někdo jiný. 
+Všichni můžou vstupovat do~kruhu.
+U~prostředního kruhu je~vedoucí, který má~několik stopek. 
 Měří všem týmům kolik času strávili v~kruhu. 
-Konec kola je tehdy, když stráví jeden tým v~kruhu daný čas (obvykle 10-20 minut). 
-Kdo vyhraje kolo dvakrát nebo třikrát (podle toho kolik je týmů a~jak má hra být dlouhá), vyhrává.
+Konec kola je~tehdy, když stráví jeden tým v~kruhu daný čas (obvykle 10-20 minut). 
+Kdo vyhraje kolo dvakrát nebo třikrát (podle toho kolik je~týmů a~jak má~hra být dlouhá), vyhrává.
 
-V~této hře by se elektronika dala vhodně využít na měření času, který měl každý tým nadvládu nad územím.
-Zároveň by se zjednodušilo vyhodnocení hry, protože by se všechny časy jednoduše vyhodnotily automaticky.
-I~časování jednotlivých kol by se tak dalo jednoduše automatizovat.
-Hra by se také dala rozšířit o~další herní prvky, například o~možnost získat nějaké bonusy, když tým obsadí území v~určitém čase.
-Také by mohly přibýt další obsaditelná území, aby týmy musely bojovat na více frontách a~pro výhru by musely zabrat více území naráz.
+V~této hře by~se elektronika dala vhodně využít na~měření času, který měl každý tým nadvládu nad územím.
+Zároveň by~se zjednodušilo vyhodnocení hry, protože by~se všechny časy jednoduše vyhodnotily automaticky.
+I~časování jednotlivých kol by~se tak dalo jednoduše automatizovat.
+Hra by~se také dala rozšířit o~další herní prvky, například o~možnost získat nějaké bonusy, když tým obsadí území v~určitém čase.
+Také by~mohly přibýt další obsaditelná území, aby týmy musely bojovat na~více frontách a~pro výhru by~musely zabrat více území naráz.
 
+\vspace{-2mm}
 \subsection{Špiónské sítě \label{SpionskeSite}}
-Tato hra je převzata z~portálu hranostaj.cz \cite{SpionskeSite} a je určena k~hraní na pozadí jiné akce, typicky letního tábora.
+Tato hra je~převzata z~portálu hranostaj.cz \cite{SpionskeSite} a~je~určena k~hraní na~pozadí jiné akce, typicky letního tábora.
 
-Každý správný filmový špión, který má navázat kontakt s~neznámým kolegou, mu musí nejprve nonšalatně položit nenápadnou otázku "Máme to ale chladný večer, že?" a~teprve pokud mu neznámý kolega odpoví správnou odpovědí "Ano, v~Paříži je v~této roční době nezvykle chladno.", tak bude vědět, že mu může plně důvěřovat.
-Hráči se tedy podobně jako špion ocitnou v~nebezpečné době, plné agentů a~tajných organizací a~oni musí rozklíčovat, kdo je s~nimi a~kdo proti nim.
-Hraje se delší dobu, kdy hra probíhá "na pozadí". 
-Podle počtu hráčů nebo příběhu se určí kolik bude tajných organizací. 
-Každá organizace má jednu kódovou otázku s~navazující odpovědí. 
-Jednotlivé otázky spolu s~odpovědí se napíší na lístečky a~ty se náhodně rozdají hráčům tak, aby tajné organizace měli přibližně stejný počet členů (vždy alespoň 2).
+Každý správný filmový špión, který má~navázat kontakt s~neznámým kolegou, mu~musí nejprve nonšalatně položit nenápadnou otázku "Máme to~ale chladný večer, že?" a~teprve pokud mu~neznámý kolega odpoví správnou odpovědí "Ano, v~Paříži je~v~této roční době nezvykle chladno.", tak bude vědět, že~mu může plně důvěřovat.
+Hráči se~tedy podobně jako špion ocitnou v~nebezpečné době plné agentů a~tajných organizací a~oni musí rozklíčovat, kdo je~s~nimi a~kdo proti nim.
+Hraje se~delší dobu, kdy hra probíhá "na pozadí". 
+Podle počtu hráčů nebo příběhu se~určí kolik bude tajných organizací. 
+Každá organizace má~jednu kódovou otázku s~navazující odpovědí. 
+Jednotlivé otázky spolu s~odpovědí se~napíší na~lístečky a~ty se~náhodně rozdají hráčům tak, aby tajné organizace měli přibližně stejný počet členů (vždy alespoň 2).
 
-Otázky a~odpovědi mohou být
+Otázky a~odpovědi mohou být například
+\vspace{5mm}
 \begin{itemize}
-    \item Co jsi včera dělal?
-    \item Jezdil jsem na kole, ale rozbila se mi přehazovačka.
+    \item Co~jsi včera dělal?
+    \item Jezdil jsem na~kole, ale rozbila se~mi přehazovačka.
 \end{itemize}
-
-\begin{itemize}
-    \item Dneska je docela teplo, co?
-    \item To jo, jestli to takhle půjde dál, tak nám vyschne studna.
-\end{itemize}
+\vspace{5mm}
 
 \begin{itemize}
-    \item Jdeš příští týden na výpravu?
-    \item Bohužel ne, musím být doma a~učit se zlomky.
+    \item Dneska je~docela teplo, co?
+    \item To~jo, jestli to~takhle půjde dál, tak nám vyschne studna.
 \end{itemize}
+\vspace{5mm}
+
+\begin{itemize}
+    \item Jdeš příští týden na~výpravu?
+    \item Bohužel ne, musím být doma a~učit se~zlomky.
+\end{itemize}
+\vspace{5mm}
 
 Z~logiky věci musí být otázka nenápadná, tak aby případný dotázaný špión z~jiné organizace nepojal podezření. 
 Pokud bude mít podezření, může dotyčného (nenápadně) nahlásit vedoucímu hry i~spolu s~podezřelou otázkou, a~pokud uhodne, dostane plusový bod.
-Odpověď by také měla být nenápadná, ale dosti specifická, aby ji špión z~jiné organizace omylem neodpověděl.
-Cílem je ptát se lidí nenápadně a~při nalezení spoluagenta z~organizace postupovat dále systematicky a~neptat se zbytečně stejného člověka dvakrát na stejnou otázku.
-Hra končí po časovém limitu, nebo pokud každá organizace najde své členy. 
-Na konci se sečtou body za každý navázaný kontakt a~body za každého správně nahlášeného podezřelého agenta.
-Hru může hrát i~jen několik agentů, kteří se musí najít v~"davu civilistů", kteří hru nehrají.
+Odpověď by~také měla být nenápadná, ale dosti specifická, aby ji~špión z~jiné organizace neodpověděl samovolně.
+Cílem je~ptát se~lidí nenápadně a~při nalezení spoluagenta z~organizace postupovat dále systematicky a~neptat se~zbytečně stejného člověka dvakrát na~stejnou otázku.
+Hra končí po~časovém limitu, nebo pokud každá organizace najde své členy. 
+Na konci se~sečtou body za~každý navázaný kontakt a~body za~každého správně nahlášeného podezřelého agenta.
+Hru může hrát i~jen několik agentů, kteří se~musí najít v~"davu civilistů", kteří hru nehrají.
 
-V~této hře by se elektronika dala využít např. na úschovu a~předávání důležitého předmětu, třeba klíče nebo tajných fotografií.
-Každý hráč by tak dostal předmět, který by musel předat někomu jinému.
-Za tímto účelem by každý hráč měl svoji zamykatelnou přihrádku, která by se dala otevřít jen po zadání hráčem nastaveného hesla.
-Protože jsou ale všichni špioni a~navzájem se neznají, hráč přímo neví komu má předmět předat.
-Má pouze jeho popis a~musí tedy zjistit kdo to je.
-Body by pak šlo získat dvěma způsoby, úspěšným předáním objektu a~odcizením cizího objektu.
-Hráči tedy mají motivaci tvářit se jako osoba, které má jiný hráč předat svůj objekt, aby se tak dozvěděli heslo k~jeho přihrádce a~mohli mu jeho předmět odcizit.
-Je faktem, že po úspěšném předání zůstává přihrádce stejné heslo jako předtím, pokud jej tedy dotyčný sám nezmění.
-Pokud tak neučiní, riskuje, že mu jeho předchozí kolega předmět odcizí, protože už toto heslo zná.
+V~této hře by~se elektronika dala využít např. na~úschovu a~předávání důležitého předmětu, třeba klíče nebo tajných fotografií.
+Každý hráč by~tak dostal předmět, který by~musel předat někomu jinému.
+Za tímto účelem by~každý hráč měl svoji zamykatelnou přihrádku, která by~se dala otevřít jen po~zadání hráčem nastaveného hesla.
+Protože jsou ale všichni špioni a~navzájem se~neznají, hráč přímo neví komu má~předmět předat.
+Má pouze jeho popis a~musí tedy zjistit kdo to~je.
+Body by~pak šlo získat dvěma způsoby, úspěšným předáním objektu a~odcizením cizího objektu.
+Hráči tedy mají motivaci tvářit se~jako osoba, které má~jiný hráč předat svůj objekt, aby se~tak dozvěděli heslo k~jeho přihrádce a~mohli mu~jeho předmět odcizit.
+Je faktem, že~po úspěšném předání zůstává přihrádce stejné heslo jako předtím, pokud jej tedy dotyčný sám nezmění.
+Pokud tak neučiní, riskuje, že~mu jeho předchozí kolega předmět odcizí, protože už~toto heslo zná.
 
-% Některým hráčům by se tady na začátku předal i~tento předmět a~číslo přihrádky do které jej mají tajně uložit.
-% Po uložení do přihrádky by museli informovat kolegu o~tom kde a~pod jakým heslem je předmět uložen.
-% Heslo k~přihrádce be se měnilo takže hráč který předmět uložil by znal jen část kodu a~zbytek kodu by se vygeneroval na osobním zařízení kolegy.
-% Kolega by pak musel spojit svoji část hesla s~tou od kolegy, předmět získat a~stejným způsobem předat dalšímu hráči.
-% Zatím co by se jeden tým snažil nenápadně přesunout předmět, druhý tým by se snažil předmět získat nebo alespoň zjistit o~jaký předmět se jedná.
-% Také by mohl přímo zjistit vstupní kod k~trezoru a~předmět tak získat přímo tam.
+% Některým hráčům by~se tady na~začátku předal i~tento předmět a~číslo přihrádky do~které jej mají tajně uložit.
+% Po~uložení do~přihrádky by~museli informovat kolegu o~tom kde a~pod jakým heslem je~předmět uložen.
+% Heslo k~přihrádce be~se měnilo takže hráč který předmět uložil by~znal jen část kodu a~zbytek kodu by~se vygeneroval na~osobním zařízení kolegy.
+% Kolega by~pak musel spojit svoji část hesla s~tou od~kolegy, předmět získat a~stejným způsobem předat dalšímu hráči.
+% Zatím co~by se~jeden tým snažil nenápadně přesunout předmět, druhý tým by~se snažil předmět získat nebo alespoň zjistit o~jaký předmět se~jedná.
+% Také by~mohl přímo zjistit vstupní kod k~trezoru a~předmět tak získat přímo tam.
 
-% kod k~trezoru, ve kterém je onen důležitý předmět.
-% Pomocí kodu by hráči museli nepozorovaně otevřít přihrádku a~získat tak předmět spolu se zprávou komu ho má doručit a~částí přístupového kodu k~příští přihrádce.
-% Následně by musely vypátrat kdo je jeho kolega a~nepozorovaně mu předat získanou část kodu.
-% Kolegovi by se na jeho osobním zařízení vygeneroval zbytek kodu a~
-% Kolega by pak měl za úkol takto předat předmět dalšímu hráči nebo nepozorovaně předat vedoucímu čímž by tým získal body za přesun.
-% Zatím co by se jeden tým snažil nenápadně přesunout předmět, druhý tým by se snažil předmět získat nebo alespoň zjistit o~jaký předmět se jedná.
-% Také by mohl přímo zjistit vstupní kod k~trezoru a~předmět tak získat přímo tam.
-% Podobných předmětu by být víc třeba i~víc druhů a~po přesunu jednoho by se do hry přidal další.
+% kod k~trezoru, ve~kterém je~onen důležitý předmět.
+% Pomocí kodu by~hráči museli nepozorovaně otevřít přihrádku a~získat tak předmět spolu se~zprávou komu ho~má doručit a~částí přístupového kodu k~příští přihrádce.
+% Následně by~musely vypátrat kdo je~jeho kolega a~nepozorovaně mu~předat získanou část kodu.
+% Kolegovi by~se na~jeho osobním zařízení vygeneroval zbytek kodu a~
+% Kolega by~pak měl za~úkol takto předat předmět dalšímu hráči nebo nepozorovaně předat vedoucímu čímž by~tým získal body za~přesun.
+% Zatím co~by se~jeden tým snažil nenápadně přesunout předmět, druhý tým by~se snažil předmět získat nebo alespoň zjistit o~jaký předmět se~jedná.
+% Také by~mohl přímo zjistit vstupní kod k~trezoru a~předmět tak získat přímo tam.
+% Podobných předmětu by~být víc třeba i~víc druhů a~po přesunu jednoho by~se do~hry přidal další.
 
-\subsection{Než se čas naplní}
-Tato hra je převzata z~portálu hranostaj.cz \cite{NezSeCasNaplni}.
+\vspace{-2mm}
+\subsection{Než se~čas naplní}
+Tato hra je~převzata z~portálu hranostaj.cz \cite{NezSeCasNaplni}.
+\vspace{2mm}
 
-Legenda\\
-Blíží se vteřina zkázy, teroristé schovali bombu a~teď se jen třesou nedočkáním, až tlaková vlna smete z~povrchu zemského nenáviděnou lokaci. 
+Legenda\vspace{2mm}\\
+Blíží se~vteřina zkázy, teroristé schovali bombu a~teď se~jen třesou nedočkáním, až~tlaková vlna smete z~povrchu zemského nenáviděnou lokaci. 
 Tuto škodolibou radost jim poněkud překazily mírové jednotky OSN odhodlané výbuchu zamezit. 
-Jak to dopadne? 
-Vše je v~rukách hráčů.
+Jak to~dopadne? 
+Vše je~v~rukách hráčů.
 
-Příprava\\
-Poté, co skupinka vedoucích připraví a~následně do herního pole (velkého klidně přes celou obec) rozmístí tři papíry s~šiframi a~jeden s~nápisem "BOMBA" (který je o~to zajímavější, že na něj jsou přicvaknuté tři gumičky), nastane chvíle zasvěcení hráčů do legendy a~pravidel hry. 
-Aby věděli, na které straně stojí, vylosují si svou roli - totiž: voják, pyrotechnik (ti jediní své role odhalí) a~terorista.\\
-Doporučený počet postav:\\
-3 pyrotechnyci\\
-4~a~víc vojáků\\
-počet teroristů cca polovina počtu vojáků \\
+\vspace{2mm}
+Příprava\vspace{2mm}\\
+Poté, co~skupinka vedoucích připraví a~následně do~herního pole (velkého klidně přes celou obec) rozmístí tři papíry s~šiframi a~jeden s~nápisem "BOMBA" (který je~o~to zajímavější, že~na něj jsou přicvaknuté tři gumičky), nastane chvíle zasvěcení hráčů do~legendy a~pravidel hry. 
+Aby věděli, na~které straně stojí, vylosují si~svou roli -~totiž: voják, pyrotechnik (ti jediní své role odhalí) a~terorista.\vspace{2mm}\\
+\vspace{2mm}
+Doporučený počet postav:
+\begin{itemize}
+    \item 3 pyrotechnici
+    \item 4~a~víc vojáků
+    \item počet teroristů cca polovina počtu vojáků
+\end{itemize}
 
-Hra\\
-Ve stejném okamžiku, kdy začíná hra, spouští se budík odpočítávající hodinu zbývající do výbuchu bomby. 
-V~této době musí vojáci nalézt papír s~nápisem "BOMBA" a~sehnat pyrotechniky na její deaktivaci. 
+\newpage
+Hra\vspace{2mm}\\
+Ve stejném okamžiku, kdy začíná hra, spouští se~budík odpočítávající hodinu zbývající do~výbuchu bomby. 
+V~této době musí vojáci nalézt papír s~nápisem "BOMBA" a~sehnat pyrotechniky na~její deaktivaci. 
 Stačí když každý pyrotechnik roztrhne jednu z~přicvaknutých gumiček, což výbušninu zneškodní. 
-Jediný pyrotechnik smí s~bombou manipulovat, nehrozí tedy, že by ji teroristé přenášeli z~místa na místo.
-Jelikož je herní pole rozlehlé, nabízí se zde berličky pro hledající a~to v~podobě stop, neboli šifer. 
-Když vojáci dešifrují zprávu, dozví se něco víc o~místě, kde bombu hledat. 
+Jediný pyrotechnik smí s~bombou manipulovat, nehrozí tedy, že~by ji~teroristé přenášeli z~místa na~místo.
+Jelikož je~herní pole rozlehlé, nabízí se~zde berličky pro hledající a~to v~podobě stop, neboli šifer. 
+Když vojáci dešifrují zprávu, dozví se~něco víc o~místě, kde bombu hledat. 
 V~tom tkví také první příležitost pro teroristy. 
-Vytvářením falešných šifer se dají hledači solidně zmást.
+Vytvářením falešných šifer se~dají hledači solidně zmást.
 Avšak hlavním posláním teroristů není ani tak mystifikace jako eliminace. 
-Stačí, aby se některý octnul s~vojákem, ba co hůř s~pyrotechnikem, o~samotě a~odhalením své role může ukončit účast dotyčného na hře. 
-Důležitá je však ta samota, je-li na dohled jakýkoliv neterorista, vražda neplatí a~vyřazení ze hry postihne útočníka.
-Pokud se mírové misi podaří bombu do hodiny zneškodnit, vítězí. 
-Jsou-li však hledači příliš pomalí, nebo je zabit pyrotechnik, vítězí teroristé.
+Stačí, aby se~některý octnul s~vojákem, ba~co hůř s~pyrotechnikem, osamotě a~odhalením své role může ukončit účast dotyčného na~hře. 
+Důležitá je~však ta~samota.
+Je-li na~dohled jakýkoliv neterorista, vražda neplatí a~vyřazení ze~hry postihne útočníka.
+Pokud se~mírové misi podaří bombu do~hodiny zneškodnit, vítězí. 
+Jsou-li však hledači příliš pomalí, nebo je~zabit pyrotechnik, vítězí teroristé.
 
-V~této hře by se elektronika dala využít na měření času, který zbývá do výbuchu bomby a~identifikaci jednotlivých povolání.
-Úspěšným vyluštěním jedné z~šifer by tak hráči mohli získat nějaký předmět, který by jim poskytl výhodu a to třeba částečně i bez jejich vědomí.
-Teroristi by tak mohli získat třeba zbraň, co by jim umožnila zabít víc jak jednoho člověka naráz a~vojáci naopak dejme tomu neprůstřelnou vestu, která by je mohla ochránit před utokem teroristy.
-Při deaktivaci bomby by také mohlo být se správným vybavením možné, aby pyrotechnik na dálku naváděl vojáka při zneškodňování bomby.
+V~této hře by~se elektronika dala využít na~měření času, který zbývá do~výbuchu bomby a~identifikaci jednotlivých povolání.
+Úspěšným vyluštěním jedné z~šifer by~tak hráči mohli získat nějaký předmět, který by~jim poskytl výhodu a~to~třeba částečně i~bez jejich vědomí.
+Teroristi by~tak mohli získat třeba zbraň, co~by jim umožnila zabít víc jak jednoho člověka naráz a~vojáci naopak dejme tomu neprůstřelnou vestu, která by~je mohla ochránit před utokem teroristy.
+Při deaktivaci bomby by~také mohlo být se~správným vybavením možné, aby pyrotechnik na~dálku naváděl vojáka při zneškodňování bomby.
 
+\vspace{-2mm}
 \subsection{Duchové}
-Tato hra počítá už v~základu s~elektronikou a~je na ní založena.
+Tato hra počítá už~v~základu s~elektronikou a~je na~ní založena.
 
 Ve hře jsou tři typy zařízení, nabíječka, artefakt a~lucernička.
-Hráči mají za úkol nabít pět artefaktů na určených místech.
-K~tomu jim slouží lucernička, kterou má každý hráč svoji a~nosí ji s~sebou, dále nabíječka, která je společná pro všechny a~během hry se nepohybuje.
-Každá lucerna je schopna uchovat až desetinu energie k~nabití artefaktu. 
-Na nabití artefaktu je tak třeba více nabitých lucerniček.
-Lucernička se nabíjí přiblížením k~nabíječce a~stiskem tlačítka, stejně tak se nabíjí i~artefakt z~lucerničky.
-Jak lucernička tak artefakt se časem sama lehce vybíjí a~když hráč stiskne tlačítko ve chvíli, kdy není v~dosahu artefaktu ani nabíječky, vybije se dvakrát rychleji.
-Při stisku tlačítka se ale také lucernička rozsvítí, svítí tak hráči na cestu a~odpuzuje duchy.
-Když se duch dotkne hráče, hráč na pět minut vypadává ze hry.
-Hlavní nebezpečí duchů ale spočívá v~tom, že mohou vybíjet artefakty i~lucerničky a~to velmi rychle.
-Hráči si tedy musí dát pozor, aby jim duchové nevybili artefakt během jejich cesty k~nabíječce a~zpět.
+Hráči mají za~úkol nabít pět artefaktů na~určených místech.
+K~tomu jim slouží lucernička, kterou má~každý hráč svoji a~nosí ji~s~sebou, dále nabíječka, která je~společná pro všechny a~během hry se~nepohybuje.
+Každá lucerna je~schopna uchovat pouze část energie potřebné k~nabití artefaktu. 
+Na nabití artefaktu je~tak třeba více nabitých lucerniček.
+Lucernička se~nabíjí přiblížením k~nabíječce a~stiskem tlačítka, stejně tak se~nabíjí i~artefakt z~lucerničky.
+Jak lucernička tak artefakt se~časem sama lehce vybíjí a~když hráč stiskne tlačítko ve~chvíli, kdy není v~dosahu artefaktu ani nabíječky, vybije se~výrazně rychleji.
+Při stisku tlačítka se~ale také lucernička rozsvítí, svítí tak hráči na~cestu a~odpuzuje duchy.
+Když se~duch dotkne hráče, hráč nakrátko vypadává ze~hry.
+Hlavní nebezpečí duchů ale spočívá v~tom, že~mohou vybíjet artefakty i~lucerničky a~to velmi rychle.
+Hráči si~tedy musí dát pozor, aby jim duchové nevybili artefakt během jejich cesty k~nabíječce a~zpět.
+Zároveň mohou být na~hřišti i~skrytí duchové, které nehrají organizátoři, ale šlo by~jen o~zařízení, které někde leží a~způsobuje tak ve~svém okolí vybíjení.
+Hráči tak musí zjistit, kde se~jim lucerničky vybíjejí a~dávat si~na tato místa pozor.
 
-V~případě, že by duchy hrál druhý tým hráčů a~ne organizátoři, měli by mít nějaký regulační mechanizmus.
-Například by potřebovali ke své činnosti jiný druh energie, který by při své činnosti spotřebovávali.
-Zároveň by ztráceli energii, když na ně protihráč posvítí, aby měli důvod se tomu vyhýbat.
+V~případě, že~by duchy hrál druhý tým hráčů a~ne organizátoři, měli by~mít nějaký regulační mechanizmus.
+Například by~potřebovali ke~své činnosti jiný druh energie, který by~při své činnosti spotřebovávali.
+Zároveň by~ztráceli energii, když na~ně protihráč posvítí, aby měli důvod se~tomu vyhýbat.
 
-Tuto hru je vhodné hrát v~co největší tmě, aby hráči potřebovali světlo svých lucerniček.
-Za světla to nebude mít tu správnou atmosféru.
+Tuto hru je~vhodné hrát v~co největší tmě, aby hráči potřebovali světlo svých lucerniček.
+Za světla to~nebude mít tu~správnou atmosféru.

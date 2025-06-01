@@ -63,6 +63,9 @@
 \usepackage{dirtree}	% sazba adresářové struktury
                       % vhodné pro prezentaci obsahu elektronické přílohy (např. CD)
 
+% tabulky
+\usepackage{makecell}
+
 %====== Bibtex =====
 
 \usepackage{csquotes}
@@ -119,7 +122,7 @@
 %%%%%%      Definice informací o dokumentu             %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{nastaveni}  % do tohoto souboru doplňte údaje o sobě, druhu práce, názvu...
+\input{nastaveni.tex}  % do tohoto souboru doplňte údaje o sobě, druhu práce, názvu...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -225,12 +228,16 @@
 % \section{Dynamických zařízení}
 % \input{text/TeoretickyUvod/AplikaceHernichZarizeni/Semi.tex}
 
-%%% Vložení souboru 'text/vysledky' s popisem vysledků práce
+%%% Vložení souboru 'text/vysledky' s popisem výsledků práce
 % (rozdělte na více souborů či kapitol, pokud je vhodné)
 \chapter{Návrh statického zařízení}
 \input{text/PraktickaCast/navrhStatiky.tex}
 \chapter{Návrh dynamického zařízení}
 \input{text/PraktickaCast/navrhDynamiky.tex}
+\chapter{Testování statického zařízení}
+\input{text/PraktickaCast/testovaniStatiky.tex}
+\chapter{Testování dynamického zařízení}
+\input{text/PraktickaCast/testovaniDynamiky.tex}
 
 
 %%% Vložení souboru 'text/zaver' se závěrem
@@ -255,13 +262,12 @@
 %% Začátek příloh
 \appendix
 
-%% Vysázení seznamu příloh
-% (vynechejte, pokud máte dvě nebo méně příloh)
-% \listofappendices
+% Vysázení seznamu příloh
+\listofappendices
 
 %% Vložení souboru 'text/prilohy' s přílohami
 % Obvykle je přítomen alespoň popis co najdeme na přiloženém médiu
-
+% \chapter{Přílohy}
 \include{text/prilohy}
 
 \end{document}

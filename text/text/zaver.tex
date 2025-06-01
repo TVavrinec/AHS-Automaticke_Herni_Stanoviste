@@ -2,20 +2,22 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Závěr}
 
-V~práci je popsáno několik Outdoorových her, které nevyužívají elektroniku a~následně je rozebrána možnost jejich rozšíření o~elektroniku.
-Navíc~je popsána i~jedna hra, která od základu s~elektronikou počítá.
-Na základě těchto her jsou odvozeny požadavky, které jsou na elektronická zařízení v hrách kladeny.
-Následně byla provedena první fáze návrhu dvou zařízení, která tyto požadavky plní a~je tak možné je v~outdoorových hrách nasadit.
+V~práci je~popsáno několik outdoorových her, které nevyužívají elektroniku a~následně je~rozebrána možnost jejich rozšíření o~elektroniku.
+Navíc~je popsána i~jedna hra, která od~základu s~elektronikou počítá.
+Na základě těchto her jsou odvozeny požadavky, které jsou na~elektronická zařízení v~hrách kladeny.
+Následně byl proveden návrh a~výroba dvou zařízení, která tyto požadavky plní a~je tak možné je~v~outdoorových hrách nasadit.
 
-Jedno se zařízení je určeno k tomu, aby jej hráč nosil sebou, a je dostatečně malé a levné, aby jej bylo možné používat při hrách ve velkém počtu.
+Jednodušší zařízení je~určeno k~tomu, aby jej hráč nosil sebou, a~jeho cílem je~být dostatečně malé a~levné, aby jej bylo možné používat při hrách ve~velkém počtu.
+Využívá mikrokontrloer ESP32C3 \cite{ESP32C3}, dvanáct ledek WS2812B \cite{WS2812B} a~jako zdroj malou powerbanku.
 
-Druhé zařízení je určeno k tomu, aby zastoupilo organizátora na stanovišti a~umožnilo mu tak zapojení do hry jiným způsobem.
-Toto zařízení tedy už nemusí bý tak malé ani levné, protože se nepředpokládá nasazení v tak velkém počtu a je potřeba, aby bylo dobře viditelné.
-Zařízení je rozděleno na základní řídící jednotku a~moduly, které jsou k základní jednotce připojeny pomocí UARTu.
-Nestandardně je UART použit pro komunikaci jeden s více, namísto standardního jeden s jedním (viz podkapitola \ref{sec:ModulovyKonektor}).
-To umožňuje připojení více modulů k jedné základní jednotce bez potřeby přeposílání zpráv skrz moduly.
-Potenciálně zajímavou částí základní jednotky je také tlaková plocha (viz kapitola \ref{popisTlakovky}), která umožňuje hráčům interagovat se základním zařízením pomocí doteku a tlaku.
+Druhé zařízení je~určeno k~tomu, aby zastoupilo organizátora na~stanovišti a~umožnilo mu~tak zapojení do~hry jiným způsobem.
+Toto zařízení tedy už~nemusí být tak malé ani levné, protože se~nepředpokládá nasazení v~tak velkém počtu a~je potřeba, aby bylo dobře viditelné.
+Zařízení je~rozděleno na~základní řídící jednotku a~moduly, které jsou k~základní jednotce připojeny pomocí atypicky použitého UARTu.
+Nestandardně je~UART použit pro komunikaci jeden s~více, namísto standardního jeden s~jedním (viz podkapitola \ref{sec:ModulovyKonektor}).
+To má~za cíl umožnit připojení více modulů k~jedné základní jednotce bez potřeby přeposílání zpráv skrz moduly.
+Zařízení má~už vlastní baterii a~elektroniku, která se~stará o~její nabíjení a~chrání ji~proti podbití a~přebití.
+Řídícím mikrokontrolerem je~ESP32S3 \cite{ESP32S3} a~také jsou zde využity LED WS2812B tentokrát ve~větším množství.  ~
+Významnou částí základní jednotky je~také tlaková plocha (viz kapitoly \ref{popisTlakovky1}, \ref{popisTlakovky2} a~\ref{popisTlakovky3}), která umožňuje hráčům interagovat se~základním zařízením pomocí doteku a~tlaku.
 
-Předpokládaný další vývoj je konkrétní návrh elektroniky obou zařízení a alespoň modulu dvířka.
-Také je zapotřebí navrhnout mechanickou stránku obou zařízení a modulu.
-Následně bude třeba vše vyrobit, zprovoznit a otestovat v nějaké reálné hře.
+Pro obě zařízení bylo také nutné vytvořit vhodný obal, který dokáže odolat např. dešti, kterému mohou být za~provozu vystaveny.
+Zařízení byla také zprovozněna a~ověřena jejich funkce.
