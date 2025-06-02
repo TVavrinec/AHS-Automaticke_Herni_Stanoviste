@@ -2,13 +2,13 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Závěr}
 
-V~práci je~popsáno několik outdoorových her, které nevyužívají elektroniku a~následně je~rozebrána možnost jejich rozšíření o~elektroniku.
+V~práci je~popsáno několik outdoorových her, které nevyužívají elektroniku a~následně je~rozebrána možnost jejich rozšíření za využití elektroniky.
 Navíc~je popsána i~jedna hra, která od~základu s~elektronikou počítá.
 Na základě těchto her jsou odvozeny požadavky, které jsou na~elektronická zařízení v~hrách kladeny.
 Následně byl proveden návrh a~výroba dvou zařízení, která tyto požadavky plní a~je tak možné je~v~outdoorových hrách nasadit.
 
 Jednodušší zařízení je~určeno k~tomu, aby jej hráč nosil sebou, a~jeho cílem je~být dostatečně malé a~levné, aby jej bylo možné používat při hrách ve~velkém počtu.
-Využívá mikrokontrloer ESP32C3 \cite{ESP32C3}, dvanáct ledek WS2812B \cite{WS2812B} a~jako zdroj malou powerbanku.
+Využívá mikrokontrloér ESP32-C3 \cite{ESP32C3}, dvanáct LED WS2812B \cite{WS2812B} a~jako zdroj malou powerbanku.
 
 Druhé zařízení je~určeno k~tomu, aby zastoupilo organizátora na~stanovišti a~umožnilo mu~tak zapojení do~hry jiným způsobem.
 Toto zařízení tedy už~nemusí být tak malé ani levné, protože se~nepředpokládá nasazení v~tak velkém počtu a~je potřeba, aby bylo dobře viditelné.
@@ -16,8 +16,13 @@ Zařízení je~rozděleno na~základní řídící jednotku a~moduly, které jso
 Nestandardně je~UART použit pro komunikaci jeden s~více, namísto standardního jeden s~jedním (viz podkapitola \ref{sec:ModulovyKonektor}).
 To má~za cíl umožnit připojení více modulů k~jedné základní jednotce bez potřeby přeposílání zpráv skrz moduly.
 Zařízení má~už vlastní baterii a~elektroniku, která se~stará o~její nabíjení a~chrání ji~proti podbití a~přebití.
-Řídícím mikrokontrolerem je~ESP32S3 \cite{ESP32S3} a~také jsou zde využity LED WS2812B tentokrát ve~větším množství.  ~
-Významnou částí základní jednotky je~také tlaková plocha (viz kapitoly \ref{popisTlakovky1}, \ref{popisTlakovky2} a~\ref{popisTlakovky3}), která umožňuje hráčům interagovat se~základním zařízením pomocí doteku a~tlaku.
+Řídícím mikrokontrolerém je~ESP32-S3 \cite{ESP32S3} a~také jsou zde využity LED WS2812B tentokrát ve~větším množství.
+Významnou částí základní jednotky je~také tlaková plocha (viz kapitoly \ref{popisTlakovky2} a~\ref{popisTlakovky3}), která umožňuje hráčům interagovat se~základním zařízením pomocí doteku a~tlaku.
 
 Pro obě zařízení bylo také nutné vytvořit vhodný obal, který dokáže odolat např. dešti, kterému mohou být za~provozu vystaveny.
 Zařízení byla také zprovozněna a~ověřena jejich funkce.
+
+Přestože jsou obě zařízení elektronicky i~mechanicky funkční, je pro využití jejich potenciálu třeba další vývoj na~straně programu obou zařízení.
+Také bude třeba vyvinout moduly k~AHS, např. v~práci zmíněný zvukový modul.
+Do budoucna bych také rád zřídil web, na kterém by byly dostupné již hotové hry, a~který by~umožňoval nahrávat hry přímo do~zařízení.
+Touto cestou by totiž bylo možné výrazně usnadnit používání zařízení.

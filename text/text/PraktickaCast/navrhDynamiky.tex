@@ -10,42 +10,43 @@
 % %~realizace
 
 Z praktických důvodů jsem tomuto zařízení dal jméno Semisemafor.
-Idea zařízení totiž částečně vychází z~projektu Semafor \cite{StarySemafor}, který často sloužit podobně jako dopravní semafor, podle kterého dostal své jméno.
+Idea zařízení totiž částečně vychází z~projektu Semafor \cite{StarySemafor}, který často sloužil podobně jako dopravní semafor, podle kterého dostal své jméno.
 
 Vstup Semisemaforu bude realizován pomocí dvou tlačítek a~šestiosého IMU, pro možnost používání gest.
 Světelný výstup bude realizován pomocí dvanácti RGB LED uspořádaných do~kruhu.
 Číslo dvanáct bylo zvoleno proto, aby korespondovalo s~hodinami, typicky pro hry, kde probíhá nějaký odpočet.
 
-Aby nebylo nutné starat se~o~baterii, bylo napájení zajištěno pomocí USB-A konektoru a~malé powerbanky, která se~tak dá~třeba i~snadno vyměnit za~nabitou.
+Aby nebylo nutné starat se~o~baterii, je napájení zajištěno pomocí USB-A konektoru a~malé powerbanky, která se~tak dá~třeba i~snadno vyměnit za~nabitou.
 
 \section{Výběr součástek}
 Protože zařízení bude vyráběno u~firmy JLCPCB, je~výhodné využívat součástky, které mají ve~své nabídce.
 Dá se~sice zařídit, aby firma osadila i~součástky od~externího dodavatele, ale je~to o~něco složitější a~je tak jednodušší se~tomu vyhnout.
 
-Aby nebylo nutné pro práci se~Semisemaforem a~AHS používat různá prostředí, je~výhodné použít stejný kontroler nebo alespoň kontroler ze~stejné rodiny.
-Proto byl zvolen kontroler ESP32-C3-MINI-1, který je~ve srovnání s~ESP32-S3 výrazně levnější a~aplikaci plně dostačuje. 
+Aby nebylo nutné pro práci se~Semisemaforem a~AHS používat různá prostředí, je~výhodné použít stejný mikrokontrolér nebo alespoň mikrokontrolér ze~stejné rodiny.
+Proto byl zvolen mikrokontrolér ESP32-C3-MINI-1, který je~ve srovnání s~ESP32-S3 výrazně levnější a~aplikaci plně dostačuje. 
 ESP32-S3 má~stejně jako ESP32-S3 USB periferii, která se~dá využít na~programování kontroleru.
 I~tady je~ale problém, že~se tato metoda dá~softwarově narušit a~Semisemafor je~proto vybaven stejným programovacím konektorem jako ESP32-S3 na~AHS.
 
-Protože mám dobré zkušenosti s~inteligentními ledkami WS2812B, zvolil jsem na~led kruh jejich typickou pětimilimetrovou variantu.
+Protože mám dobré zkušenosti s~LED WS2812B, zvolil jsem na~LED kruh jejich typickou pětimilimetrovou variantu.
 
-IMU by~na semaforu nemělo sloužit pro žádná přesná měření, ale jen např. pro detekci plácnutí nikoliv jeho síly nebo rychlosti, nezáleží proto tolik na~jeho přesnosti.
+IMU na semaforu nemá sloužit pro žádná přesná měření, ale např. pro detekci jednoduchých gest nikoliv pro přesné měření zrychlení, nezáleží proto tolik na~jeho přesnosti.
 Při jeho výběru šlo proto primárně o~cenu a~zvoleno bylo LIS2DH12TR \cite{LIS2DH12TR}, které komunikuje po~SPI nebo I2C, ze~kterých jsem zvolil SPI.
 
-Kontroler ESP32-C3 i~LIS2DH12TR má~rozsah napájecího napětí do~\(3.6~V\) \cite{ESP32C3}\cite{LIS2DH12TR}.
-Není proto možné je~napájet přímo z~napětí na~USB, na~kterém je~napětí \(5~V\) a~bude tedy potřeba měnič.
-ESP32-C3 požaduje zdroj se~schopností dodat \(0.5~A\) \cite{ESP32C3} (strana 20~tabulka 10) a~jeho typická spotřeba ze~zkušenosti nepřesáhne \(200~mA\), LIS2DH12TR pak vyžaduje zanedbatelných \(185~uA\) (v~závislosti na~vzorkovací frekvenci i~mnohem méně \cite{LIS2DH12TR} strana 17~tabulka 12).
+Mikrokontrolér ESP32-C3 i~LIS2DH12TR mají rozsah napájecího napětí do~\(3,6~V\) \cite{ESP32C3}\cite{LIS2DH12TR}.
+Není proto možné je~napájet přímo z~napětí na~USB, na~kterém je~k~disposici napětí \(5~V\) a~bude tedy potřeba měnič.
+ESP32-C3 požaduje zdroj se~schopností dodat \(0,5~A\) \footnote{specifikováno v katalogovém listu \cite{ESP32C3} na straně 20, v~tabulce 10} a~jeho typická spotřeba ze~zkušenosti nepřesáhne \(200~mA\), LIS2DH12TR pak vyžaduje zanedbatelných \(185~\mu A\) (v~závislosti na~vzorkovací frekvenci i~výrazně méně, viz \cite{LIS2DH12TR} strana 17,~tabulka 12).
 Považuji proto za~vhodné pro jeho napájení použít LDO.
-Z~nabídky JLCPCB byl proto zvolen LD39200 \cite{LD39200} pro jeho elektrické parametry a~malé pouzdro.
+Z~nabídky JLCPCB jsem proto zvolil LD39200 \cite{LD39200} pro jeho elektrické parametry a~malé pouzdro.
 
 \section{Návrh schématu a~DPS}
 
-Doplnil jsem blokovací kondenzátory dle doporučení výrobců, pull-up rezistory na~straping pin mikrokontroleru, zpětnovazební dělič k~LDO a~k~tlačítkům jsem připojil kondenzátor proti odskokům.
-Dostal jsem tak schéma \ref{Semisemafor-sch-v1}, ze~kterého jsem následně nakreslil DPS \ref{Semisemafor-pcb-v1}
+Doplnil jsem blokovací kondenzátory dle doporučení výrobců, zpětnovazební dělič k~LDO a~k~tlačítkům jsem připojil kondenzátor proti odskokům.
+Také jsem doplnil rezistory připojující pin mikrokontroleru, využívané při startu procesoru, k~napájení resp. k~zemi, podle jejich účelu. 
+Dostal jsem tak schéma, umístěné v příloze \ref{Semisemafor-sch-v1}.
 
 \section{Prototypy}
 
-Při testování první verze, byl problém s~neovladatelnými ledkami.
+Při testování první verze, byl problém s~neovladatelnými LED.
 Výsledkem pokusů o~nastavení barvy bylo jen náhodné rozsvěcování a~zhasínání.
 Když jsem připojil osciloskop na~řídící signál diod, obdržel jsem signál \ref{Semisemafor-zvonek} %~TODO: změřit znovu a~dodat heščí graf
 
@@ -63,12 +64,12 @@ Tento problém jsem vyřešil doplněním feritu do~cesty řídícího signálu,
 Kvůli servisním zákrokům a~konstrukci krytu jsem navíc přidal i~další dvě kontaktní plošky pod USB konektor.
 Důvodem doplnění těchto plošek je~volba nerozebíratelného krytu zařízení a~potenciální možnost narušení programování prostřednictvím USB.
 Plošky tak umožní dostat zařízení do~správného stavu pro nahrání programu bez nutnosti zničení krytu. 
-Výsledné schéma viz \ref{Semisemafor-sch-v2}
+Výsledné schéma je umístěné v~příloha \ref{Semisemafor-sch-v2} a~z~něj navržená topologie DPS je vyobrazena v příloze \ref{Semisemafor-pcb-v1}.
 
 \section{Mechanická stavba}
 Jedním z~podstatných požadavků byla jistá úroveň krytí proti vodě, aby se~zařízení dalo používat i~za deště.
-To nutně neznamená úplnou vodotěsnost, dá~se totiž předpokládat, že~zařízení bude používáno v~poloze, kdy je~powerbanka dole a~Semisemafor nahoře.
-Stačí tedy zajistit těsnost proti stékající vodě jen v~jednom směru.
+To nutně neznamená úplnou vodotěsnost, dá~se totiž předpokládat, že~zařízení bude používáno v~poloze, kdy otvor pro powerbanku směřuje k~zemi.
+Stačí tedy zajistit těsnost proti stékající vodě v~jednom směru.
 
 Navíc se~během testování objevil ještě požadavek na~zpětnou vazbu tlačítka v~podobě jeho kliknutí. 
 Uživatel totiž musí vědět, že~tlačítko skutečně stiskl, na~což je~mechanická odezva samotného tlačítka ideální.
@@ -83,20 +84,21 @@ Po několika iteracích jsem obdržel výsledný vzhled (viz obrázek \ref{Semis
 \end{figure}
 
 Jako technologii výroby jsem zvolil obyčejný FDM 3D~tisk.
-Původně jsem chtěl použít materiál ASA pro jeho UV~odolnost, ale ukázalo se, že~jsem nebyl schopen navrhnout mechaniku tak, aby byl výsledek dostatečně voděodolný a~zároveň měla tlačítka uspokojivou zpětnou vazbu.
+Původně jsem chtěl použít materiál ASA pro jeho UV~odolnost.
+Ukázalo se však, že~jsem nebyl schopen navrhnout mechaniku celého zařízení tak, aby byl výsledek dostatečně voděodolný a~zároveň měla tlačítka uspokojivou zpětnou vazbu.
 ASA bylo příliš tuhé a~cvaknutí mikrospínače tak utlumilo natolik, že~bylo uživatelem nezaznamenatelné.
 Obdobné výsledky jsem měl u~materiálů PETG, PLA, ABS a~několika dalších.
 Jediný materiál, u~kterého jsem dosáhl uspokojivých výsledků, byl polypropylen (PP).
 
 Problém tisku polypropylenu je~jeho tepelná roztažnost, za~běžných teplot proto má při tisku silnou tendenci se~kroutit, což značně zesložiťuje jeho tisk.
 Jednou s~možností by~bylo celý tisk provádět při teplotě přes \(120^\circ C\), kde začíná probíhat rekrystalizace a~polypropylen se~začíná výrazně smršťovat.
-Tato možnost ale nese nutnost použití speciální tiskárny, která umožňuje tiskový prostor vytopit na~takto vysokou teplotu, a~proto byla zvolena méně spolehlivá ale jednodušší metoda.
+Tato možnost ale nese nutnost použití speciální tiskárny, která umožňuje tiskový prostor vyhřát na~takto vysokou teplotu, a~proto byla zvolena méně spolehlivá ale jednodušší metoda.
 
 Použitá metoda je~založena na~vícemateriálovém tisku, přičemž primární je~užitečný tisknutý objekt z~polypropylenu a~druhý dobře tisknutelný materiál tvoří podpěry a~přítlak.
 Aby tak bylo možné vytisknout i~tvar, který nemá vhodná místa pro umístění přítlaku, musí být opatřen technologickými výstupky, které se~po tisku mohou odříznout.
 
 Tiskový model jsem tedy doplnil o~další objekt zajišťující přítlak a~zároveň i~podpěry.
-Výsledek je~vidět na~obrázku \ref{Semisemafor-box-pritlak}
+Výsledek je~vidět na~obr.\ref{Semisemafor-box-pritlak}.
 
 \begin{figure}[!h]
   \centering
@@ -108,17 +110,18 @@ Výsledek je~vidět na~obrázku \ref{Semisemafor-box-pritlak}
 Aby nebylo nutné pouzdro tisknout na~více dílů, zvolil jsem možnost zatiskávání DPS během tisku.
 Pokaždé, když tisk dospěl do~správného bodu, pozastavil se, aby bylo možné vložit elektroniku a~následně pokračoval.
 
-Kromě elektroniky jsem stejným postupem umisťoval i~průhledové "sklíčko".
-Z~důvodu zachování odolnost proti vodě, bylo toto "sklíčko" také z~polypropylenu, aby se~během tisku přivařilo k~okolní hmotě a~vytvořilo tak vodotěsný spoj.
+Kromě elektroniky jsem stejným postupem umisťoval i~průhledové ,,sklíčko''.
+Z~důvodu zachování odolnost proti vodě, je toto ,,sklíčko'' také z~polypropylenu, aby se~během tisku přivařilo k~okolní hmotě a~vytvořilo tak vodotěsný spoj.
 
 Protože je~DPS semaforu oboustranně osazena, byl při zatiskávání ještě jeden problém.
-Buď by~se totiž DPS vložila zarovnaná, plochou substrátu s~aktuální tiskovou vrstvou.
+DPS by se dala vložit zarovnaná plochou substrátu s~aktuální tiskovou vrstvou.
 Což by~však znamenalo, že~by tisková hlava mohla narazit do~nějaké z~vystupujících součástek.
-Alternativou by bylo zarovnaná aktuální tiskovou vrstvu s nejvyšším bodem nejvyšší součástky, což by~ale znamenalo, že~by elektronika nebyla pevně uchycena.
-Tento problém jsem vyřešil vložkou, která se~před zatištěním přilepí na~spodní stranu DPS a~srovná ji~tak do~roviny.
+
+Alternativou by bylo zarovnat aktuální tiskovou vrstvu s nejvyšším bodem nejvyšší součástky, což by~ale znamenalo, že~by elektronika nebyla pevně uchycena.
+Tento problém jsem proto vyřešil vložkou, která se~před zatištěním přilepí na~spodní stranu DPS a~srovná ji~tak do~roviny.
 Vložka navíc umožnila přítomnost dodatečných kontaktních plošek z~druhé strany USB, protože bez ní~by se~tyto plošky vyzkratovali o~stínění USB konektoru.
 Za tímto účelem jsem také DPS nechal vyrobit v~tloušťce 0.8mm, aby byly tyto dodatečné plošky lépe kryty. 
-DPS opatřena vložkou je~vidět na~obrázku .
+DPS opatřena vložkou je~vidět na~obr \ref{Semisemafor-vlozka}.
 
 \begin{figure}[!h]
   \centering
@@ -127,18 +130,11 @@ DPS opatřena vložkou je~vidět na~obrázku .
   \label{Semisemafor-vlozka}
 \end{figure}
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{text/PraktickaCast/img/Real-Semisemafor.jpg}
-  \caption{Reálný kus Semisemaforu}
-  \label{Semisemafor-real}
-\end{figure}
-
-Aby bylo tlačítko dostatečně měkké, mělo dostatečně silnou odezvu a~zároveň bylo odolné vůči vodě.
-Zvolil jsem tenkou membránu, ze~které vede šoupátko k~tlačítku.
+Aby bylo tlačítko dostatečně měkké, mělo dostatečně silnou odezvu a~zároveň bylo odolné vůči vodě,
+zvolil jsem tenkou membránu, ze~které vede šoupátko k~tlačítku.
 Při stisku membrány je~tak pomocí šoupátka stisknuto i~tlačítko.
-Zároveň aby nebylo nutné mačkat přesně na~místo, kde je~uchyceno šoupátko a~aby se~zabránilo možnému sklouznutí šoupátka z~tlačítka.
-Zesílil jsem střed membrány, takže se~z~membrány stal takový hmatník po~obvodu uchycený k~tělu Semisemaforu, jak je~vidět na~obr \ref{Semisemafor-rez-tlacitky}
+Zároveň aby nebylo nutné mačkat přesně na~místo, kde je~uchyceno šoupátko a~aby se~zabránilo možnému sklouznutí šoupátka z~tlačítka,
+zesílil jsem střed membrány, takže se~z~membrány stal hmatník po~obvodu uchycený k~tělu Semisemaforu, jak je~vidět na~obr. \ref{Semisemafor-rez-tlacitky}
 
 \begin{figure}[!h]
   \centering
@@ -148,5 +144,13 @@ Zesílil jsem střed membrány, takže se~z~membrány stal takový hmatník po~o
 \end{figure}
 
 Abych ještě zvýšil odolnost proti vodě, přidal jsem na~desku konformní povlak jako poslední vrstvu ochrany proti vlhkosti.
-Ve chvíli, kdy se~tak dostane vlhkost dovnitř Semisemaforu, elektronika přesto nezůstane zcela nechráněna.
+Ve chvíli, kdy se~tak dostane vlhkost dovnitř Semisemaforu, elektronika přesto zůstane částečně chráněna.
 
+Reálná fotografie dvou Semisemaforů je k vidění na obr. \ref{Semisemafor-real}.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{text/PraktickaCast/img/Real-Semisemafor.jpg}
+  \caption{Reálný kus Semisemaforu}
+  \label{Semisemafor-real}
+\end{figure}
