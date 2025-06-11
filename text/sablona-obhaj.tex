@@ -40,7 +40,20 @@
 %\usepackage{amsmath} %balíček pro sabu náročnější matematiky
 
 \usepackage{booktabs} % Balíček, který umožňuje v tabulce používat
-                      % příkazy \toprule, \midrule, \bottomrule
+% příkazy \toprule, \midrule, \bottomrule
+
+
+
+
+
+
+
+
+
+\usepackage[absolute,overlay]{textpos}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,7 +86,6 @@
 \logoheader					% vytvoření zkráceného loga VUT FEKT v hlavičce slajdu, nechte odkomentované
 
 
-
 \begin{document}
 
 % v případě zakomentování následujícího se zobrazí v pravém dolním rohu slajdů klikatelné navigační symboly 
@@ -88,96 +100,67 @@
 \begin{frame} 
 	% nadpis snímku
 	\frametitle{Cíle práce}
-	\begin{itemize}
-			\item Nastudovat
-			\item Popsat
-				\begin{itemize}
-					\item nastudované
-				\end{itemize}
-			\item Implementovat
-				\begin{itemize}
-					\item nastudované
-					\item nové
-				\end{itemize}
-			\item Porovnat a vyhodnotit
-				\begin{itemize}
-						\item výsledky
-				\end{itemize}
-	\end{itemize}
+	\begin{enumerate}
+		\item Popsat potřeby zážitkových her
+		\item Navrh specifikace zařízení vhodných pro zážitkové hry 
+		\item Navrhnout tato zařízení
+		\begin{itemize}
+			\item Statické zařízení AHS
+			\item Dynamické zařízení Semisemafor 
+		\end{itemize}
+		\item Navrhnout a otestovat
+	\end{enumerate}
 \end{frame}
 
 
 %%%%%%%%%%%%%
 \begin{frame} 
-	\frametitle{Klíčové nástroje}
+	\frametitle{Náčrt funkcí AHS}
+	\vspace{10mm}
+	\begin{itemize}
+		\item Statické herní stanoviště
+		\item Bezdrátová komunikace
+		\item Zobrazení herních dat
+		\item Jednoduše přizpůsobitelný \newline uživatelský vstup
+		\item Odolnost proti vodě
+		\item Možnost servisně doplnit \newline moduly s přídavnými funkcemi 
+	\end{itemize}
 
-	% prostředí 'alertblock', které slouží pro zdůraznění informace
-	\begin{alertblock}{Pro práci je klíčový Eulerův vzorec}
-		$$\eul^{\jmag x}=\cos x + \jmag\sin x$$
-	\end{alertblock}
-
-	\vspace{4ex}
-	Eulerova identita je speciálním případem tohoto vzorce, jestliže dosadíme $x=\uppi$\,:
-
-	% prostředí 'block', které slouží jako informativní
-	\begin{block}{Eulerova identita}
-		$$\eul^{\jmag \uppi}=\cos \uppi + \jmag\sin \uppi,$$\\
-		odkud vyplývá
-		$$\eul^{\jmag \uppi}+1=0.$$
-	\end{block}
+	\begin{textblock}{8}(7.5,5)
+		\includegraphics[width=\columnwidth]{text/PraktickaCast/img/AHS-nacrt.png}
+	\end{textblock}
 \end{frame} 
 
+%%%%%%%%%%%%%
+\begin{frame} 
+	\frametitle{Výsledná konstrukce AHS}
+	\centering
+	\includegraphics[width=\columnwidth]{text/PraktickaCast/img/AHS-kombo.png}
+\end{frame} 
+
+\begin{frame} 
+	\frametitle{Tlaková plocha}
+	\centering
+	\includegraphics[width=0.8\columnwidth]{text/PraktickaCast/img/tlakovka-kombo.png}
+\end{frame} 
 
 %%%%%%%%%%%%%
 \begin{frame} 
-	\frametitle{Plošný spoj}
-	
-	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
-		\begin{column}{0.4\textwidth}		% první sloupec
-			Obrázek znázorňuje model:\\[2ex]
-			%
-			\begin{itemize}
-				\item Deska
-				\item Součástky
-				\item Signály
-				\item Napájení
-			\end{itemize}
-		\end{column}
-		%
-		\begin{column}{0.6\textwidth}		% druhý sloupec
-			\begin{figure}%	
-				\centering
-				\vspace{1cm}	              % horizontální mezera
-				\includegraphics[width=0.8\columnwidth]{obrazky/soucastky}
-				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
-				%\caption{Popisek obrázku}%
-				%\label{obr:ukazka}
-			\end{figure}
-		\end{column}
-	\end{columns}											% ukončení prostředí sloupce
-\end{frame}
+	\frametitle{Náčrt funkcí Semisemaforu}
+	\vspace{10mm}
+	\begin{itemize}
+		\item Osobní zařízení
+		\item bezdrátová komunikace
+		\item zobrazení herních dat
+		\item jednoduchý uživatelský vstup
+		\item Odolnost proti vodě
+	\end{itemize}
 
+	\begin{textblock}{8}(7.5,2.5)
+		\includegraphics[width=\columnwidth]{text/PraktickaCast/img/SemiSemafor-BOX-render.png}
+	\end{textblock}
+\end{frame} 
 
-%%%%%%%%%%%%%
-\begin{frame} 
-	\frametitle{Výsledky}
-	\vspace{1cm}
-	\begin{table}[]
-		\centering
-		\caption{Výsledky měření mobilních sítí}
-		\label{tab:tabulka}
-			\begin{tabular}{lcc}
-				\toprule
-					Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
-				\midrule
-					GPRS (2,5G)	& 7,2 	& 3,6\\
-					UMTS 3G     & 48 		& 48\\
-					HSPA (3,5G)	&	1\,706	&	720\\
-					LTE (4G) 		& 40\,750 & 10\,750\\
-				\bottomrule                                       
-			\end{tabular}
-	\end{table}
-\end{frame}
 
 
 %%%%%%%%%%%%%

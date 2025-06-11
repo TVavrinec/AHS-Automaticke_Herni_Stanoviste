@@ -67,7 +67,7 @@ Z~požadavků mi~vyplynulo zařízení, jehož možný vzhled je~nastíněn na~o
 
 Elektronika bude~rozdělena na~dvě samostatné DPS.
 Pujde o~hlavní desku, na~které bude umístěna většina elektroniky a~o~desku s~hlavním uživatelským rozhraním (LED deska).
-Kompletní schéma a~topologie DPS je~k~vidění v~přílohách (schéma je k vidění v příloze \ref{AHS-sch} a~DPS v příloze \ref{AHS-pcb}).
+Kompletní schéma a~topologie DPS je~k~vidění v~přílohách (schéma je~k vidění v~příloze \ref{AHS-sch} a~DPS v~příloze \ref{AHS-pcb}).
 
 %~Původně jsem uvažoval ještě třetí desku, se~základním uživatelským rozhraním (mini~UI) pro usnadnění zajištění jisté míry voděodolnosti, ale nakonec jsem se~rozhodl spojit ji~s~hlavní deskou.
 
@@ -91,7 +91,7 @@ Na LED desce se~tedy nachází:
 \newpage
 \subsection{Hlavní deska}
 
-Řídícím mikrokontrolérem AHS bude ESP32-S3 (výběr je rozebrán v podsekci \ref{subs:vybermikrokontroléru}).
+Řídícím mikrokontrolérem AHS bude ESP32-S3 (výběr je~rozebrán v~podsekci \ref{subs:vybermikrokontroléru}).
 Na hlavní desce bude spolu s~mikrokontrolérem také zdroj poskytující správné napájení všech systémů zařízení.
 Hlavní deska bude tedy zprostředkovávat několik napěťových větví.
 V~neposlední řadě se zde bude nacházet základní uživatelské rozhraní v~podobě několika tlačítek, jednoduché RGB LED a sirénky.
@@ -145,7 +145,7 @@ Požadavky na výbavu mikrokontroléru jsou:
     \item dostatečný výpočetní výkon pro hladký chod interpretru JavaScriptu nebo Pythonu.
 \end{itemize}
 
-Porovnání některých dostupných možností je provedeno v tab. \ref{tab:vybermikrokontroléru}.
+Porovnání některých dostupných možností je~provedeno v~tab. \ref{tab:vybermikrokontroléru}.
 \begin{table}[h]
     % \hspace{-20mm}
     \small
@@ -226,13 +226,13 @@ Vizualizace popsaného mechanizmu sa nachází na obr. \ref{fig:pryncip-LDC}.
 Protože pro indukci vířivých proudů v~terčíku musí být magnetické pole cívky proměnné, musí být i~proud cívkou proměnný a~tedy i~napětí na~celém LC~článku.
 V~případě použití čipu LDC1614 je~tedy LC~článek chvíli buzen nastaveným proudem, dokud nedosáhne nastavené napěťové amplitudy.
 Následně přejde do~stavu měření, ve~kterém změří rezonanční frekvenci LC~článku porovnáváním s referenčním oscilátorem.
-LDC1614 má interní oscilátor s~frekvencí \(40\)~{\itshape MHz}, ale např. v~aplikacích náročných na~přesnost je možné připojit oscilátor externí. 
+LDC1614 má interní oscilátor s~frekvencí \(40\)~{\itshape MHz}, ale např. v~aplikacích náročných na~přesnost je~možné připojit oscilátor externí. 
 V~případě využití více kanálů následně přepne na~další kanál a~opakuje stejný postup \cite{LDC1614}.
 
 Princip tlakové plochy tedy spočívá ve~snímání vzdálenosti terčíku, se~kterým přichází do~kontaktu uživatel, čtyřmi snímacími cívkami na~LED desce.
 Princip uspořádání je~zobrazen na~obrázku č.\ref{fig:nastin-tlakovky}.
 
-Kromě katalogových listů čipu LDC1614 jsem vycházel i~z~informací uvedených v aplikační poznámce firmy Texas Instruments \cite{LDC1614SensorDesign} a~ze skript předmětu Mikrosenzory a mikroelektromechanické systémy \cite{SkriptaMMS}
+Kromě katalogových listů čipu LDC1614 jsem vycházel i~z~informací uvedených v~aplikační poznámce firmy Texas Instruments \cite{LDC1614SensorDesign} a~ze skript předmětu Mikrosenzory a mikroelektromechanické systémy \cite{SkriptaMMS}
 
 \begin{figure}[h!]
     \centering
@@ -284,7 +284,7 @@ Komunikace na~delším kabelu je~pak jednoduše nahraditelná bezdrátovou komun
 Všechny moduly jsou připojeny na~jeden RX~pin AHS.
 Proto musí firmware AHS zajistit, aby dva moduly nevysílaly současně.
 Aby se~zabránilo možným zkratům, má~jako ochranu každý modul své piny UARTu připojeny přes rezistor \(180~\Omega\).
-Pin přerušení má na modulech naproti tomu jen schopnost signál přizemnit a~na straně hlavního zařízení je~dráha připojena přes rezistor k~napětí \(3,3~V\).
+Pin~přerušení má na modulech naproti tomu jen schopnost signál přizemnit a~na straně hlavního zařízení je~dráha připojena přes rezistor k~napětí \(3,3~V\).
 Abych alespoň trochu zvýšil odolnost linky proti rušení, přidám na~přijímací stranu pull-up rezistor.
 Cílem je~zvýšení komunikačního proudu, aby se~případný proud vyvolaný rušením neprojevil.
 V~neposlední řadě mají všechny piny na~konektoru ESD ochranu \cite{TPD4E02B04}.
@@ -299,8 +299,8 @@ Ve chvíli, kdy by~byla potřeba, je~stejně nutná odborná obsluha a~pro tu~ne
 USB-C je~použito pro nabíjení a~pohodlnější programování zařízení bez potřeby programátoru.
 
 USB-C v~základu neposkytuje žádné napájecí napětí, protože je~navrženo k~obousměrnému provozu a může napájení jak poskytovat, tak spotřebovávat.
-% Asi nejjednodušší zpusob jak požádat zdroj o~napájení je dva rezistory s~hodnotou \(5.1~k\Omega\), přes které se~připojí signály \(CC1\) a~\(CC2\) k~zemi.
-Asi nejjednodušší způsob jak požádat zdroj o~napájení, je připojit dráhy {\it CC1} a~{\it CC2} k zemi přes rezistory o hodnotě \(5.1~k\Omega\).
+% Asi nejjednodušší zpusob jak požádat zdroj o~napájení je~dva rezistory s~hodnotou \(5.1~k\Omega\), přes které se~připojí signály \(CC1\) a~\(CC2\) k~zemi.
+Asi nejjednodušší způsob jak požádat zdroj o~napájení, je~připojit dráhy {\it CC1} a~{\it CC2} k zemi přes rezistory o~hodnotě \(5.1~k\Omega\).
 Takto zařízení dostane napětí \(5~V\) s~omezením proudu do~\(0.5~A\), tedy výkon \(2.5~W\).
 V~tuto chvíli by~se~zařízení už~mohlo nabíjet, výkonem \(2.5~W\) by~se~ale nabíjelo velmi pomalu.
 Proto jsem implementoval další systém, který má~za úkol zvýšit nabíjecí výkon a~tak zrychlit nabíjení.
@@ -457,11 +457,11 @@ Obdobně pak v~případě aktivace dráhy {\itshape 5V-B}.
 \subsection{Jednoduchá signalizační LED}
 
 Pro signalizaci některých stavů jsem do~zařízení přidal i~obyčejnou RGB LED.
-Je řiditelná z~mikrokontroléru, ale ve~chvíli, kdy ji~mikrokontrolér aktivně neřídí, může slabým svitem signalizovat i~některé hardwarové stavy.
+Je~řiditelná z~mikrokontroléru, ale ve~chvíli, kdy ji~mikrokontrolér aktivně neřídí, může slabým svitem signalizovat i~některé hardwarové stavy.
 Červeným kanálem signalizuje, že~je zařízení v~chodu a~modrým kanálem informuje o~stavu nabíjení.
 Když nabíjení probíhá, svítí modrý kanál trvale.
-Když nabíjení neprobíhá, např. když je dokončeno, modrý kanál nesvítí a~v~případě, že~nabíjecí obvod BQ25895 \cite{BQ25895} detekuje nějaký problém, bliká s~frekvencí \(1 Hz\).
-Zapojení LED je vidět na obr. \ref{fig:hloupa-LED}.
+Když nabíjení neprobíhá, např. když je~dokončeno, modrý kanál nesvítí a~v~případě, že~nabíjecí obvod BQ25895 \cite{BQ25895} detekuje nějaký problém, bliká s~frekvencí \(1 Hz\).
+Zapojení LED je~vidět na obr. \ref{fig:hloupa-LED}.
 
 \vspace{-3mm}
 \begin{figure}[h!]
@@ -534,7 +534,7 @@ Kromě spotřeby za provozu je~také vhodné určit spotřebu zařízení ve~vyp
 Nebylo by totiž vhodné, aby během nečinnosti došlo k~podbití baterie a~tím pádem k~jejímu poškození.
 
 Na spotřebu ve~vypnutém stavu má vliv několik součástek.
-Jde především o proud, tekoucí do~nabíjecího obvodu bq25895M \cite{BQ25895}, ale také o ochranu baterie SL8261D \cite{SL8261} a~několik tranzistorů v~zapínacím obvodu uvedeném na~obr.~\ref{fig:PoverManager}.
+Jde především o~proud, tekoucí do~nabíjecího obvodu bq25895M \cite{BQ25895}, ale také o~ochranu baterie SL8261D \cite{SL8261} a~několik tranzistorů v~zapínacím obvodu uvedeném na~obr.~\ref{fig:PoverManager}.
 
 \begin{itemize}
     \item Dokumentace nabíjecího obvodu bq25895M \cite{BQ25895} udává spotřebu ve~stavu nečinnosti \(I_{nab} = 12~\mu A\).
@@ -571,8 +571,8 @@ Nepodařilo se~mi najít hodnoty samovybíjení použitých článků, ale dá s
 
 \section{Mechanická stavba}
 Celé zařízení bude mít tvar krátkého válce.
-Na~horní stranu je umístěn axiální světelný kruh, do~kterého je umístěna tlaková plocha.
-Na bocích je pak umístěn radiální světelný kruh a~základní uživatelské ovládání.
+Na~horní stranu je~umístěn axiální světelný kruh, do~kterého je~umístěna tlaková plocha.
+Na bocích je~pak umístěn radiální světelný kruh a~základní uživatelské ovládání.
 
 Z~důvodu minimalizace součástí je~výhodné LED radiálního světelného kruhu umístit na~LED desku místo na~samostatný díl.
 Zároveň je~to způsob, jak se~vyhnout montáži současně radiální i~axiální.
@@ -611,7 +611,7 @@ Abych minimalizoval velikost nesnímaných okrajů, rozhodl jsem se~pro průsvit
 
 V~první verzi jsem tedy terčíky řešil tenkým plošným spojem, na~kterém jsem odleptal vše kromě kruhu o~něco málo menšího než vnitřní průměr světelného kruhu.
 Měď tak sloužila jako vodivý terčík.
-Sklolaminát, který tvoří nosnou část DPS, sice není úplně čirý a~způsobuje tak difuzi světla, ta~ale v tomto případě nevadí.
+Sklolaminát, který tvoří nosnou část DPS, sice není úplně čirý a~způsobuje tak difuzi světla, ta~ale v~tomto případě nevadí.
 Tuto DPS jsem následně přilepil na~tělo zařízení, těsně nad LED desku na~mezikruží obklopující světelný kruh.
 Zvolil jsem tedy \(0.6~mm\) tlustá FR4 DPS.
 Tloušťku jsem zvolil tak, abych umožnil co~možná největší deformace a~ulehčil tak rozlišování skutečného stisku od~nežádoucího šumu.
